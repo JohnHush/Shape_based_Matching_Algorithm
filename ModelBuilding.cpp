@@ -2,6 +2,325 @@
 #include "ModelBuilding.h"
 #include "su_alloc.h"
 
+int lhComputeAveDistanceFromReferencePt( const LhSeq * srcSeq )
+{
+	int AveDis = 0 ;
+	
+	for ( int iPt=0 ; iPt < srcSeq->pts->total ; iPt++ )
+	{
+		EdgePt * pt = (EdgePt *)cvGetSeqElem( srcSeq , iPt );
+		
+		AveDis += abs( pt->xcor );
+		AveDis += abs( pt->ycor );		
+		/* 
+		 * compute the distance of points using approximate formulae
+		 * the sqrt root is approximated by absolute adding
+		 */
+	}	
+	AveDis /= srcSeq->pts->total;
+	
+	return AveDis;
+}
+
+void lhComputeTopLayerDeltaTheta(	const LhSeq * srcSeq ,	/* image for computing the parameters */
+									int Nlayer ,		/* the number of pyramid layer */
+									float * dTheta ,	/* the computed angle interval in the top layer */
+									int * NTheta )		/* the number of angles in the top layer */
+{
+	int AveDis = lhComputeAveDistanceFromReferencePt( srcSeq );
+	
+	if ( AveDis <= 0 )
+	{
+		printf( " Average Distance in wrong value!\n " );
+		exit();
+	}
+	
+	float dTheta_lower_layer = (1./AveDis)*180./3.1415926535898;
+	
+	*dTheta = dTheta_lower_layer * pow( 2 , Nlayer -1 );
+	
+	*NTheta = (int)( 90. / (*dTheta));
+	
+	if ( *NTheta <= 0 )
+	{
+		printf( " Number of Theta in wrong value!\n" );
+		exit();
+	}
+	
+	*dTheta = 90./( *NTheta );
+}
+
+void lhComputeTheresholdsBasedOnMinContract(	short min_contrast ,	/* the minimum contrast the user input */
+												double * threshold1 ,	/* the first parameter of cvCanny */
+												double * threshold2 	/* the second threshold of cvCanny */)
+{
+	if ( min_contrast <0 || min_contrast > 255 )
+	{
+		printf( " minimum contrast is set out of range!\n " );
+		exit();
+	}
+	/*
+	 * the minimu contrast is assumed to be in the range [0,255]
+	 * the higher the value , the thresholds for cvCanny should 
+	 * be higher results of the derivative is comparably lager
+	 */
+	
+	*threshold1 = 1.2 * min_contrast;
+	*threshold2 = 2.4 * min_contrast;
+}
+
+LhSeq* lhRefineSeqUsingRandomDelete(	const LhSeq * srcSeq ,			/* Source Sequence */ 
+										CvMemStorage * storage ,	/* storage */
+										float ratio 				/* the retain ratio , the smaller , the quicker of the pro.*/)
+{
+	LhSeq *RefinedSeq           = (LhSeq *)cvAlloc( sizeof( LhSeq ) );
+	
+	RefinedSeq->RefPt.x			= srcSeq->RefPt.x;
+	RefinedSeq->RefPt.y			= srcSeq->RefPt.y;
+	
+	RefinedSeq->pts = cvCreateSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof(CvSeq) , sizeof(EdgePt) , storage );
+	
+	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
+	{
+		if( rand()%10000 <= (int)(ratio*10000.) )
+		{
+			EdgePt * srcPt = (EdgePt *)cvGetSeqElem( srcSeq->pts , isrc );
+			
+			cvSeqPush( RefinedSeq->pts , srcPt );
+		}
+	}
+	
+	return RefinedSeq;
+}
+
+LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
+									CvMemStorage * storage,	/* the storage the sequence will be preserved */
+									short MIN_CONTRAST,		/* the minimum contrast to specify the parameters in cvCanny */
+									int MAX_PT_NUMBER)		/* Max number of EdgePt in the sequence */
+/*< Get a single sequence to characterize the feature pts of an image >*/
+{	
+	LhSeq *PtSeq			= (LhSeq *)cvAlloc( sizeof( LhSeq ) );
+	PtSeq->pts				= cvCreateSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof(CvSeq) , sizeof(EdgePt) , storage );
+	
+	CvMat * canny  = cvCreateMat( imgSrc->height , imgSrc->width , CV_8UC1  );
+	CvMat * SobelX = cvCreateMat( imgSrc->height , imgSrc->width , CV_16SC1 );
+	CvMat * SobelY = cvCreateMat( imgSrc->height , imgSrc->width , CV_16SC1 );
+	
+	double threshold1 , threshold2;
+	lhComputeTheresholdsBasedOnMinContract(	 MIN_CONTRAST ,	&threshold1 , &threshold2 );
+	
+	cvCanny( imgSrc , canny , threshold1 , threshold2 );
+
+	cvSobel( imgSrc , SobelX , 1 , 0 );
+	cvSobel( imgSrc , SobelY , 0 , 1 );
+	/*
+	 * Using Canny detector to determine the position of the feature pts.
+	 * Using Sobel operator to determine the value of derivatives in x and y direction.
+	 */
+	
+	CvPoint RefPoint = cvPoint( 0 , 0 );
+	int count = 0;
+	for ( int irow =0 ; irow < imgSrc->height ; irow++ )
+	{
+		uchar *prow = (uchar *)( canny->data.ptr  + irow*canny->step  );
+		for ( int icol =0 ; icol < imgSrc->width ; icol++ )
+		{
+			if( prow[icol]!=0 )
+			{
+				RefPoint.x = RefPoint.x + icol ;
+				RefPoint.y = RefPoint.y + irow ;
+				
+				count++;
+			}
+		}
+	}
+	RefPoint.x = RefPoint.x / count;
+	RefPoint.y = RefPoint.y / count;
+	/* Compute the reference point's corordinates 
+	 * based on the average of all sequence points
+	 */
+	float ratio = (float)MAX_PT_NUMBER / count;
+	
+	for ( int irow =0 ; irow < imgSrc->height ; irow++ )
+	{	
+		uchar *prow = (uchar *)( canny->data.ptr  + irow*canny->step  );
+		short *prowX= (short *)( SobelX->data.ptr + irow*SobelX->step );
+		short *prowY= (short *)( SobelY->data.ptr + irow*SobelY->step );
+		
+		for ( int icol =0 ; icol < imgSrc->width ; icol++ )
+			if( prow[icol]!=0 )
+				if( rand()%10000 <= (int)(ratio*10000.) )
+					cvSeqPush( PtSeq->pts , edgePt( icol-RefPoint.x , irow-RefPoint.y , prowX[icol] , prowY[icol] ) );
+					/* 
+					 * the number of the EdgePt being extracted is not a constant
+					 * equals to MAX_PT_NUMBER, it's floating near this number
+					 */
+
+	}
+		
+	PtSeq->RefPt.x			= RefPoint.x;
+	PtSeq->RefPt.y			= RefPoint.y;
+	
+	cvReleaseMat( &canny  );
+	cvReleaseMat( &SobelX );
+	cvReleaseMat( &SobelY );
+	
+	return PtSeq;
+}
+
+LhSeq* lhRotateSingleSeq(	const LhSeq *srcSeq		/* source sequence */,
+							CvMemStorage * storage,	/* storage */
+							float theta				/* rotating angle */,
+							float scale				/* rotating scale */)
+/*< Rotate the sequence w.r.t the reference point >*/
+{
+	LhSeq * dstSeq = ( LhSeq *)cvAlloc( sizeof(LhSeq) );
+	CvSeqWriter writer;
+	cvStartWriteSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof( CvSeq ) , sizeof(EdgePt) , storage , &writer );
+	
+	dstSeq->RefPt.x = srcSeq->RefPt.x;
+	dstSeq->RefPt.y = srcSeq->RefPt.y;
+	
+	// construct the matrix;
+	float A00 = scale * cos(theta*3.1415926535898/180.);
+	float A01 = scale * sin(theta*3.1415926535898/180.);
+	float A10 = -A01;
+	float A11 = A00;
+	
+	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
+	{
+		EdgePt *srcPt   = (EdgePt *)cvGetSeqElem( srcSeq->pts , isrc );
+		
+		short Xcor = (short)( (srcPt->xcor * A00 + srcPt->ycor * A01) + 0.5 * ((srcPt->xcor * A00 + srcPt->ycor * A01)>=0?1:-1) );
+		short Ycor = (short)( (srcPt->xcor * A10 + srcPt->ycor * A11) + 0.5 * ((srcPt->xcor * A10 + srcPt->ycor * A11)>=0?1:-1) );
+		short Xder = (short)( (srcPt->xder * A00 + srcPt->yder * A01) + 0.5 * ((srcPt->xder * A00 + srcPt->yder * A01)>=0?1:-1) );
+		short Yder = (short)( (srcPt->xder * A10 + srcPt->yder * A11) + 0.5 * ((srcPt->xder * A10 + srcPt->yder * A11)>=0?1:-1) );
+			
+		CV_WRITE_SEQ_ELEM( *(edgePt( Xcor , Ycor , Xder , Yder )) , writer );
+		// The Amplitude is considered unchanged to speed up the program.
+	}
+	
+	dstSeq->pts    = cvEndWriteSeq( &writer );
+	
+	return dstSeq;
+}
+
+void lhSetReferencePoint(	LhSeq * srcSeq ,	/* original search image */
+							CvPoint newValue 	/* the new value of reference point */)
+{
+	int xshift = newValue.x - srcSeq->RefPt.x;
+	int yshift = newValue.y - srcSeq->RefPt.y;
+	
+	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
+	{
+		EdgePt *srcPt   = (EdgePt *)cvGetSeqElem( srcSeq->pts , isrc );
+		
+		srcPt->xcor		= srcPt->xcor - xshift;
+		srcPt->ycor		= srcPt->ycor - yshift;
+	}
+	
+}
+
+void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction */
+									CvMat * SobelY ,	/* Derivative in Y direction */
+									short threshold		/* Threshold to eleminate low value direvatives */)
+/*< regularize the amplitude of the derivatives of search image, approximately to speed up the process >*/
+{
+	for ( int irow =0 ; irow < SobelX->rows ; irow++ )
+	{	
+		short * prowX= (short *)( SobelX->data.ptr + irow*SobelX->step );
+		short * prowY= (short *)( SobelY->data.ptr + irow*SobelY->step );
+		
+		for ( int icol =0 ; icol < SobelX->cols ; icol++ )
+		{
+			short Amp = abs( prowX[icol] ) + abs( prowY[icol] );
+			
+			if( Amp > threshold )
+			{
+				short ratio = SHRT_MAX/Amp;
+				
+				prowX[icol] = (short)( ratio * prowX[icol] );
+				prowY[icol] = (short)( ratio * prowY[icol] );
+			}
+			else
+			{
+				prowX[icol] = 0;
+				prowY[icol] = 0;
+			}
+		}
+	}
+}
+
+void lhSeqRegularization( LhSeq * srcSeq )
+/*< Regularize the derivative of srcSeq points to the one with Amplitude SHRT_MAX =32767 >*/
+{
+	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
+	{
+		EdgePt * EdgePoint = CV_GET_SEQ_ELEM( EdgePt , srcSeq->pts , isrc );
+		
+		if ( EdgePoint->xder!=0 || EdgePoint->yder!=0 )
+		{
+			float ratio = 1.*SHRT_MAX/sqrt( EdgePoint->xder*EdgePoint->xder + EdgePoint->yder*EdgePoint->yder );
+			
+			if ( ratio * EdgePoint->xder - 0.5 > SHRT_MAX )
+				EdgePoint->xder = SHRT_MAX;
+			else if( ratio * EdgePoint->xder + 0.5 < SHRT_MIN )
+				EdgePoint->xder = SHRT_MIN;
+			else
+				EdgePoint->xder = (short)(EdgePoint->xder * ratio + 0.5 * (EdgePoint->xder?1:-1) );
+			
+			if ( ratio * EdgePoint->yder - 0.5 > SHRT_MAX )
+				EdgePoint->yder = SHRT_MAX;
+			else if( ratio * EdgePoint->yder + 0.5 < SHRT_MIN )
+				EdgePoint->yder = SHRT_MIN;
+			else
+				EdgePoint->yder = (short)(EdgePoint->yder * ratio + 0.5 * (EdgePoint->yder?1:-1));
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
 											IplImage * imgSearch ,				/**/
 											short xshift ,						/**/
@@ -111,63 +430,7 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**
 	return Templates;
 }
 
-void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction */
-									CvMat * SobelY ,	/* Derivative in Y direction */
-									short threshold		/* Threshold to eleminate low value direvatives */)
-/*< regularize the amplitude of the derivatives of search image, approximately to speed up the process >*/
-{
-	for ( int irow =0 ; irow < SobelX->rows ; irow++ )
-	{	
-		short * prowX= (short *)( SobelX->data.ptr + irow*SobelX->step );
-		short * prowY= (short *)( SobelY->data.ptr + irow*SobelY->step );
-		
-		for ( int icol =0 ; icol < SobelX->cols ; icol++ )
-		{
-			short Amp = abs( prowX[icol] ) + abs( prowY[icol] );
-			
-			if( Amp > threshold )
-			{
-				short ratio = SHRT_MAX/Amp;
-				
-				prowX[icol] = (short)( ratio * prowX[icol] );
-				prowY[icol] = (short)( ratio * prowY[icol] );
-			}
-			else
-			{
-				prowX[icol] = 0;
-				prowY[icol] = 0;
-			}
-		}
-	}
-}
 
-void lhSeqRegularization( LhSeq * srcSeq )
-/*< Regularize the derivative of srcSeq points to the one with Amplitude SHRT_MAX =32767 >*/
-{
-	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
-	{
-		EdgePt * EdgePoint = CV_GET_SEQ_ELEM( EdgePt , srcSeq->pts , isrc );
-		
-		if ( EdgePoint->xder!=0 || EdgePoint->yder!=0 )
-		{
-			float ratio = 1.*SHRT_MAX/sqrt( EdgePoint->xder*EdgePoint->xder + EdgePoint->yder*EdgePoint->yder );
-			
-			if ( ratio * EdgePoint->xder - 0.5 > SHRT_MAX )
-				EdgePoint->xder = SHRT_MAX;
-			else if( ratio * EdgePoint->xder + 0.5 < SHRT_MIN )
-				EdgePoint->xder = SHRT_MIN;
-			else
-				EdgePoint->xder = (short)(EdgePoint->xder * ratio + 0.5 * (EdgePoint->xder?1:-1) );
-			
-			if ( ratio * EdgePoint->yder - 0.5 > SHRT_MAX )
-				EdgePoint->yder = SHRT_MAX;
-			else if( ratio * EdgePoint->yder + 0.5 < SHRT_MIN )
-				EdgePoint->yder = SHRT_MIN;
-			else
-				EdgePoint->yder = (short)(EdgePoint->yder * ratio + 0.5 * (EdgePoint->yder?1:-1));
-		}
-	}
-}
 
 Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
 							int NX	,		/* fastest dimension */
@@ -195,152 +458,13 @@ Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
 	return MaxPts;
 }
 
-LhSeq* lhRotateSingleSeq(	const LhSeq *srcSeq	/*source sequence */,
-							float theta			/*rotating angle*/,
-							float scale		/*rotating scale*/)
-/*< Rotate the sequence w.r.t the reference point >*/
-{
-	LhSeq * dstSeq = ( LhSeq *)cvAlloc( sizeof(LhSeq) );
-	CvSeqWriter writer;
-	CvMemStorage * storage = cvCreateMemStorage();
-	cvStartWriteSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof( CvSeq ) , sizeof(EdgePt) , storage , &writer );
-	
-	dstSeq->RefPt.x = srcSeq->RefPt.x;
-	dstSeq->RefPt.y = srcSeq->RefPt.y;
-	
-	dstSeq->AveDis	= srcSeq->AveDis;
-	
-	// construct the matrix;
-	float A00 = scale * cos(theta*3.1415926535/180.);
-	float A01 = scale * sin(theta*3.1415926535/180.);
-	float A10 = -A01;
-	float A11 = A00;
-	
-	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
-	{
-		EdgePt *srcPt   = (EdgePt *)cvGetSeqElem( srcSeq->pts , isrc );
-		
-		short Xcor = (short)( (srcPt->xcor * A00 + srcPt->ycor * A01) + 0.5 * ((srcPt->xcor * A00 + srcPt->ycor * A01)>=0?1:-1) );
-		short Ycor = (short)( (srcPt->xcor * A10 + srcPt->ycor * A11) + 0.5 * ((srcPt->xcor * A10 + srcPt->ycor * A11)>=0?1:-1) );
-		short Xder = (short)( (srcPt->xder * A00 + srcPt->yder * A01) + 0.5 * ((srcPt->xder * A00 + srcPt->yder * A01)>=0?1:-1) );
-		short Yder = (short)( (srcPt->xder * A10 + srcPt->yder * A11) + 0.5 * ((srcPt->xder * A10 + srcPt->yder * A11)>=0?1:-1) );
-			
-		CV_WRITE_SEQ_ELEM( *(edgePt( Xcor , Ycor , Xder , Yder )) , writer );
-		// The Amplitude is considered unchanged to speed up the program.
-	}
-	
-	dstSeq->pts    = cvEndWriteSeq( &writer );
-	
-	return dstSeq;
-}
 
-LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
-									CvPoint RefPt,			/**/
-									int flag ,				/**/
-									double threshold1 , 	/* threshold 1 for canny detector */
-									double threshold2 , 	/* threshold 2 for canny detector */
-									int aperture_size )		/* parameter for both canny and Sobel */
-/*< Get a single sequence to characterize the feature pts of a image >*/
-{	
-	CvMemStorage * storage	= cvCreateMemStorage();
-	LhSeq *PtSeq			= (LhSeq *)cvAlloc( sizeof( LhSeq ) );
-	PtSeq->pts				= cvCreateSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof(CvSeq) , sizeof(EdgePt) , storage );
-	
-	CvMat * canny  = cvCreateMat( imgSrc->height , imgSrc->width , CV_8UC1  );
-	CvMat * SobelX = cvCreateMat( imgSrc->height , imgSrc->width , CV_16SC1 );
-	CvMat * SobelY = cvCreateMat( imgSrc->height , imgSrc->width , CV_16SC1 );
-	
-	cvCanny( imgSrc , canny , threshold1 , threshold2 , aperture_size );
 
-	cvSobel( imgSrc , SobelX , 1 , 0 , aperture_size );
-	cvSobel( imgSrc , SobelY , 0 , 1 , aperture_size );
-	/*
-	 * Using Canny detector to determine the position of the feature pts.
-	 * Using Sobel operator to determine the value of derivatives in x and y direction.
-	 */
-	
-	CvPoint RefPoint = cvPoint( 0 , 0 );
-	
-	for ( int irow =0 ; irow < imgSrc->height ; irow++ )
-	{	
-		uchar *prow = (uchar *)( canny->data.ptr  + irow*canny->step  );
-		short *prowX= (short *)( SobelX->data.ptr + irow*SobelX->step );
-		short *prowY= (short *)( SobelY->data.ptr + irow*SobelY->step );
-		
-		for ( int icol =0 ; icol < imgSrc->width ; icol++ )
-		{
-			if( prow[icol]!=0 )
-			{
-				RefPoint.x = RefPoint.x + icol ;
-				RefPoint.y = RefPoint.y + irow ;
-				
-				cvSeqPush( PtSeq->pts , edgePt( icol , irow , prowX[icol] , prowY[icol] ) );
-			}
-		}
-	}
-	RefPoint.x = RefPoint.x / PtSeq->pts->total;
-	RefPoint.y = RefPoint.y / PtSeq->pts->total;
-	/* Compute the reference point's corordinates 
-	 * based on the average of all sequence points
-	 */
-	if ( flag > 0 )
-		RefPoint = RefPt;
-	
-	int AveDis =0 ;
-	
-	for ( int iEle = 0 ; iEle < PtSeq->pts->total ; iEle++ )
-	{
-		EdgePt *srcPt   = (EdgePt *)cvGetSeqElem( PtSeq->pts , iEle );
-		
-		srcPt->xcor		= srcPt->xcor - RefPoint.x;
-		srcPt->ycor		= srcPt->ycor - RefPoint.y;
-		
-		AveDis			= AveDis + (int)(sqrt( srcPt->xcor * srcPt->xcor + srcPt->ycor * srcPt->ycor ) + 0.5 );
-	}
-	AveDis = AveDis / PtSeq->pts->total;
-	
-	PtSeq->RefPt.x			= RefPoint.x;
-	PtSeq->RefPt.y			= RefPoint.y;
-	
-	PtSeq->AveDis			= AveDis;
-	
-	cvReleaseMat( &canny  );
-	cvReleaseMat( &SobelX );
-	cvReleaseMat( &SobelY );
-	
-	return PtSeq;
-}
 
-LhSeq* lhRefineSeqUsingRandomDelete(	LhSeq * srcSeq ,	/* Source Sequence */ 
-										float ratio 		/* the retain ratio , the smaller , the quicker of the pro.*/)
-{
-	LhSeq *RefinedSeq           = (LhSeq *)cvAlloc( sizeof( LhSeq ) );
-	CvMemStorage * storage		= cvCreateMemStorage();
-	
-	RefinedSeq->RefPt.x			= srcSeq->RefPt.x;
-	RefinedSeq->RefPt.y			= srcSeq->RefPt.y;
-	
-	RefinedSeq->AveDis			= RefinedSeq->AveDis;
-	
-	RefinedSeq->pts = cvCreateSeq( CV_SEQ_KIND_GENERIC|CV_16SC(4) , sizeof(CvSeq) , sizeof(EdgePt) , storage );
-	
-	for ( int isrc=0 ; isrc < srcSeq->pts->total ; isrc++ )
-	{
-		if( rand()%100 < (int)(ratio*100.) )
-		{
-			EdgePt * srcPt = (EdgePt *)cvGetSeqElem( srcSeq->pts , isrc );
-			
-			cvSeqPush( RefinedSeq->pts , srcPt );
-		}
-	}
-	
-	return RefinedSeq;
-}
 
-void lhSetReferencePoint( LhSeq * srcSeq , CvPoint newValue )
-{
-	srcSeq->RefPt = newValue;
-}
+
+
+
 
 
 

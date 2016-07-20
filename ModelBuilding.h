@@ -17,8 +17,6 @@ typedef struct LhSeq
 	 * is faciliated to the forecoming processing
 	 */
 	CvPoint RefPt;	// The Reference Point for calculating the cross-correlation.
-	
-	int AveDis;		// Average Distance of the pts from RefPt.
 		
 }LhSeq;
 
@@ -52,58 +50,6 @@ inline EdgePt* edgePt( short xcor , short ycor , short xder , short yder )
 	
 	return pt;
 }
-void lhFreeTemplate( LhRotatedTemplate * RotTemp );
-
-Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
-											IplImage * imgSearch ,				/**/
-											short xshift ,						/**/
-											short yshift ,						/**/
-											short xrange ,						/**/
-											short yrange ,						/**/
-											short tshift ,						/**/
-											short trange ,						/**/
-											float min_score ,					/**/
-											float break_point ,					/**/
-											short threshold_cross_correlation);
-
-LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**/
-											int NPoint , 			/**/
-											int NTheta , 			/**/
-											float dTheta , 			/**/
-											CvPoint RefPt,			/**/
-											int flag,				/**/
-											double threshold1 ,		/**/
-											double threshold2 ,		/**/
-											int aperture_size		/**/);
-
-LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
-									CvPoint RefPt,			/**/
-									int flag ,				/**/
-									double threshold1 , 	/* threshold 1 for canny detector */
-									double threshold2 , 	/* threshold 2 for canny detector */
-									int aperture_size )		/* parameter for both canny and Sobel */;
-/*< Get a single sequence to characterize the feature pts of a image >*/
-
-LhSeq* lhRotateSingleSeq(	const LhSeq *srcSeq	/*source sequence */,
-							float theta			/*rotating angle*/,
-							float scale=1.0		/*rotating scale*/);
-
-LhSeq* lhRefineSeqUsingRandomDelete(	LhSeq * srcSeq ,	/* Source Sequence */ 
-										float ratio 		/* the retain ratio , the smaller , the quicker of the pro.*/);
-
-void lhSetReferencePoint( LhSeq * srcSeq , CvPoint newValue );
-
-Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
-							int NX	,		/* fastest dimension */
-							int NY	,		/* second dimension */
-							int NT			/* slowest dimension */);
-
-void lhSeqRegularization( LhSeq * srcSeq );
-/*< Regularize the derivative of srcSeq points to the one with Amplitude SHRT_MAX =32767 >*/
-
-void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction */
-									CvMat * SobelY ,	/* Derivative in Y direction */
-									short threshold		/* Threshold to eleminate low value direvatives */);
 
 inline void lhIsCalculateScore(	CvMat * SobelX ,			/* Derivative of Search Image in X direction */
 								CvMat * SobelY , 			/* Derivative of Search Image in Y direction */
@@ -158,5 +104,85 @@ inline void lhIsCalculateScore(	CvMat * SobelX ,			/* Derivative of Search Image
 	}
 	return;
 }
+
+int lhComputeAveDistanceFromReferencePt( const LhSeq * srcSeq );
+
+void lhComputeTopLayerDeltaTheta(	const LhSeq * srcSeq ,	/* image for computing the parameters */
+									int Nlayer ,		/* the number of pyramid layer */
+									float * dTheta ,	/* the computed angle interval in the top layer */
+									int * NTheta )		/* the number of angles in the top layer */;
+
+void lhComputeTheresholdsBasedOnMinContract(	short min_contrast ,	/* the minimum contrast the user input */
+												double * threshold1 ,	/* the first parameter of cvCanny */
+												double * threshold2 	/* the second threshold of cvCanny */);
+
+LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
+									cvMemStorage * storage,	/* the storage the sequence will be preserved */
+									short MIN_CONTRAST,		/* the minimum contrast to specify the parameters in cvCanny */
+									int MAX_PT_NUMBER)		/* Max number of EdgePt in the sequence */;
+/*< Get a single sequence to characterize the feature pts of a image >*/
+
+LhSeq* lhRotateSingleSeq(	const LhSeq *srcSeq		/* source sequence */,
+							CvMemStorage * storage,	/* storage */
+							float theta				/* rotating angle */,
+							float scale=1.			/* rotating scale */);
+
+LhSeq* lhRefineSeqUsingRandomDelete(	const LhSeq * srcSeq ,			/* Source Sequence */ 
+										CvMemStorage * storage ,	/* storage */
+										float ratio 				/* the retain ratio , the smaller , the quicker of the pro.*/);
+
+void lhSetReferencePoint(	LhSeq * srcSeq ,	/* original search image */
+							CvPoint newValue 	/* the new value of reference point */);
+							
+void lhSeqRegularization( LhSeq * srcSeq );
+/*< Regularize the derivative of srcSeq points to the one with Amplitude SHRT_MAX =32767 >*/
+
+void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction */
+									CvMat * SobelY ,	/* Derivative in Y direction */
+									short threshold		/* Threshold to eleminate low value direvatives */);
+
+
+
+
+
+							
+
+
+
+void lhFreeTemplate( LhRotatedTemplate * RotTemp );
+
+Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
+											IplImage * imgSearch ,				/**/
+											short xshift ,						/**/
+											short yshift ,						/**/
+											short xrange ,						/**/
+											short yrange ,						/**/
+											short tshift ,						/**/
+											short trange ,						/**/
+											float min_score ,					/**/
+											float break_point ,					/**/
+											short threshold_cross_correlation);
+
+LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**/
+											int NPoint , 			/**/
+											int NTheta , 			/**/
+											float dTheta , 			/**/
+											CvPoint RefPt,			/**/
+											int flag,				/**/
+											double threshold1 ,		/**/
+											double threshold2 ,		/**/
+											int aperture_size		/**/);
+
+
+
+
+Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
+							int NX	,		/* fastest dimension */
+							int NY	,		/* second dimension */
+							int NT			/* slowest dimension */);
+
+
+
+
 
 #endif /*MODELBUILDING_H_*/
