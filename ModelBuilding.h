@@ -30,6 +30,16 @@ typedef struct LhRotatedTemplate
 	
 }LhRotatedTemplate;
 
+typedef struct LhTemplatePyramid
+{
+	LhRotatedTemplate ** TempLayer;
+	
+	int Nlayer;
+	
+	CvMemStorage * storage;
+	
+}LhTemplatePyramid;
+
 typedef struct EdgePt
 {
 	short xcor;
@@ -141,7 +151,16 @@ void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction 
 									CvMat * SobelY ,	/* Derivative in Y direction */
 									short threshold		/* Threshold to eleminate low value direvatives */);
 
-
+Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
+							int NX	,		/* fastest dimension */
+							int NY	,		/* second dimension */
+							int NT			/* slowest dimension */);
+							
+LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
+				(	const LhSeq * srcSeq ,		/* sequence for the original image */
+					CvMemStorage * storage,	/* storage space for rotated template */
+					float dTheta	)		/* search interval of the angle */;							
+							
 
 
 
@@ -162,26 +181,6 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
 											float min_score ,					/**/
 											float break_point ,					/**/
 											short threshold_cross_correlation);
-
-LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**/
-											int NPoint , 			/**/
-											int NTheta , 			/**/
-											float dTheta , 			/**/
-											CvPoint RefPt,			/**/
-											int flag,				/**/
-											double threshold1 ,		/**/
-											double threshold2 ,		/**/
-											int aperture_size		/**/);
-
-
-
-
-Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
-							int NX	,		/* fastest dimension */
-							int NY	,		/* second dimension */
-							int NT			/* slowest dimension */);
-
-
 
 
 

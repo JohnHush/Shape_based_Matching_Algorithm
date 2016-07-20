@@ -279,6 +279,63 @@ void lhSeqRegularization( LhSeq * srcSeq )
 	}
 }
 
+Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
+							int NX	,		/* fastest dimension */
+							int NY	,		/* second dimension */
+							int NT			/* slowest dimension */)
+{
+	Lh3DCor MaxPts;
+	
+	long long tmp_score = 0 ;
+	
+	for ( int ix=0 ; ix < NX ; ix++ )
+	for ( int iy=0 ; iy < NY ; iy++ )
+	for ( int it=0 ; it < NT ; it++ )
+	{
+		if ( tmp_score < score[it][iy][ix] )
+		{
+			tmp_score = score[it][iy][ix];
+			
+			MaxPts.XLocation = ix;
+			MaxPts.YLocation = iy;
+			MaxPts.TLocation = it;
+		}
+	}
+	
+	return MaxPts;
+}
+
+LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
+				(	const LhSeq * srcSeq ,		/* sequence for the original image */
+					CvMemStorage * storage,	/* storage space for rotated template */
+					float dTheta	)		/* search interval of the angle */
+
+{
+	int NTheta = (int)( 0.5 + 90./dTheta );
+	
+	LhRotatedTemplate * Templates = ( LhRotatedTemplate *)cvAlloc( sizeof( LhRotatedTemplate ) );
+	
+	Templates->NTheta  = NTheta;
+	Templates->dTheta  = dTheta;
+	Templates->rotTemp = ( LhSeq ** )cvAlloc( NTheta*sizeof( LhSeq *) );
+	
+	float theta = 0.;
+	for ( int iTheta = 0 ; iTheta < NTheta ; iTheta++ , theta+= dTheta )	
+		Templates->rotTemp[iTheta] = lhRotateSingleSeq(	srcSeq , storage , theta );
+	
+	return Templates;
+}
+
+LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
+					IplImage * srcImg ,			/**/
+					int Nlayer ,				/**/
+					short)
+{
+}
+
+
+
+
 
 
 
@@ -394,69 +451,11 @@ void lhFreeTemplate( LhRotatedTemplate * RotTemp )
 	cvFree( &(RotTemp) );
 }
 
-LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**/
-											int NPoint , 			/**/
-											int NTheta , 			/**/
-											float dTheta , 			/**/
-											CvPoint RefPt,			/**/
-											int flag,				/**/
-											double threshold1 ,		/**/
-											double threshold2 ,		/**/
-											int aperture_size		/**/)
-{
-	LhSeq* srcSeq = lhCreateSingleSeqFromImage( imgSrc , RefPt, flag , threshold1 , threshold2 , aperture_size );
-	
-	LhRotatedTemplate * Templates = ( LhRotatedTemplate *)cvAlloc( sizeof( LhRotatedTemplate ) );
-	
-	Templates->NTheta  = NTheta;
-	Templates->dTheta  = dTheta;
-	Templates->rotTemp = ( LhSeq ** )cvAlloc( NTheta*sizeof( LhSeq *) );
-	
-	float ratio = (float)NPoint / (float)srcSeq->pts->total;
-	
-	LhSeq * refinedSeq = lhRefineSeqUsingRandomDelete( srcSeq , ratio );
-	
-	lhSeqRegularization( refinedSeq );
-	
-	float theta = 0.;
-	for ( int iTheta = 0 ; iTheta < NTheta ; iTheta++ , theta+= dTheta )	
-		Templates->rotTemp[iTheta] = lhRotateSingleSeq( refinedSeq , theta , 1 );
-	
-	cvReleaseMemStorage( &(srcSeq->pts->storage) );
-	cvReleaseMemStorage( &(refinedSeq->pts->storage) );
-	cvFree( &srcSeq );
-	cvFree( &refinedSeq );
-	
-	return Templates;
-}
 
 
 
-Lh3DCor lhFindMaxPoint3D(	long long ***score,	/* score volume */
-							int NX	,		/* fastest dimension */
-							int NY	,		/* second dimension */
-							int NT			/* slowest dimension */)
-{
-	Lh3DCor MaxPts;
-	
-	long long tmp_score = 0 ;
-	
-	for ( int ix=0 ; ix < NX ; ix++ )
-	for ( int iy=0 ; iy < NY ; iy++ )
-	for ( int it=0 ; it < NT ; it++ )
-	{
-		if ( tmp_score < score[it][iy][ix] )
-		{
-			tmp_score = score[it][iy][ix];
-			
-			MaxPts.XLocation = ix;
-			MaxPts.YLocation = iy;
-			MaxPts.TLocation = it;
-		}
-	}
-	
-	return MaxPts;
-}
+
+
 
 
 
