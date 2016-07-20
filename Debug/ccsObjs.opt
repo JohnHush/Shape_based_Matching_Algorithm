@@ -1,0 +1,1 @@
+"./su_alloc.obj" "./main.obj" "./ModelBuilding.obj" -l"libc.a" -l"FS_EMCV_v4_001.lib" 
