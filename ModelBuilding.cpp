@@ -89,13 +89,6 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**
 	
 	LhRotatedTemplate * Templates = ( LhRotatedTemplate *)cvAlloc( sizeof( LhRotatedTemplate ) );
 	
-	//test
-	{
-	EdgePt * pt = (EdgePt *)cvGetSeqElem( srcSeq->pts , 50 );
-	printf( "xder=%d\tyder=%d\txcor=%d\tycor=%d\n" , pt->xder , pt->yder , pt->xcor , pt->ycor );
-	}
-	//test
-	
 	Templates->NTheta  = NTheta;
 	Templates->dTheta  = dTheta;
 	Templates->rotTemp = ( LhSeq ** )cvAlloc( NTheta*sizeof( LhSeq *) );
@@ -104,20 +97,7 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage(	IplImage * imgSrc ,		/**
 	
 	LhSeq * refinedSeq = lhRefineSeqUsingRandomDelete( srcSeq , ratio );
 	
-	//test
-	{
-	EdgePt * pt = (EdgePt *)cvGetSeqElem( refinedSeq->pts , 50 );
-	printf( "xder=%d\tyder=%d\txcor=%d\tycor=%d\n" , pt->xder , pt->yder , pt->xcor , pt->ycor );
-	printf( "ratio=%f\n" , ratio );
-	}
-	//test
-	
 	lhSeqRegularization( refinedSeq );
-	
-	//test
-	EdgePt * pt = (EdgePt *)cvGetSeqElem( refinedSeq->pts , 50 );
-	printf( "xder=%d\tyder=%d\txcor=%d\tycor=%d\n" , pt->xder , pt->yder , pt->xcor , pt->ycor );
-	//test
 	
 	float theta = 0.;
 	for ( int iTheta = 0 ; iTheta < NTheta ; iTheta++ , theta+= dTheta )	
@@ -271,9 +251,7 @@ LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
 	CvMat * SobelY = cvCreateMat( imgSrc->height , imgSrc->width , CV_16SC1 );
 	
 	cvCanny( imgSrc , canny , threshold1 , threshold2 , aperture_size );
-	/* 
-	 * User defined Canny by Wu Weijing
-	 */
+
 	cvSobel( imgSrc , SobelX , 1 , 0 , aperture_size );
 	cvSobel( imgSrc , SobelY , 0 , 1 , aperture_size );
 	/*

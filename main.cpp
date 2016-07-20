@@ -30,21 +30,21 @@ int main()
 	CvPoint RefPt = cvPoint( 0 , 0 );
 	LhRotatedTemplate * Templates  =lhBuildingRotatedTemplateFromImage(	imgPyr7 , 32  , 44   , 8.    , RefPt , -1 , 50 ,100 ,	3 );
 	
-//	CvPoint RefPt2= cvPoint( 2 * Templates->rotTemp[0]->RefPt.x , 2 * Templates->rotTemp[0]->RefPt.y );
-//	CvPoint RefPt3= cvPoint( 4 * Templates->rotTemp[0]->RefPt.x , 4 * Templates->rotTemp[0]->RefPt.y );
-//	CvPoint RefPt4= cvPoint( 8 * Templates->rotTemp[0]->RefPt.x , 8 * Templates->rotTemp[0]->RefPt.y );
-//	CvPoint RefPt5= cvPoint( 16 * Templates->rotTemp[0]->RefPt.x , 16 * Templates->rotTemp[0]->RefPt.y );
-//	CvPoint RefPt6= cvPoint( 32 * Templates->rotTemp[0]->RefPt.x , 32 * Templates->rotTemp[0]->RefPt.y );
+	CvPoint RefPt2= cvPoint( 2 * Templates->rotTemp[0]->RefPt.x , 2 * Templates->rotTemp[0]->RefPt.y );
+	CvPoint RefPt3= cvPoint( 4 * Templates->rotTemp[0]->RefPt.x , 4 * Templates->rotTemp[0]->RefPt.y );
+	CvPoint RefPt4= cvPoint( 8 * Templates->rotTemp[0]->RefPt.x , 8 * Templates->rotTemp[0]->RefPt.y );
+	CvPoint RefPt5= cvPoint( 16 * Templates->rotTemp[0]->RefPt.x , 16 * Templates->rotTemp[0]->RefPt.y );
+	CvPoint RefPt6= cvPoint( 32 * Templates->rotTemp[0]->RefPt.x , 32 * Templates->rotTemp[0]->RefPt.y );
 	CvPoint RefPt7= cvPoint( 64 * Templates->rotTemp[0]->RefPt.x , 64 * Templates->rotTemp[0]->RefPt.y );
 	
-//	LhRotatedTemplate * Templates2 =lhBuildingRotatedTemplateFromImage(	imgPyr6 , 150 , 89   , 4.    , RefPt2 , 1 , 50 ,100 ,	3 );
+	LhRotatedTemplate * Templates2 =lhBuildingRotatedTemplateFromImage(	imgPyr6 , 150 , 89   , 4.    , RefPt2 , 1 , 50 ,100 ,	3 );
 //	LhRotatedTemplate * Templates3 =lhBuildingRotatedTemplateFromImage(	imgPyr5 , 300 , 179  , 2.    , RefPt3 , 1 , 50 ,100 ,	3 );
 //	LhRotatedTemplate * Templates4 =lhBuildingRotatedTemplateFromImage(	imgPyr4 , 400 , 359  , 1.    , RefPt4 , 1 , 50 ,100 ,	3 );
 //	LhRotatedTemplate * Templates5 =lhBuildingRotatedTemplateFromImage(	imgPyr3 , 400 , 719  , 0.5   , RefPt5 , 1 , 50 ,100 ,	3 );
 //	LhRotatedTemplate * Templates6 =lhBuildingRotatedTemplateFromImage(	imgPyr2 , 400 , 1439 , 0.25  , RefPt6 , 1 , 50 ,100 ,	3 );
-	LhRotatedTemplate * Templates7 =lhBuildingRotatedTemplateFromImage(	imgSrc  , 400, 287  , 0.125 , RefPt7 , 1 , 50 ,100 ,	3 );
+//	LhRotatedTemplate * Templates7 =lhBuildingRotatedTemplateFromImage(	imgSrc  , 400, 287  , 0.125 , RefPt7 , 1 , 50 ,100 ,	3 );
 
-	Lh3DCor MaxPts = lhFindCoordinateBasedOnUpPyramid(	Templates ,	imgPyr7 ,(imgPyr7->width)/2 ,(imgPyr7->height)/2 ,						/**/
+//	Lh3DCor MaxPts = lhFindCoordinateBasedOnUpPyramid(	Templates ,	imgPyr7 ,(imgPyr7->width)/2 ,(imgPyr7->height)/2 ,\
 											(imgPyr7->width)/2 ,(imgPyr7->height)/2 ,	0 ,	20 ,0.7 ,0.3 , (short)(0.0002 * SHRT_MAX) );
 											
 //	Lh3DCor MaxPts2 = lhFindCoordinateBasedOnUpPyramid(Templates2 ,imgPyr6 , 2 * MaxPts.XLocation , 2 * MaxPts.YLocation ,\
@@ -74,7 +74,7 @@ int main()
 //	printf( "7Xlocation=%d\tYlocation=%d\tThetaLocation=%d\n" , MaxPts7.XLocation , MaxPts7.YLocation , MaxPts7.TLocation );
 //			
 //	
-//	cvReleaseImage( &imgSrc );
+	cvReleaseImage( &imgSrc );
 //	cvReleaseImage( &imgPyr2 );
 //	cvReleaseImage( &imgPyr3 );
 //	cvReleaseImage( &imgPyr4 );
