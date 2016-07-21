@@ -22,31 +22,30 @@ typedef struct LhSeq
 
 typedef struct LhRotatedTemplate
 {
-	LhSeq ** rotTemp;
-	
-	int	NTheta;
-	
+	LhSeq ** rotTemp;	
+	int	NTheta;	
 	float dTheta;
 	
 }LhRotatedTemplate;
 
 typedef struct LhTemplatePyramid
 {
-	LhRotatedTemplate ** TempLayer;
-	
-	int Nlayer;
-	
-	int UPPER_NTHETA;			/* NTheta of the top layer of the pyramid */
-	
-	int LOWER_NTHETA;			/* NTheta of the lower layer of the pyramid */
-	
-	float UPPER_DTHETA;
-	
-	float LOWER_DTHETA;
-	
+	LhRotatedTemplate ** TempLayer;	
+	int Nlayer;	
+	int UPPER_NTHETA;			/* NTheta of the top layer of the pyramid */	
+	int LOWER_NTHETA;			/* NTheta of the lower layer of the pyramid */	
+	float UPPER_DTHETA;	
+	float LOWER_DTHETA;	
 	CvMemStorage * storage;
 	
 }LhTemplatePyramid;
+
+typedef struct LhImagePyramid
+{
+	CvMat ** SobelX;
+	CvMat ** SobelY;
+	int Nlayer;
+}LhImagePyramid;
 
 typedef struct EdgePt
 {
@@ -169,14 +168,22 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
 					CvMemStorage * storage,	/* storage space for rotated template */
 					float dTheta	)		/* search interval of the angle */;							
 							
+LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
+							IplImage * srcImg ,			/* the template */
+							CvMemStorage * storage ,	/* storage to store the rotated template pyramid */
+							int Nlayer ,				/* number of layers of the pyramid */
+							short MIN_CONTRAST ,		/* minimum contrast set by the users */
+							int * MAX_PT_NUMBER 		/* number of EdgePoints for each layer */);
 
+lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid );
 
+LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
+													short derivative_threshold_for_cc ,	/* threshold for calculating the cross correlation between image and temp */
+													int Nlayer);
 
 							
 
 
-
-void lhFreeTemplate( LhRotatedTemplate * RotTemp );
 
 Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
 											IplImage * imgSearch ,				/**/

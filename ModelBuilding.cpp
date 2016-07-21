@@ -327,11 +327,11 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
 }
 
 LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
-					IplImage * srcImg ,			/**/
-					CvMemStorage * storage ,	/**/
-					int Nlayer ,				/**/
-					short MIN_CONTRAST ,		/**/
-					int * MAX_PT_NUMBER 		/**/)
+							IplImage * srcImg ,			/* the template */
+							CvMemStorage * storage ,	/* storage to store the rotated template pyramid */
+							int Nlayer ,				/* number of layers of the pyramid */
+							short MIN_CONTRAST ,		/* minimum contrast set by the users */
+							int * MAX_PT_NUMBER 		/* number of EdgePoints for each layer */)
 {
 	if ( (srcImg->width % pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % pow( 2 , Nlayer-1 ))!=0 )
 	{
@@ -379,80 +379,186 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 	 * building the unrotated sequences from original image
 	 * the sequences have been normalized
 	 */
-	for ( int iPyr = 0 ; iPyr < Nlayer -1 ; iPyr++ )
-		cvReleaseImage( &imgPyr[iPyr] );
-	cvFree( &imgPyr );
-	/*
-	 * Free the imgPyramid
-	 */
-	
-	for ( int iPyr = 0 ; iPyr < Nlayer ; iPyr++ )
+	if ( Nlayer > 1 )
 	{
-		count = count /2 ;
-		
-		lhSetReferencePoint( unRotatedSeq[iPyr] , cvPoint( count * unRotatedSeq[Nlayer-1]->RefPt.x , count * unRotatedSeq[Nlayer-1]->RefPt.y ) );				
+		for ( int iPyr = 0 ; iPyr < Nlayer -1 ; iPyr++ )
+			cvReleaseImage( &imgPyr[iPyr] );
+		cvFree( &imgPyr );
 	}
 	/*
-	 * set the reference point for all unrotated sequences
+	 * Free the imgPyramid
 	 */
 	
 	float dTheta;
 	int NTheta;
 	
-	lhComputeTopLayerDeltaTheta( unRotatedSeq[0] , Nlayer , &dTheta , &NTheta );
-	
 	for ( int iPyr = 0 ; iPyr < Nlayer ; iPyr++ )
 	{
-	}
-	LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
-				(	const LhSeq * srcSeq ,		/* sequence for the original image */
-					CvMemStorage * storage,	/* storage space for rotated template */
-					float dTheta	)
+		count = count /2 ;
+		
+		lhSetReferencePoint( unRotatedSeq[iPyr] , cvPoint( count * unRotatedSeq[Nlayer-1]->RefPt.x , count * unRotatedSeq[Nlayer-1]->RefPt.y ) );	
+		
+		if ( iPyr == 0 )
+			lhComputeTopLayerDeltaTheta( unRotatedSeq[0] , Nlayer , &dTheta , &NTheta );		
 	
+		pyramid->TempLayer[iPyr] = lhBuildingRotatedTemplateFromImage( unRotatedSeq[iPyr] , storage, count * dTheta );
+	}
+	/*
+	 * set the reference point for all unrotated sequences
+	 * and compute each rotated layer one by one.
+	 */
+	
+	pyramid->UPPER_NTHETA = pyramid->TemLayer[Nlayer-1]->NTheta;
+	pyramid->LOWER_NTHETA = pyramid->TemLayer[0]->NTheta;
+	pyramid->UPPER_DTHETA = pyramid->TemLayer[Nlayer-1]->dTheta;
+	pyramid->LOWER_DTHETA = pyramid->TemLayer[0]->dTheta;
+	
+	for ( int iPyr=0 ; iPyr < Nlayer ; iPyr++ )
+	{
+		cvFree( &unRotatedSeq[iPyr] );
+	}
+	cvFree( &unRotatedSeq );
+	cvReleaseMemStorage( &storage_tmp );
 	
 	return pyramid;
 }
 
+void lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid )
+{
+	for ( int ilayer=0 ; ilayer < TempPyramid->Nlayer ; ilayer++ )
+	{
+		for ( int itheta=0 ; itheta < TempPyramid->TempLayer[ilayer]->NTheta ; itheta++ )
+		{
+			cvFree( &(TempPyramid->TempLayer[ilayer]->rotTemp[itheta]) );
+		}
+		cvFree( &(TempPyramid->TempLayer[ilayer]->rotTemp) );
+		
+		cvFree( &(TempPyramid->TempLayer[ilayer]) );
+	}
+	cvFree( &(TempPyramid->TempLayer) );
+	cvReleaseMemStorage( &(TempPyramid->storage) );
+}
 
+LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
+													short derivative_threshold_for_cc ,	/* threshold for calculating the cross correlation between image and temp */
+													int Nlayer)
+{
+	if ( (srcImg->width % pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % pow( 2 , Nlayer-1 ))!=0 )
+	{
+		printf( "srcImg width or height are not a integer times power(2,Nlayer-1)" );
+		exit();
+	}
+	LhImagePyramid * SobelPyramid = (LhImagePyramid *)cvAlloc(sizeof(LhImagePyramid));
+	
+	CvMat ** SobelX = (CvMat **)cvAlloc( Nlayer*sizeof(CvMat *) );
+	CvMat ** SobelY = (CvMat **)cvAlloc( Nlayer*sizeof(CvMat *) );
+	
+	if ( Nlayer > 1 )
+		IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
+	
+	SobelPyramid->Nlayer	= Nlayer;
+	SobelPyramid->SobelX	= SobelX;
+	SobelPyramid->SobelY	= SobelY;
+	
+	int count = 1;
+	for ( int ilayer =0 ; ilayer < Nlayer ; ilayer++ )
+	{
+		CvMat * SobelX[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
+		CvMat * SobelY[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
+		
+		if ( ilayer==0 )
+		{
+			cvSobel( srcImg , SobelX[0] , 1 , 0 );
+			cvSobel( srcImg , SobelY[0] , 0 , 1 );
+			lhSearchImageRegularization( SobelX[0] , SobelY[0] , derivative_threshold_for_cc );
+		}
+		else if ( ilayer==1 )
+		{
+			imgPyr[0] = cvCreateImage( cvSize( srcImg->width/count , srcImg->height/count )  , IPL_DEPTH_8U , 1 );
+			cvPyrDown( srcImg  , imgPyr[0] );
+			cvSobel( imgPyr[0] , SobelX[1] , 1 , 0 );
+			cvSobel( imgPyr[0] , SobelY[1] , 0 , 1 );
+			lhSearchImageRegularization( SobelX[1] , SobelY[1] , derivative_threshold_for_cc );
+		}
+		else
+		{
+			imgPyr[ilayer-1] = cvCreateImage( cvSize( srcImg->width/count , srcImg->height/count )  , IPL_DEPTH_8U , 1 );
+			cvPyrDown( imgPyr[ilayer-2] , imgPyr[ilayer-1] );
+			cvSobel( imgPyr[ilayer-1] , SobelX[ilayer] , 1 , 0 );
+			cvSobel( imgPyr[ilayer-1] , SobelY[ilayer] , 0 , 1 );
+			lhSearchImageRegularization( SobelX[ilayer] , SobelY[ilayer] , derivative_threshold_for_cc );
+		}
+		
+		count *= 2;
+	}
+	
+	if ( Nlayer > 1 )
+	{
+		for ( int ilayer =0 ; ilayer < Nlayer-1 ; ilayer++ )
+			cvReleaseImage( &imgPyr[ilayer] );	
+		cvFree( &imgPyr );
+	}
+	
+	return SobelPyramid;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
+											LhImagePyramid * ImgPyr ,
+											float min_score ,
+											float break_point ,
+											short sRange )
+{
+	if ( TempPyr->Nlayer != ImgPyr->Nlayer )
+	{
+		printf( " The layer amount of TemplatePyramid is not Equal to the layer amount of ImagePyramid!\n " );
+		exit();
+	}
+	
+	int Nlayer = TempPyr->Nlayer;
+	short xstart , xend , ystart , yend , tstart , tend;
+	
+	for ( int ilayer =Nlayer-1 ; ilayer >= 0 ; ilayer-- )
+	{	
+		//long long ***score = alloc3longlong( 2 *xrange +1, 2 *yrange +1 , 2 *trange +1 );
+		
+		short BREAK_POINT 				= (short)( break_point * TempPyr->TempLayer[ilayer]->rotTemp[0]->pts->total );	
+		long long MIN_SCORE_SINGLE		= (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 );
+		long long MIN_SCORE_MULTIPLE	= (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 ) * TempPyr->TempLayer[ilayer]->rotTemp[0]->pts->total ;
+		long long MAX_SCORE_SINGLE		= (long long ) SHRT_MAX * SHRT_MAX;
+		long long MAX_SCORE_MULTIPLE	= (long long ) SHRT_MAX * SHRT_MAX * TempPyr->TempLayer[ilayer]->rotTemp[0]->pts->total ;
+		
+		if ( ilayer==Nlayer-1 )
+		{
+			xstart	= 0;
+			ystart	= 0;
+			tstart	= 0;
+			xend	= ImgPyr->SobelX[ilayer]->cols -1 ;
+			yend	= ImgPyr->SobelX[ilayer]->rows -1 ;
+			tend	= 4 * TempPyr->TempLayer[ilayer]->NTheta -1 ;
+		}
+		else
+		{
+			xstart	= 2 * MaxPts.XLocation - sRange;
+			ystart	= 2 * MaxPts.YLocation - sRange;
+			tstart	= 2 * MaxPts.TLocation - sRange;
+			xend	= 2 * MaxPts.XLocation + sRange;
+			yend	= 2 * MaxPts.YLocation + sRange;
+			tend	= 2 * MaxPts.TLocation + sRange;
+		}
+		/*
+		 * compute the search range,
+		 * the top layer is searched in the full range
+		 */
+		
+		for ( int ithe =0 ; ithe < tend-tstart +1  ; ithe++ )
+		for ( int irow =0 ; irow < yend-ystart +1  ; irow++ )
+		for ( int icol =0 ; icol < xend-xstart +1  ; icol++ )
+		{
+		}
+	}
+	
+	
+}
 
 
 
@@ -520,16 +626,6 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
 	return MaxPts;
 }
 
-void lhFreeTemplate( LhRotatedTemplate * RotTemp )
-{
-	for ( int iSeq=0 ; iSeq < RotTemp->NTheta ; iSeq++ )
-	{
-		cvReleaseMemStorage( &( RotTemp->rotTemp[iSeq]->pts->storage ) );
-		cvFree( &(RotTemp->rotTemp[iSeq]) );
-	}
-	cvFree( &(RotTemp->rotTemp) );
-	cvFree( &(RotTemp) );
-}
 
 
 
@@ -538,15 +634,5 @@ void lhFreeTemplate( LhRotatedTemplate * RotTemp )
 
 
 
-
-
-
-
-
-
-
-
-
-	
 	
 
