@@ -8,7 +8,7 @@ int lhComputeAveDistanceFromReferencePt( const LhSeq * srcSeq )
 	
 	for ( int iPt=0 ; iPt < srcSeq->pts->total ; iPt++ )
 	{
-		EdgePt * pt = (EdgePt *)cvGetSeqElem( srcSeq , iPt );
+		EdgePt * pt = (EdgePt *)cvGetSeqElem( srcSeq->pts , iPt );
 		
 		AveDis += abs( pt->xcor );
 		AveDis += abs( pt->ycor );		
@@ -32,7 +32,7 @@ void lhComputeTopLayerDeltaTheta(	const LhSeq * srcSeq ,	/* image for computing 
 	if ( AveDis <= 0 )
 	{
 		printf( " Average Distance in wrong value!\n " );
-		exit();
+		exit(1);
 	}
 	
 	float dTheta_lower_layer = (1./AveDis)*180./3.1415926535898;
@@ -44,7 +44,7 @@ void lhComputeTopLayerDeltaTheta(	const LhSeq * srcSeq ,	/* image for computing 
 	if ( *NTheta <= 0 )
 	{
 		printf( " Number of Theta in wrong value!\n" );
-		exit();
+		exit(1);
 	}
 	
 	*dTheta = 90./( *NTheta );
@@ -57,7 +57,7 @@ void lhComputeTheresholdsBasedOnMinContract(	short min_contrast ,	/* the minimum
 	if ( min_contrast <0 || min_contrast > 255 )
 	{
 		printf( " minimum contrast is set out of range!\n " );
-		exit();
+		exit(1);
 	}
 	/*
 	 * the minimu contrast is assumed to be in the range [0,255]
@@ -333,16 +333,15 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 							short MIN_CONTRAST ,		/* minimum contrast set by the users */
 							int * MAX_PT_NUMBER 		/* number of EdgePoints for each layer */)
 {
-	if ( (srcImg->width % pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % pow( 2 , Nlayer-1 ))!=0 )
+	if ( (srcImg->width % (int)pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % (int)pow( 2 , Nlayer-1 ))!=0 )
 	{
 		printf( "srcImg width or height are not a integer times power(2,Nlayer-1)" );
-		exit();
+		exit(1);
 	}
 	CvMemStorage * storage_tmp	= cvCreateMemStorage();
 	LhSeq ** unRotatedSeq		= ( LhSeq ** )cvAlloc( Nlayer*sizeof( LhSeq * ) );
 	
-	if ( Nlayer > 1 )
-		IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
+	IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
 	
 	LhTemplatePyramid * pyramid = (LhTemplatePyramid *)cvAlloc(sizeof(LhTemplatePyramid));
 	
@@ -351,7 +350,7 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 	pyramid->storage			= storage;
 	
 	int count = 1;
-	for ( ilayer=0 ; ilayer < Nlayer ; ilayer++ )
+	for ( int ilayer=0 ; ilayer < Nlayer ; ilayer++ )
 	{			
 		if ( ilayer == 0 )
 		{
@@ -408,10 +407,10 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 	 * and compute each rotated layer one by one.
 	 */
 	
-	pyramid->UPPER_NTHETA = pyramid->TemLayer[Nlayer-1]->NTheta;
-	pyramid->LOWER_NTHETA = pyramid->TemLayer[0]->NTheta;
-	pyramid->UPPER_DTHETA = pyramid->TemLayer[Nlayer-1]->dTheta;
-	pyramid->LOWER_DTHETA = pyramid->TemLayer[0]->dTheta;
+	pyramid->UPPER_NTHETA = pyramid->TempLayer[Nlayer-1]->NTheta;
+	pyramid->LOWER_NTHETA = pyramid->TempLayer[0]->NTheta;
+	pyramid->UPPER_DTHETA = pyramid->TempLayer[Nlayer-1]->dTheta;
+	pyramid->LOWER_DTHETA = pyramid->TempLayer[0]->dTheta;
 	
 	for ( int iPyr=0 ; iPyr < Nlayer ; iPyr++ )
 	{
@@ -443,18 +442,19 @@ LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
 													short derivative_threshold_for_cc ,	/* threshold for calculating the cross correlation between image and temp */
 													int Nlayer)
 {
-	if ( (srcImg->width % pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % pow( 2 , Nlayer-1 ))!=0 )
+	
+	if ( (srcImg->width % (int)pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % (int)pow( 2 , Nlayer-1 ))!=0 )
 	{
 		printf( "srcImg width or height are not a integer times power(2,Nlayer-1)" );
-		exit();
+		exit(1);
 	}
 	LhImagePyramid * SobelPyramid = (LhImagePyramid *)cvAlloc(sizeof(LhImagePyramid));
 	
 	CvMat ** SobelX = (CvMat **)cvAlloc( Nlayer*sizeof(CvMat *) );
 	CvMat ** SobelY = (CvMat **)cvAlloc( Nlayer*sizeof(CvMat *) );
 	
-	if ( Nlayer > 1 )
-		IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
+	
+	IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
 	
 	SobelPyramid->Nlayer	= Nlayer;
 	SobelPyramid->SobelX	= SobelX;
@@ -463,8 +463,8 @@ LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
 	int count = 1;
 	for ( int ilayer =0 ; ilayer < Nlayer ; ilayer++ )
 	{
-		CvMat * SobelX[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
-		CvMat * SobelY[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
+		SobelX[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
+		SobelY[ilayer] = cvCreateMat  ( srcImg->height/count , srcImg->width/count , CV_16SC1 );
 		
 		if ( ilayer==0 )
 		{
@@ -511,16 +511,15 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
 	if ( TempPyr->Nlayer != ImgPyr->Nlayer )
 	{
 		printf( " The layer amount of TemplatePyramid is not Equal to the layer amount of ImagePyramid!\n " );
-		exit();
+		exit(1);
 	}
 	
 	int Nlayer = TempPyr->Nlayer;
 	short xstart , xend , ystart , yend , tstart , tend;
+	Lh3DCor MaxPts;
 	
 	for ( int ilayer =Nlayer-1 ; ilayer >= 0 ; ilayer-- )
-	{	
-		//long long ***score = alloc3longlong( 2 *xrange +1, 2 *yrange +1 , 2 *trange +1 );
-		
+	{			
 		short BREAK_POINT 				= (short)( break_point * TempPyr->TempLayer[ilayer]->rotTemp[0]->pts->total );	
 		long long MIN_SCORE_SINGLE		= (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 );
 		long long MIN_SCORE_MULTIPLE	= (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 ) * TempPyr->TempLayer[ilayer]->rotTemp[0]->pts->total ;
@@ -549,83 +548,62 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
 		 * compute the search range,
 		 * the top layer is searched in the full range
 		 */
+		 
+		long long ***score = alloc3longlong( xend-xstart +1 , yend-ystart +1 , tend-tstart +1 );
+		zero3longlong( score , xend-xstart +1 , yend-ystart +1 , tend-tstart +1 );
 		
 		for ( int ithe =0 ; ithe < tend-tstart +1  ; ithe++ )
-		for ( int irow =0 ; irow < yend-ystart +1  ; irow++ )
-		for ( int icol =0 ; icol < xend-xstart +1  ; icol++ )
 		{
+			short quadrant;
+			short theta_symbol;
+			short theta_real = tstart + ithe;
+			if ( theta_real < 0 )											theta_real += 4 * TempPyr->TempLayer[ilayer]->NTheta;
+			if ( theta_real >= 4 * TempPyr->TempLayer[ilayer]->NTheta )		theta_real -= 4 * TempPyr->TempLayer[ilayer]->NTheta;
+			
+			if ( theta_real >=0 && theta_real < TempPyr->TempLayer[ilayer]->NTheta )
+			{
+				theta_symbol	= theta_real;
+				quadrant 		= 1;
+			}
+			else if ( theta_real >= TempPyr->TempLayer[ilayer]->NTheta && theta_real < 2* TempPyr->TempLayer[ilayer]->NTheta )
+			{
+				theta_symbol	= theta_real - TempPyr->TempLayer[ilayer]->NTheta;
+				quadrant		= 4;
+			}
+			else if ( theta_real >= 2 * TempPyr->TempLayer[ilayer]->NTheta && theta_real < 3* TempPyr->TempLayer[ilayer]->NTheta )
+			{
+				theta_symbol	= theta_real - 2* TempPyr->TempLayer[ilayer]->NTheta;
+				quadrant		= 3;
+			}
+			else
+			{
+				theta_symbol	= theta_real - 3* TempPyr->TempLayer[ilayer]->NTheta;
+				quadrant		= 2;
+			}
+			
+			for ( int irow =0 ; irow < yend-ystart +1  ; irow++ )
+			for ( int icol =0 ; icol < xend-xstart +1  ; icol++ )
+				lhIsCalculateScore(	ImgPyr->SobelX[ilayer] , ImgPyr->SobelY[ilayer] , TempPyr->TempLayer[ilayer]->rotTemp[theta_symbol] ,\
+										 xstart + icol  , ystart + irow , MIN_SCORE_SINGLE, MIN_SCORE_MULTIPLE , MAX_SCORE_SINGLE,\
+			 									MAX_SCORE_MULTIPLE , BREAK_POINT ,&score[ithe][irow][icol] , quadrant );
 		}
-	}
-	
-	
-}
-
-
-
-
-
-Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
-											IplImage * imgSearch ,				/**/
-											short xshift ,						/**/
-											short yshift ,						/**/
-											short xrange ,						/**/
-											short yrange ,						/**/
-											short tshift ,						/**/
-											short trange ,						/**/
-											float min_score ,					/**/
-											float break_point ,					/**/
-											short threshold_cross_correlation)
-{
-	long long ***score = alloc3longlong( 2 *xrange +1, 2 *yrange +1 , 2 *trange +1 );
-	
-	CvMat * SobelX = cvCreateMat  ( imgSearch->height , imgSearch->width , CV_16SC1 );
-	CvMat * SobelY = cvCreateMat  ( imgSearch->height , imgSearch->width , CV_16SC1 );
-	
-	cvSobel( imgSearch , SobelX , 1 , 0 );
-	cvSobel( imgSearch , SobelY , 0 , 1 );
-	
-	lhSearchImageRegularization( SobelX , SobelY , threshold_cross_correlation );
-	
-	short BREAK_POINT = (short)( break_point * Template->rotTemp[0]->pts->total );
-	
-	long long MIN_SCORE_SINGLE   = (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 );
-	long long MIN_SCORE_MULTIPLE = (long long )( min_score * SHRT_MAX * SHRT_MAX / 1.28 ) * Template->rotTemp[0]->pts->total ;
-	long long MAX_SCORE_SINGLE   = (long long )SHRT_MAX * SHRT_MAX;
-	long long MAX_SCORE_MULTIPLE = (long long )SHRT_MAX * SHRT_MAX * Template->rotTemp[0]->pts->total ;
-	
-	for ( int ithe =0 ; ithe < 2 *trange +1 ; ithe++ )
-	for ( int irow =0 ; irow < 2 *yrange +1 ; irow++ )
-	for ( int icol =0 ; icol < 2 *xrange +1 ; icol++ )
-	{
-		short xcor = xshift - xrange + icol;
-		short ycor = yshift - yrange + irow;
-		short tcor = tshift - trange + ithe;
 		
-		if ( tcor < 0 )
-			tcor = tcor + Template->NTheta;
+		MaxPts = lhFindMaxPoint3D(	score , xend-xstart +1 , yend-ystart +1 , tend-tstart +1 );
 		
-		lhIsCalculateScore(	SobelX , SobelY , Template->rotTemp[tcor] , xcor , ycor , MIN_SCORE_SINGLE, 
-							MIN_SCORE_MULTIPLE , MAX_SCORE_SINGLE, MAX_SCORE_MULTIPLE , BREAK_POINT ,&score[ithe][irow][icol] );	
+		MaxPts.XLocation += xstart;
+		MaxPts.YLocation += ystart;
+		MaxPts.TLocation += tstart;
+	
+		if ( MaxPts.TLocation < 0 )
+			MaxPts.TLocation += 4 * TempPyr->TempLayer[ilayer]->NTheta;
+		if ( MaxPts.TLocation > 4 * TempPyr->TempLayer[ilayer]->NTheta )
+			MaxPts.TLocation -= 4 * TempPyr->TempLayer[ilayer]->NTheta;	
+		
+		free3longlong( score );
+		
 	}
-	
-	Lh3DCor MaxPts = lhFindMaxPoint3D(	score , 2 *xrange +1 , 2 *yrange +1	, 2 *trange +1 );
-	
-	MaxPts.XLocation += xshift - xrange;
-	MaxPts.YLocation += yshift - yrange;
-	MaxPts.TLocation += tshift - trange;
-	
-	if ( MaxPts.TLocation < 0 )
-		MaxPts.TLocation += Template->NTheta;
-	if ( MaxPts.TLocation > Template->NTheta )
-		MaxPts.TLocation -= Template->NTheta;
-	
-	free3longlong( score );
-	cvReleaseMat( &SobelX );
-	cvReleaseMat( &SobelY );
-	
-	return MaxPts;
+	return MaxPts;	
 }
-
 
 
 

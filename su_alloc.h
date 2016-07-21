@@ -9,6 +9,7 @@ long long **alloc2longlong(size_t n1, size_t n2);
 void free2longlong(long long **p);
 long long ***alloc3longlong(size_t n1, size_t n2, size_t n3);
 void free3longlong(long long ***p);
+void zero3longlong(long long ***p, size_t n1, size_t n2, size_t n3);
 
 int *alloc1int(size_t n1);
 /*< allocate a 1-d array of ints >*/

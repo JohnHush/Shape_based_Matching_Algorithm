@@ -68,58 +68,193 @@ inline EdgePt* edgePt( short xcor , short ycor , short xder , short yder )
 	return pt;
 }
 
-inline void lhIsCalculateScore(	CvMat * SobelX ,			/* Derivative of Search Image in X direction */
-								CvMat * SobelY , 			/* Derivative of Search Image in Y direction */
-								LhSeq * model , 			/* The template in a sequence */
-								short xshift ,				/* The x coordinate the heart locates */
-								short yshift , 				/* The y coordinate the heart locates */
+inline void lhIsCalculateScore(	CvMat * SobelX ,					/* Derivative of Search Image in X direction */
+								CvMat * SobelY , 					/* Derivative of Search Image in Y direction */
+								LhSeq * model , 					/* The template in a sequence */
+								short xshift ,						/* The x coordinate the heart locates */
+								short yshift , 						/* The y coordinate the heart locates */
 								long long MIN_SCORE_SINGLE , 		/* minimum score should achieved, the higher it's been set, the pro is faster */
 								long long MIN_SCORE_MULTIPLE,		/**/
 								long long MAX_SCORE_SINGLE ,		/**/
 								long long MAX_SCORE_MULTIPLE,		/**/				
-								short BREAK_POINT ,			/* the separation points between safe stopping criterion and hard stopping criterion */
-								long long *score 					/* Final score , if it's been interrupted , then it's zero */)
+								short BREAK_POINT ,					/* the separation points between safe stopping criterion and hard stopping criterion */
+								long long *score , 					/* Final score , if it's been interrupted , then it's zero */
+								short quadrant						/* Specify the quadrant of the angle lies */)
 {
 	*score = 0 ;
 	
-	for ( int ipt=0 ; ipt < BREAK_POINT ; ipt++ )
+	switch( quadrant )
 	{
-		EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		case 1 :
+		{
+			for ( int ipt=0 ; ipt < BREAK_POINT ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
 		
-		short col	   = (CharPt->xcor) + xshift ;
-		short row	   = (CharPt->ycor) + yshift ;
+				short col	   = (CharPt->xcor) + xshift ;
+				short row	   = (CharPt->ycor) + yshift ;
 		
-		if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
-			continue;
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
 		
-		short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
-		short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
 		
-		(*score)+= xsob * CharPt->xder + ysob * CharPt->yder ;
+				(*score)+= xsob * CharPt->xder + ysob * CharPt->yder ;
 		
-		if ( *score < MIN_SCORE_MULTIPLE - MAX_SCORE_MULTIPLE + ipt * MAX_SCORE_SINGLE )
-			return;
+				if ( *score < MIN_SCORE_MULTIPLE - MAX_SCORE_MULTIPLE + ipt * MAX_SCORE_SINGLE )
+					return;
+			}
+	
+			for ( int ipt = BREAK_POINT ; ipt < model->pts->total ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   = (CharPt->xcor) + xshift ;
+				short row	   = (CharPt->ycor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= xsob * CharPt->xder + ysob * CharPt->yder ;
+		
+				if ( *score < MIN_SCORE_SINGLE * ipt )
+					return;
+			}
+			break;
+		}
+		case 2 :
+		{
+			for ( int ipt=0 ; ipt < BREAK_POINT ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   = -(CharPt->ycor) + xshift ;
+				short row	   =  (CharPt->xcor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= -xsob * CharPt->yder + ysob * CharPt->xder ;
+		
+				if ( *score < MIN_SCORE_MULTIPLE - MAX_SCORE_MULTIPLE + ipt * MAX_SCORE_SINGLE )
+					return;
+			}
+	
+			for ( int ipt = BREAK_POINT ; ipt < model->pts->total ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   = -(CharPt->ycor) + xshift ;
+				short row	   =  (CharPt->xcor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= -xsob * CharPt->yder + ysob * CharPt->xder  ;
+		
+				if ( *score < MIN_SCORE_SINGLE * ipt )
+					return;
+			}
+			break;
+		}
+		case 3 :
+		{
+			for ( int ipt=0 ; ipt < BREAK_POINT ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   = -(CharPt->xcor) + xshift ;
+				short row	   = -(CharPt->ycor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= -xsob * CharPt->xder - ysob * CharPt->yder ;
+		
+				if ( *score < MIN_SCORE_MULTIPLE - MAX_SCORE_MULTIPLE + ipt * MAX_SCORE_SINGLE )
+					return;
+			}
+	
+			for ( int ipt = BREAK_POINT ; ipt < model->pts->total ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   = -(CharPt->xcor) + xshift ;
+				short row	   = -(CharPt->ycor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= -xsob * CharPt->xder - ysob * CharPt->yder ;
+		
+				if ( *score < MIN_SCORE_SINGLE * ipt )
+					return;
+			}
+			break;
+		}
+		case 4 :
+		{
+			for ( int ipt=0 ; ipt < BREAK_POINT ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   =  (CharPt->ycor) + xshift ;
+				short row	   = -(CharPt->xcor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= xsob * CharPt->yder - ysob * CharPt->xder ;
+		
+				if ( *score < MIN_SCORE_MULTIPLE - MAX_SCORE_MULTIPLE + ipt * MAX_SCORE_SINGLE )
+					return;
+			}
+	
+			for ( int ipt = BREAK_POINT ; ipt < model->pts->total ; ipt++ )
+			{
+				EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
+		
+				short col	   =  (CharPt->ycor) + xshift ;
+				short row	   = -(CharPt->xcor) + yshift ;
+		
+				if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
+					continue;
+		
+				short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
+				short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
+		
+				(*score)+= xsob * CharPt->yder - ysob * CharPt->xder ;
+		
+				if ( *score < MIN_SCORE_SINGLE * ipt )
+					return;
+			}
+			break;
+		}
+		default:
+			break;
 	}
 	
-	for ( int ipt = BREAK_POINT ; ipt < model->pts->total ; ipt++ )
-	{
-		EdgePt * CharPt = CV_GET_SEQ_ELEM( EdgePt , model->pts , ipt );
-		
-		short col	   = (CharPt->xcor) + xshift ;
-		short row	   = (CharPt->ycor) + yshift ;
-		
-		if ( row <0 || row >SobelX->height || col <0 || col >SobelX->width )
-			continue;
-		
-		short xsob	   = *((short *)(SobelX->data.ptr + row*SobelX->step) + col );
-		short ysob	   = *((short *)(SobelY->data.ptr + row*SobelY->step) + col );
-		
-		(*score)+= xsob * CharPt->xder + ysob * CharPt->yder ;
-		
-		if ( *score < MIN_SCORE_SINGLE * ipt )
-			return;
-	}
 	return;
+
 }
 
 int lhComputeAveDistanceFromReferencePt( const LhSeq * srcSeq );
@@ -134,7 +269,7 @@ void lhComputeTheresholdsBasedOnMinContract(	short min_contrast ,	/* the minimum
 												double * threshold2 	/* the second threshold of cvCanny */);
 
 LhSeq* lhCreateSingleSeqFromImage(	IplImage *imgSrc , 		/* Source image */
-									cvMemStorage * storage,	/* the storage the sequence will be preserved */
+									CvMemStorage * storage,	/* the storage the sequence will be preserved */
 									short MIN_CONTRAST,		/* the minimum contrast to specify the parameters in cvCanny */
 									int MAX_PT_NUMBER)		/* Max number of EdgePt in the sequence */;
 /*< Get a single sequence to characterize the feature pts of a image >*/
@@ -175,27 +310,18 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 							short MIN_CONTRAST ,		/* minimum contrast set by the users */
 							int * MAX_PT_NUMBER 		/* number of EdgePoints for each layer */);
 
-lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid );
+void lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid );
 
 LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
 													short derivative_threshold_for_cc ,	/* threshold for calculating the cross correlation between image and temp */
 													int Nlayer);
 
 							
-
-
-
-Lh3DCor lhFindCoordinateBasedOnUpPyramid(	LhRotatedTemplate * Template ,		/**/
-											IplImage * imgSearch ,				/**/
-											short xshift ,						/**/
-											short yshift ,						/**/
-											short xrange ,						/**/
-											short yrange ,						/**/
-											short tshift ,						/**/
-											short trange ,						/**/
-											float min_score ,					/**/
-											float break_point ,					/**/
-											short threshold_cross_correlation);
+Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
+											LhImagePyramid * ImgPyr ,
+											float min_score ,
+											float break_point ,
+											short sRange );
 
 
 
