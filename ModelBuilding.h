@@ -36,6 +36,14 @@ typedef struct LhTemplatePyramid
 	
 	int Nlayer;
 	
+	int UPPER_NTHETA;			/* NTheta of the top layer of the pyramid */
+	
+	int LOWER_NTHETA;			/* NTheta of the lower layer of the pyramid */
+	
+	float UPPER_DTHETA;
+	
+	float LOWER_DTHETA;
+	
 	CvMemStorage * storage;
 	
 }LhTemplatePyramid;

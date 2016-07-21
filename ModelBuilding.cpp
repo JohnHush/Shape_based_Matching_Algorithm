@@ -39,7 +39,7 @@ void lhComputeTopLayerDeltaTheta(	const LhSeq * srcSeq ,	/* image for computing 
 	
 	*dTheta = dTheta_lower_layer * pow( 2 , Nlayer -1 );
 	
-	*NTheta = (int)( 90. / (*dTheta));
+	*NTheta = (int)( 0.5 + 90. / (*dTheta));
 	
 	if ( *NTheta <= 0 )
 	{
@@ -328,9 +328,89 @@ LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
 
 LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 					IplImage * srcImg ,			/**/
+					CvMemStorage * storage ,	/**/
 					int Nlayer ,				/**/
-					short)
+					short MIN_CONTRAST ,		/**/
+					int * MAX_PT_NUMBER 		/**/)
 {
+	if ( (srcImg->width % pow( 2 , Nlayer-1 ))!=0 || (srcImg->height % pow( 2 , Nlayer-1 ))!=0 )
+	{
+		printf( "srcImg width or height are not a integer times power(2,Nlayer-1)" );
+		exit();
+	}
+	CvMemStorage * storage_tmp	= cvCreateMemStorage();
+	LhSeq ** unRotatedSeq		= ( LhSeq ** )cvAlloc( Nlayer*sizeof( LhSeq * ) );
+	
+	if ( Nlayer > 1 )
+		IplImage ** imgPyr = ( IplImage ** )cvAlloc( (Nlayer-1)*sizeof(IplImage *) );
+	
+	LhTemplatePyramid * pyramid = (LhTemplatePyramid *)cvAlloc(sizeof(LhTemplatePyramid));
+	
+	pyramid->TempLayer			= (LhRotatedTemplate **)cvAlloc( Nlayer*sizeof(LhRotatedTemplate *) );
+	pyramid->Nlayer				= Nlayer;
+	pyramid->storage			= storage;
+	
+	int count = 1;
+	for ( ilayer=0 ; ilayer < Nlayer ; ilayer++ )
+	{			
+		if ( ilayer == 0 )
+		{
+			unRotatedSeq[ilayer] = lhCreateSingleSeqFromImage( srcImg , storage_tmp ,MIN_CONTRAST ,MAX_PT_NUMBER[ilayer] );
+			lhSeqRegularization( unRotatedSeq[ilayer] );
+		}
+		else if( ilayer ==1 )
+		{
+			imgPyr[ilayer-1] = cvCreateImage( cvSize( srcImg->width/2 , srcImg->height/2 )  , IPL_DEPTH_8U , 1 );
+			cvPyrDown( srcImg , imgPyr[ilayer-1] );
+			unRotatedSeq[ilayer] = lhCreateSingleSeqFromImage( imgPyr[ilayer-1] , storage_tmp ,MIN_CONTRAST ,MAX_PT_NUMBER[ilayer] );
+			lhSeqRegularization( unRotatedSeq[ilayer] );
+		}
+		else
+		{
+			imgPyr[ilayer-1] = cvCreateImage( cvSize( srcImg->width/count , srcImg->height/count )  , IPL_DEPTH_8U , 1 );
+			cvPyrDown( imgPyr[ilayer-2] , imgPyr[ilayer-1] );
+			unRotatedSeq[ilayer] = lhCreateSingleSeqFromImage( imgPyr[ilayer-1] , storage_tmp ,MIN_CONTRAST ,MAX_PT_NUMBER[ilayer] );
+			lhSeqRegularization( unRotatedSeq[ilayer] );
+		}
+		
+		count = count *2;
+	}
+	/* 
+	 * building the unrotated sequences from original image
+	 * the sequences have been normalized
+	 */
+	for ( int iPyr = 0 ; iPyr < Nlayer -1 ; iPyr++ )
+		cvReleaseImage( &imgPyr[iPyr] );
+	cvFree( &imgPyr );
+	/*
+	 * Free the imgPyramid
+	 */
+	
+	for ( int iPyr = 0 ; iPyr < Nlayer ; iPyr++ )
+	{
+		count = count /2 ;
+		
+		lhSetReferencePoint( unRotatedSeq[iPyr] , cvPoint( count * unRotatedSeq[Nlayer-1]->RefPt.x , count * unRotatedSeq[Nlayer-1]->RefPt.y ) );				
+	}
+	/*
+	 * set the reference point for all unrotated sequences
+	 */
+	
+	float dTheta;
+	int NTheta;
+	
+	lhComputeTopLayerDeltaTheta( unRotatedSeq[0] , Nlayer , &dTheta , &NTheta );
+	
+	for ( int iPyr = 0 ; iPyr < Nlayer ; iPyr++ )
+	{
+	}
+	LhRotatedTemplate * lhBuildingRotatedTemplateFromImage
+				(	const LhSeq * srcSeq ,		/* sequence for the original image */
+					CvMemStorage * storage,	/* storage space for rotated template */
+					float dTheta	)
+	
+	
+	return pyramid;
 }
 
 
