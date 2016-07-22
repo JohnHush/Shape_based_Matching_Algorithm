@@ -219,6 +219,7 @@ void lhSetReferencePoint(	LhSeq * srcSeq ,	/* original search image */
 		srcPt->ycor		= srcPt->ycor - yshift;
 	}
 	
+	srcSeq->RefPt = newValue;	
 }
 
 void lhSearchImageRegularization(	CvMat * SobelX ,	/* Derivative in X direction */
@@ -400,7 +401,7 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 		if ( iPyr == 0 )
 			lhComputeTopLayerDeltaTheta( unRotatedSeq[0] , Nlayer , &dTheta , &NTheta );		
 	
-		pyramid->TempLayer[iPyr] = lhBuildingRotatedTemplateFromImage( unRotatedSeq[iPyr] , storage, count * dTheta );
+		pyramid->TempLayer[iPyr] = lhBuildingRotatedTemplateFromImage( unRotatedSeq[iPyr] , storage, dTheta/count );
 	}
 	/*
 	 * set the reference point for all unrotated sequences
@@ -436,6 +437,17 @@ void lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid )
 	}
 	cvFree( &(TempPyramid->TempLayer) );
 	cvReleaseMemStorage( &(TempPyramid->storage) );
+}
+
+void lhFreeImagePyramid( LhImagePyramid * imgPyramid )
+{
+	for ( int ilayer = 0 ; ilayer < imgPyramid->Nlayer ; ilayer++ )
+	{
+		cvReleaseMat( &(imgPyramid->SobelX[ilayer]) );
+		cvReleaseMat( &(imgPyramid->SobelY[ilayer]) );
+	}
+	cvFree( &(imgPyramid->SobelX) );
+	cvFree( &(imgPyramid->SobelY) );
 }
 
 LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,

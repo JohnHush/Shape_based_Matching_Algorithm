@@ -311,6 +311,7 @@ LhTemplatePyramid * lhBuildingTemplatePyramidFromImage(
 							int * MAX_PT_NUMBER 		/* number of EdgePoints for each layer */);
 
 void lhFreeTemplatePyramid( LhTemplatePyramid * TempPyramid );
+void lhFreeImagePyramid( LhImagePyramid * imgPyramid );
 
 LhImagePyramid * lhBuildingImagePyramidFromImage(	IplImage * srcImg ,
 													short derivative_threshold_for_cc ,	/* threshold for calculating the cross correlation between image and temp */
