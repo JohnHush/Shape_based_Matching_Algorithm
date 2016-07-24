@@ -618,6 +618,26 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
 }
 
 
+void lhDrawModelOnImage( 	IplImage * imgSrc ,
+							LhSeq * model ,
+							int xshift , 
+							int yshift )
+{
+	int xcor, ycor;
+	for ( int iPoint=0 ; iPoint < model->pts->total ; iPoint++ )
+	{
+		EdgePt * pt = (EdgePt *)cvGetSeqElem( model->pts , iPoint );
+		
+		xcor = pt->xcor + xshift;
+		ycor = pt->ycor + yshift;
+		
+		if ( xcor >=0 && xcor < imgSrc->width && ycor >=0 && ycor < imgSrc->height )
+			cvCircle( imgSrc , cvPoint( xcor , ycor ) , 2 , cvScalar(0) );
+	}
+	
+}
+
+
 
 
 

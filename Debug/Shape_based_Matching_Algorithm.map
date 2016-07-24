@@ -1,17 +1,17 @@
 ******************************************************************************
                TMS320C6x Linker PC v7.2.0                      
 ******************************************************************************
->> Linked Fri Jul 22 11:22:26 2016
+>> Linked Sat Jul 23 11:13:59 2016
 
 OUTPUT FILE NAME:   <Shape_based_Matching_Algorithm.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 2015a180
+ENTRY POINT SYMBOL: "_c_int00"  address: 20166280
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  RAM                   00000001   fffffffe  203187d0  dfce782e  RWIX
+  RAM                   00000001   fffffffe  202ec118  dfd13ee6  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -34,7 +34,7 @@ section   page    origin      length       input sections
                   2000000c    00000004                        : cxpersistence.obj (.pinit)
                   20000010    00000004     --HOLE-- [fill = 0]
 
-.text      0    20000020    0015a740     
+.text      0    20000020    00166880     
                   20000020    00038060     FS_EMCV_v4_001.lib : cxconvert.obj (.text)
                   20038080    0002f8a0                        : cxarithm.obj (.text)
                   20067920    00019e80                        : cvfilter.obj (.text)
@@ -46,657 +46,694 @@ section   page    origin      length       input sections
                   200e89e0    0000ff80                        : cxdatastructs.obj (.text)
                   200f8960    0000f380                        : cxsumpixels.obj (.text)
                   20107ce0    0000dfa0                        : cvhistogram.obj (.text)
-                  20115c80    00009e20                        : cxmathfuncs.obj (.text)
-                  2011faa0    00007300                        : cvaccum.obj (.text)
-                  20126da0    00006640                        : cxcopy.obj (.text)
-                  2012d3e0    00005da0                        : cxmean.obj (.text)
-                  20133180    00005020     ModelBuilding.obj (.text)
-                  201381a0    00004860     FS_EMCV_v4_001.lib : cvderiv.obj (.text)
-                  2013ca00    00004380                        : cxminmaxloc.obj (.text)
-                  20140d80    00002aa0                        : cxlut.obj (.text)
-                  20143820    000028e0                        : cvtemplmatch.obj (.text)
-                  20146100    000021a0                        : cvutils.obj (.text)
-                  201482a0    000018e0                        : cvcanny.obj (.text)
-                  20149b80    00001240     su_alloc.obj (.text)
-                  2014adc0    00001060     FS_EMCV_v4_001.lib : cxerror.obj (.text)
-                  2014be20    00000e40                        : cvsumpixels.obj (.text)
-                  2014cc60    00000c80     rts6400.lib : pow.obj (.text:_pow)
-                  2014d8e0    00000700                 : divd.obj (.text:__divd)
-                  2014dfe0    00000620                 : _printfi.obj (.text:__getarg_diouxp)
-                  2014e600    000005c0                 : strtod.obj (.text:_strtod)
-                  2014ebc0    000005a0     FS_EMCV_v4_001.lib : cvthresh.obj (.text)
-                  2014f160    00000500     rts6400.lib : _printfi.obj (.text:__setfield)
-                  2014f660    00000500                 : strtol.obj (.text:_strtol)
-                  2014fb60    000004e0                 : _printfi.obj (.text:__printfi)
-                  20150040    000004c0                 : cos.obj (.text:_cos)
-                  20150500    00000460                 : divf.obj (.text:__divf)
-                  20150960    00000460                 : sin.obj (.text:_sin)
-                  20150dc0    00000400                 : _printfi.obj (.text:_fcvt)
-                  201511c0    000003c0                 : addf.obj (.text:__addf)
-                  20151580    000003c0                 : fgets.obj (.text:__dofgets)
-                  20151940    000003c0                 : _printfi.obj (.text:_ecvt)
-                  20151d00    000003a0                 : _printfi.obj (.text:__pproc_fge)
-                  201520a0    00000380                 : exp.obj (.text:_exp)
-                  20152420    00000340                 : _printfi.obj (.text:__pproc_fwp)
-                  20152760    00000340                 : fputs.obj (.text:_fputs)
-                  20152aa0    00000320                 : _printfi.obj (.text:__pconv_e)
-                  20152dc0    00000300                 : memory.obj (.text:_memalign)
-                  201530c0    000002e0                 : memory.obj (.text:_free)
-                  201533a0    000002c0                 : imath64.obj (.text:__divull)
-                  20153660    000002c0                 : sqrt.obj (.text:_sqrt)
-                  20153920    00000280                 : mpyd.obj (.text:__mpyd)
-                  20153ba0    00000280                 : _printfi.obj (.text:__pproc_diouxp)
-                  20153e20    00000260                 : addd.obj (.text:__addd)
-                  20154080    00000260                 : frcaddd.obj (.text:__frcaddd)
-                  201542e0    00000260                 : frcmpyd_div.obj (.text:__frcmpyd_div)
-                  20154540    00000260                 : _printfi.obj (.text:__pconv_g)
-                  201547a0    00000260                 : _printfi.obj (.text:__pproc_str)
-                  20154a00    00000240                 : mpyf.obj (.text:__mpyf)
-                  20154c40    00000240                 : ldexp.obj (.text:_ldexp)
-                  20154e80    00000220                 : _printfi.obj (.text:__mcpy)
-                  201550a0    00000200                 : trgdrv.obj (.text:_HOSTrename)
-                  201552a0    000001e0                 : fopen.obj (.text:__openfile)
-                  20155480    000001e0                 : frexp.obj (.text:_frexp)
-                  20155660    000001c0                 : memory.obj (.text:_malloc)
-                  20155820    000001c0                 : lowlev.obj (.text:_open)
-                  201559e0    000001c0                 : setvbuf.obj (.text:_setvbuf)
-                  20155ba0    000001c0     main.obj (.text)
-                  20155d60    000001a0     rts6400.lib : imath40.obj (.text:__divul)
-                  20155f00    00000180                 : lowlev.obj (.text:_getdevice)
-                  20156080    00000160                 : _printfi.obj (.text:__ltostr)
-                  201561e0    00000160                 : round.obj (.text:__nround)
-                  20156340    00000160                 : _printfi.obj (.text:__pproc_fflags)
-                  201564a0    00000160                 : fputc.obj (.text:_fputc)
-                  20156600    00000140                 : _bufread.obj (.text:__buff_read)
-                  20156740    00000140                 : fopen.obj (.text:__search_fp)
-                  20156880    00000140                 : fclose.obj (.text:_fclose)
-                  201569c0    00000120                 : trgdrv.obj (.text:_HOSTlseek)
-                  20156ae0    00000120                 : autoinit.obj (.text:__auto_init)
-                  20156c00    00000120                 : fixdlli.obj (.text:__fixdlli)
-                  20156d20    00000120                 : frcmpyd.obj (.text:__frcmpyd)
-                  20156e40    00000120                 : atoi.obj (.text:_atoi)
-                  20156f60    00000100                 : trgdrv.obj (.text:_HOSTopen)
-                  20157060    00000100                 : trgdrv.obj (.text:_HOSTread)
-                  20157160    00000100                 : trgdrv.obj (.text:_HOSTwrite)
-                  20157260    00000100                 : divi.obj (.text:__divi)
-                  20157360    00000100                 : fltllid.obj (.text:__fltllid)
-                  20157460    00000100                 : strasg.obj (.text:__strasgi)
-                  20157560    00000100                 : _io_perm.obj (.text:__wrt_ok)
-                  20157660    00000100                 : sinit.obj (.text:_call_dtors)
-                  20157760    00000100                 : lowlev.obj (.text:_close)
-                  20157860    00000100                 : exit.obj (.text:_exit)
-                  20157960    00000100                 : fflush.obj (.text:_fflush)
-                  20157a60    00000100                 : fseek.obj (.text:_fseek)
-                  20157b60    00000100                 : lowlev.obj (.text:_lseek)
-                  20157c60    00000100                 : ltoa.obj (.text:_ltoa)
-                  20157d60    00000100                 : memset.obj (.text:_memset)
-                  20157e60    00000100                 : lowlev.obj (.text:_read)
-                  20157f60    00000100                 : lowlev.obj (.text:_write)
-                  20158060    000000e0                 : trgdrv.obj (.text:_HOSTunlink)
-                  20158140    000000e0                 : fopen.obj (.text:__cleanup)
-                  20158220    000000e0                 : cmpd.obj (.text:__cmpd)
-                  20158300    000000e0                 : _printfi.obj (.text:__div)
-                  201583e0    000000e0                 : fflush.obj (.text:__doflush)
-                  201584c0    000000e0                 : _printfi.obj (.text:__pconv_f)
-                  201585a0    000000e0                 : ftell.obj (.text:_ftell)
-                  20158680    000000e0                 : memcpy64.obj (.text:_memcpy)
-                  20158760    000000e0                 : modf.obj (.text:_modf)
-                  20158840    000000c0                 : trgdrv.obj (.text:_HOSTclose)
-                  20158900    000000c0                 : new_.obj (.text:___nw__FUi)
-                  201589c0    000000c0                 : cvtdf.obj (.text:__cvtdf)
-                  20158a80    000000c0                 : divu.obj (.text:__divu)
-                  20158b40    000000c0                 : _printfi.obj (.text:__ecpy)
-                  20158c00    000000c0                 : _printfi.obj (.text:__fcpy)
-                  20158cc0    000000c0                 : _io_perm.obj (.text:__rd_ok)
-                  20158d80    000000c0                 : remi.obj (.text:__remi)
-                  20158e40    000000c0                 : memory.obj (.text:_minsert)
-                  20158f00    000000c0                 : memory.obj (.text:_mremove)
-                  20158fc0    000000c0                 : strstr.obj (.text:_strstr)
-                  20159080    000000c0                 : lowlev.obj (.text:_tabinit)
-                  20159140    000000a0     FS_EMCV_v4_001.lib : cxalloc.obj (.text)
-                  201591e0    000000a0     rts6400.lib : cmpf.obj (.text:__cmpf)
-                  20159280    000000a0                 : imath40.obj (.text:__divli)
-                  20159320    000000a0                 : fixdi.obj (.text:__fixdi)
-                  201593c0    000000a0                 : fixdli.obj (.text:__fixdli)
-                  20159460    000000a0                 : fixfi.obj (.text:__fixfi)
-                  20159500    000000a0                 : frcmpyf_div.obj (.text:__frcmpyf_div)
-                  201595a0    000000a0                 : remu.obj (.text:__remu)
-                  20159640    000000a0                 : renormd.obj (.text:__renormd)
-                  201596e0    000000a0                 : cpy_tbl.obj (.text:_copy_in)
-                  20159780    000000a0                 : lowlev.obj (.text:_finddevice)
-                  20159820    000000a0                 : rand.obj (.text:_rand)
-                  201598c0    00000080                 : fltlid.obj (.text:__fltlid)
-                  20159940    00000080                 : llshift.obj (.text:__llshl)
-                  201599c0    00000080                 : mpyll.obj (.text:__mpyll)
-                  20159a40    00000080                 : fopen.obj (.text:_fopen)
-                  20159ac0    00000080                 : fprintf.obj (.text:_fprintf)
-                  20159b40    00000080                 : memccpy.obj (.text:_memccpy)
-                  20159bc0    00000080                 : printf.obj (.text:_printf)
-                  20159c40    00000080                 : trgmsg.obj (.text:_readmsg)
-                  20159cc0    00000080                 : sprintf.obj (.text:_sprintf)
-                  20159d40    00000080                 : lowlev.obj (.text:_unlink)
-                  20159dc0    00000060                 : assert.obj (.text:__abort_msg)
-                  20159e20    00000060                 : cvtfd.obj (.text:__cvtfd)
-                  20159e80    00000060                 : fltid.obj (.text:__fltid)
-                  20159ee0    00000060                 : fltif.obj (.text:__fltif)
-                  20159f40    00000060                 : frcmpyf.obj (.text:__frcmpyf)
-                  20159fa0    00000060                 : llshift.obj (.text:__llshru)
-                  2015a000    00000060                 : sprintf.obj (.text:__outs)
-                  2015a060    00000060                 : imath40.obj (.text:__remli)
-                  2015a0c0    00000060                 : imath40.obj (.text:__remul)
-                  2015a120    00000060                 : imath64.obj (.text:__subcull)
-                  2015a180    00000060                 : boot.obj (.text:_c_int00)
-                  2015a1e0    00000060                 : memmov.obj (.text:_memmove)
-                  2015a240    00000060                 : trgmsg.obj (.text:_writemsg)
-                  2015a2a0    00000040                 : sinit.obj (.text:___add_dtor)
-                  2015a2e0    00000040                 : isinf.obj (.text:___isinf)
-                  2015a320    00000040                 : _printfi.obj (.text:___isnan)
-                  2015a360    00000040                 : divd.obj (.text:___isnan)
-                  2015a3a0    00000040                 : divf.obj (.text:___isnanf)
-                  2015a3e0    00000040                 : args_main.obj (.text:__args_main)
-                  2015a420    00000040                 : fltud.obj (.text:__fltud)
-                  2015a460    00000040                 : fltuf.obj (.text:__fltuf)
-                  2015a4a0    00000040                 : negd.obj (.text:__negd)
-                  2015a4e0    00000040                 : negf.obj (.text:__negf)
-                  2015a520    00000040                 : subd.obj (.text:__subd)
-                  2015a560    00000040                 : subf.obj (.text:__subf)
-                  2015a5a0    00000020                 : newhandler.obj (.text:___default_new_handler__Fv)
-                  2015a5c0    00000020                 : delete.obj (.text:___dl__FPv)
-                  2015a5e0    00000020                 : negll.obj (.text:__negll)
-                  2015a600    00000020                 : _lock.obj (.text:__nop)
-                  2015a620    00000020                 : fprintf.obj (.text:__outc)
-                  2015a640    00000020                 : printf.obj (.text:__outc)
-                  2015a660    00000020                 : sprintf.obj (.text:__outc)
-                  2015a680    00000020                 : fprintf.obj (.text:__outs)
-                  2015a6a0    00000020                 : printf.obj (.text:__outs)
-                  2015a6c0    00000020                 : trunc.obj (.text:__trunc)
-                  2015a6e0    00000020                 : exit.obj (.text:_abort)
-                  2015a700    00000020                 : feof.obj (.text:_feof)
-                  2015a720    00000020                 : fgets.obj (.text:_fgets)
-                  2015a740    00000020                 : remove.obj (.text:_remove)
+                  20115c80    0000bb60                        : cxdrawing.obj (.text)
+                  201217e0    00009e20                        : cxmathfuncs.obj (.text)
+                  2012b600    00007300                        : cvaccum.obj (.text)
+                  20132900    00006640                        : cxcopy.obj (.text)
+                  20138f40    00005da0                        : cxmean.obj (.text)
+                  2013ece0    00005320     ModelBuilding.obj (.text)
+                  20144000    00004860     FS_EMCV_v4_001.lib : cvderiv.obj (.text)
+                  20148860    00004380                        : cxminmaxloc.obj (.text)
+                  2014cbe0    00002aa0                        : cxlut.obj (.text)
+                  2014f680    000028e0                        : cvtemplmatch.obj (.text)
+                  20151f60    000021a0                        : cvutils.obj (.text)
+                  20154100    000018e0                        : cvcanny.obj (.text)
+                  201559e0    00001240     su_alloc.obj (.text)
+                  20156c20    00001060     FS_EMCV_v4_001.lib : cxerror.obj (.text)
+                  20157c80    00000e40                        : cvsumpixels.obj (.text)
+                  20158ac0    00000c80     rts6400.lib : pow.obj (.text:_pow)
+                  20159740    00000700                 : divd.obj (.text:__divd)
+                  20159e40    00000620                 : _printfi.obj (.text:__getarg_diouxp)
+                  2015a460    000005c0                 : strtod.obj (.text:_strtod)
+                  2015aa20    000005a0     FS_EMCV_v4_001.lib : cvthresh.obj (.text)
+                  2015afc0    00000500     rts6400.lib : _printfi.obj (.text:__setfield)
+                  2015b4c0    00000500                 : strtol.obj (.text:_strtol)
+                  2015b9c0    000004e0                 : _printfi.obj (.text:__printfi)
+                  2015bea0    000004c0                 : cos.obj (.text:_cos)
+                  2015c360    00000460                 : divf.obj (.text:__divf)
+                  2015c7c0    00000460                 : sin.obj (.text:_sin)
+                  2015cc20    00000400                 : _printfi.obj (.text:_fcvt)
+                  2015d020    000003c0                 : addf.obj (.text:__addf)
+                  2015d3e0    000003c0                 : fgets.obj (.text:__dofgets)
+                  2015d7a0    000003c0                 : _printfi.obj (.text:_ecvt)
+                  2015db60    000003a0                 : _printfi.obj (.text:__pproc_fge)
+                  2015df00    00000380                 : exp.obj (.text:_exp)
+                  2015e280    00000340                 : _printfi.obj (.text:__pproc_fwp)
+                  2015e5c0    00000340                 : fputs.obj (.text:_fputs)
+                  2015e900    00000320                 : _printfi.obj (.text:__pconv_e)
+                  2015ec20    00000300                 : memory.obj (.text:_memalign)
+                  2015ef20    000002e0                 : memory.obj (.text:_free)
+                  2015f200    000002c0                 : imath64.obj (.text:__divull)
+                  2015f4c0    000002c0                 : sqrt.obj (.text:_sqrt)
+                  2015f780    000002c0     main.obj (.text)
+                  2015fa40    00000280     rts6400.lib : mpyd.obj (.text:__mpyd)
+                  2015fcc0    00000280                 : _printfi.obj (.text:__pproc_diouxp)
+                  2015ff40    00000260                 : addd.obj (.text:__addd)
+                  201601a0    00000260                 : frcaddd.obj (.text:__frcaddd)
+                  20160400    00000260                 : frcmpyd_div.obj (.text:__frcmpyd_div)
+                  20160660    00000260                 : _printfi.obj (.text:__pconv_g)
+                  201608c0    00000260                 : _printfi.obj (.text:__pproc_str)
+                  20160b20    00000240                 : mpyf.obj (.text:__mpyf)
+                  20160d60    00000240                 : ldexp.obj (.text:_ldexp)
+                  20160fa0    00000220                 : _printfi.obj (.text:__mcpy)
+                  201611c0    00000200                 : trgdrv.obj (.text:_HOSTrename)
+                  201613c0    000001e0                 : fopen.obj (.text:__openfile)
+                  201615a0    000001e0                 : frexp.obj (.text:_frexp)
+                  20161780    000001c0                 : memory.obj (.text:_malloc)
+                  20161940    000001c0                 : lowlev.obj (.text:_open)
+                  20161b00    000001c0                 : setvbuf.obj (.text:_setvbuf)
+                  20161cc0    000001a0                 : imath64.obj (.text:__divlli)
+                  20161e60    000001a0                 : imath40.obj (.text:__divul)
+                  20162000    00000180                 : lowlev.obj (.text:_getdevice)
+                  20162180    00000160                 : _printfi.obj (.text:__ltostr)
+                  201622e0    00000160                 : round.obj (.text:__nround)
+                  20162440    00000160                 : _printfi.obj (.text:__pproc_fflags)
+                  201625a0    00000160                 : fputc.obj (.text:_fputc)
+                  20162700    00000140                 : _bufread.obj (.text:__buff_read)
+                  20162840    00000140                 : fopen.obj (.text:__search_fp)
+                  20162980    00000140                 : fclose.obj (.text:_fclose)
+                  20162ac0    00000120                 : trgdrv.obj (.text:_HOSTlseek)
+                  20162be0    00000120                 : autoinit.obj (.text:__auto_init)
+                  20162d00    00000120                 : fixdlli.obj (.text:__fixdlli)
+                  20162e20    00000120                 : frcmpyd.obj (.text:__frcmpyd)
+                  20162f40    00000120                 : atoi.obj (.text:_atoi)
+                  20163060    00000100                 : trgdrv.obj (.text:_HOSTopen)
+                  20163160    00000100                 : trgdrv.obj (.text:_HOSTread)
+                  20163260    00000100                 : trgdrv.obj (.text:_HOSTwrite)
+                  20163360    00000100                 : divi.obj (.text:__divi)
+                  20163460    00000100                 : fltllid.obj (.text:__fltllid)
+                  20163560    00000100                 : strasg.obj (.text:__strasgi)
+                  20163660    00000100                 : _io_perm.obj (.text:__wrt_ok)
+                  20163760    00000100                 : sinit.obj (.text:_call_dtors)
+                  20163860    00000100                 : lowlev.obj (.text:_close)
+                  20163960    00000100                 : exit.obj (.text:_exit)
+                  20163a60    00000100                 : fflush.obj (.text:_fflush)
+                  20163b60    00000100                 : fseek.obj (.text:_fseek)
+                  20163c60    00000100                 : lowlev.obj (.text:_lseek)
+                  20163d60    00000100                 : ltoa.obj (.text:_ltoa)
+                  20163e60    00000100                 : memset.obj (.text:_memset)
+                  20163f60    00000100                 : lowlev.obj (.text:_read)
+                  20164060    00000100                 : lowlev.obj (.text:_write)
+                  20164160    000000e0                 : trgdrv.obj (.text:_HOSTunlink)
+                  20164240    000000e0                 : fopen.obj (.text:__cleanup)
+                  20164320    000000e0                 : cmpd.obj (.text:__cmpd)
+                  20164400    000000e0                 : _printfi.obj (.text:__div)
+                  201644e0    000000e0                 : fflush.obj (.text:__doflush)
+                  201645c0    000000e0                 : _printfi.obj (.text:__pconv_f)
+                  201646a0    000000e0                 : ftell.obj (.text:_ftell)
+                  20164780    000000e0                 : memcpy64.obj (.text:_memcpy)
+                  20164860    000000e0                 : modf.obj (.text:_modf)
+                  20164940    000000c0                 : trgdrv.obj (.text:_HOSTclose)
+                  20164a00    000000c0                 : new_.obj (.text:___nw__FUi)
+                  20164ac0    000000c0                 : cvtdf.obj (.text:__cvtdf)
+                  20164b80    000000c0                 : divu.obj (.text:__divu)
+                  20164c40    000000c0                 : _printfi.obj (.text:__ecpy)
+                  20164d00    000000c0                 : _printfi.obj (.text:__fcpy)
+                  20164dc0    000000c0                 : _io_perm.obj (.text:__rd_ok)
+                  20164e80    000000c0                 : remi.obj (.text:__remi)
+                  20164f40    000000c0                 : memory.obj (.text:_minsert)
+                  20165000    000000c0                 : memory.obj (.text:_mremove)
+                  201650c0    000000c0                 : strstr.obj (.text:_strstr)
+                  20165180    000000c0                 : lowlev.obj (.text:_tabinit)
+                  20165240    000000a0     FS_EMCV_v4_001.lib : cxalloc.obj (.text)
+                  201652e0    000000a0     rts6400.lib : cmpf.obj (.text:__cmpf)
+                  20165380    000000a0                 : imath40.obj (.text:__divli)
+                  20165420    000000a0                 : fixdi.obj (.text:__fixdi)
+                  201654c0    000000a0                 : fixdli.obj (.text:__fixdli)
+                  20165560    000000a0                 : fixfi.obj (.text:__fixfi)
+                  20165600    000000a0                 : frcmpyf_div.obj (.text:__frcmpyf_div)
+                  201656a0    000000a0                 : remu.obj (.text:__remu)
+                  20165740    000000a0                 : renormd.obj (.text:__renormd)
+                  201657e0    000000a0                 : cpy_tbl.obj (.text:_copy_in)
+                  20165880    000000a0                 : lowlev.obj (.text:_finddevice)
+                  20165920    000000a0                 : rand.obj (.text:_rand)
+                  201659c0    00000080                 : fltlid.obj (.text:__fltlid)
+                  20165a40    00000080                 : llshift.obj (.text:__llshl)
+                  20165ac0    00000080                 : mpyll.obj (.text:__mpyll)
+                  20165b40    00000080                 : fopen.obj (.text:_fopen)
+                  20165bc0    00000080                 : fprintf.obj (.text:_fprintf)
+                  20165c40    00000080                 : memccpy.obj (.text:_memccpy)
+                  20165cc0    00000080                 : printf.obj (.text:_printf)
+                  20165d40    00000080                 : trgmsg.obj (.text:_readmsg)
+                  20165dc0    00000080                 : sprintf.obj (.text:_sprintf)
+                  20165e40    00000080                 : lowlev.obj (.text:_unlink)
+                  20165ec0    00000060                 : assert.obj (.text:__abort_msg)
+                  20165f20    00000060                 : cvtfd.obj (.text:__cvtfd)
+                  20165f80    00000060                 : fltid.obj (.text:__fltid)
+                  20165fe0    00000060                 : fltif.obj (.text:__fltif)
+                  20166040    00000060                 : frcmpyf.obj (.text:__frcmpyf)
+                  201660a0    00000060                 : llshift.obj (.text:__llshru)
+                  20166100    00000060                 : sprintf.obj (.text:__outs)
+                  20166160    00000060                 : imath40.obj (.text:__remli)
+                  201661c0    00000060                 : imath40.obj (.text:__remul)
+                  20166220    00000060                 : imath64.obj (.text:__subcull)
+                  20166280    00000060                 : boot.obj (.text:_c_int00)
+                  201662e0    00000060                 : memmov.obj (.text:_memmove)
+                  20166340    00000060                 : trgmsg.obj (.text:_writemsg)
+                  201663a0    00000040                 : sinit.obj (.text:___add_dtor)
+                  201663e0    00000040                 : isinf.obj (.text:___isinf)
+                  20166420    00000040                 : _printfi.obj (.text:___isnan)
+                  20166460    00000040                 : divd.obj (.text:___isnan)
+                  201664a0    00000040                 : divf.obj (.text:___isnanf)
+                  201664e0    00000040                 : args_main.obj (.text:__args_main)
+                  20166520    00000040                 : fltud.obj (.text:__fltud)
+                  20166560    00000040                 : fltuf.obj (.text:__fltuf)
+                  201665a0    00000040                 : negd.obj (.text:__negd)
+                  201665e0    00000040                 : negf.obj (.text:__negf)
+                  20166620    00000040                 : subd.obj (.text:__subd)
+                  20166660    00000040                 : subf.obj (.text:__subf)
+                  201666a0    00000040                 : abs.obj (.text:_llabs)
+                  201666e0    00000020                 : newhandler.obj (.text:___default_new_handler__Fv)
+                  20166700    00000020                 : delete.obj (.text:___dl__FPv)
+                  20166720    00000020                 : negll.obj (.text:__negll)
+                  20166740    00000020                 : _lock.obj (.text:__nop)
+                  20166760    00000020                 : fprintf.obj (.text:__outc)
+                  20166780    00000020                 : printf.obj (.text:__outc)
+                  201667a0    00000020                 : sprintf.obj (.text:__outc)
+                  201667c0    00000020                 : fprintf.obj (.text:__outs)
+                  201667e0    00000020                 : printf.obj (.text:__outs)
+                  20166800    00000020                 : trunc.obj (.text:__trunc)
+                  20166820    00000020                 : exit.obj (.text:_abort)
+                  20166840    00000020                 : feof.obj (.text:_feof)
+                  20166860    00000020                 : fgets.obj (.text:_fgets)
+                  20166880    00000020                 : remove.obj (.text:_remove)
 
-.far       0    2015a760    000ea388     UNINITIALIZED
-                  2015a760    000c0000     main.obj (.far)
-                  2021a760    000100b5     FS_EMCV_v4_001.lib : cvaccum.obj (.far)
-                  2022a815    00000003     --HOLE--
-                  2022a818    000080e7                        : cxconvert.obj (.far)
-                  202328ff    00000001     --HOLE--
-                  20232900    0000804e                        : cxmeansdv.obj (.far)
-                  2023a94e    00000002     --HOLE--
-                  2023a950    00004081                        : cxsumpixels.obj (.far)
-                  2023e9d1    00000003     --HOLE--
-                  2023e9d4    00000004     rts6400.lib : errno.obj (.far)
-                  2023e9d8    00004026     FS_EMCV_v4_001.lib : cxmean.obj (.far)
-                  202429fe    00000002     --HOLE--
-                  20242a00    000005cc                        : cxpersistence.obj (.far)
-                  20242fcc    00000004     rts6400.lib : fopen.obj (.far)
-                  20242fd0    0000058f     FS_EMCV_v4_001.lib : cxdatastructs.obj (.far)
-                  2024355f    00000001     --HOLE--
-                  20243560    00000444                        : cxarray.obj (.far)
-                  202439a4    00000004     rts6400.lib : sinit.obj (.far)
-                  202439a8    000001c1     FS_EMCV_v4_001.lib : cxcopy.obj (.far)
-                  20243b69    00000003     --HOLE--
-                  20243b6c    00000004     rts6400.lib : vars.obj (.far)
-                  20243b70    00000194                 : defs.obj (.far)
-                  20243d04    00000004     --HOLE--
-                  20243d08    00000188                 : atexit.obj (.far)
-                  20243e90    0000017c     FS_EMCV_v4_001.lib : cvhistogram.obj (.far)
-                  2024400c    00000004     --HOLE--
-                  20244010    00000146                        : cxdxt.obj (.far)
-                  20244156    00000002     --HOLE--
-                  20244158    0000013e                        : cxarithm.obj (.far)
-                  20244296    00000002     --HOLE--
-                  20244298    00000125                        : cvfilter.obj (.far)
-                  202443bd    00000003     --HOLE--
-                  202443c0    00000120     rts6400.lib : pow.obj (.far)
-                  202444e0    00000100     FS_EMCV_v4_001.lib : cxerror.obj (.far)
-                  202445e0    000000d0     rts6400.lib : trgdrv.obj (.far)
-                  202446b0    000000cc                 : lowlev.obj (.far)
-                  2024477c    00000004     --HOLE--
-                  20244780    0000008c     FS_EMCV_v4_001.lib : cxminmaxloc.obj (.far)
-                  2024480c    00000004     --HOLE--
-                  20244810    00000072                        : cvpyramids.obj (.far)
-                  20244882    00000006     --HOLE--
-                  20244888    00000063                        : cxmathfuncs.obj (.far)
-                  202448eb    00000005     --HOLE--
-                  202448f0    00000056                        : cxlut.obj (.far)
-                  20244946    00000002     --HOLE--
-                  20244948    00000040     rts6400.lib : cos.obj (.far)
-                  20244988    00000040                 : sin.obj (.far)
-                  202449c8    00000030                 : exp.obj (.far)
-                  202449f8    0000002e     FS_EMCV_v4_001.lib : cvderiv.obj (.far)
-                  20244a26    00000002     --HOLE--
-                  20244a28    00000029                        : cvutils.obj (.far)
-                  20244a51    00000007     --HOLE--
-                  20244a58    00000028                        : cvcanny.obj (.far)
-                  20244a80    00000020                        : cvtemplmatch.obj (.far)
-                  20244aa0    00000010                        : cvsumpixels.obj (.far)
-                  20244ab0    0000000c                        : cvthresh.obj (.far)
-                  20244abc    0000000c     rts6400.lib : exit.obj (.far)
-                  20244ac8    00000008     FS_EMCV_v4_001.lib : cxalloc.obj (.far)
-                  20244ad0    00000008     rts6400.lib : _lock.obj (.far)
-                  20244ad8    00000008                 : memory.obj (.far)
-                  20244ae0    00000008                 : rand.obj (.far)
+.far       0    201668a0    000c3818     UNINITIALIZED
+                  201668a0    00096000     main.obj (.far)
+                  201fc8a0    000100b5     FS_EMCV_v4_001.lib : cvaccum.obj (.far)
+                  2020c955    00000003     --HOLE--
+                  2020c958    000080e7                        : cxconvert.obj (.far)
+                  20214a3f    00000001     --HOLE--
+                  20214a40    0000804e                        : cxmeansdv.obj (.far)
+                  2021ca8e    00000002     --HOLE--
+                  2021ca90    00004081                        : cxsumpixels.obj (.far)
+                  20220b11    00000003     --HOLE--
+                  20220b14    00000004     rts6400.lib : errno.obj (.far)
+                  20220b18    00004026     FS_EMCV_v4_001.lib : cxmean.obj (.far)
+                  20224b3e    00000002     --HOLE--
+                  20224b40    00003394                        : cxouttext.obj (.far)
+                  20227ed4    00000004     rts6400.lib : fopen.obj (.far)
+                  20227ed8    000005cc     FS_EMCV_v4_001.lib : cxpersistence.obj (.far)
+                  202284a4    00000004     rts6400.lib : sinit.obj (.far)
+                  202284a8    0000058f     FS_EMCV_v4_001.lib : cxdatastructs.obj (.far)
+                  20228a37    00000001     --HOLE--
+                  20228a38    00000444                        : cxarray.obj (.far)
+                  20228e7c    00000004     rts6400.lib : vars.obj (.far)
+                  20228e80    000001c1     FS_EMCV_v4_001.lib : cxcopy.obj (.far)
+                  20229041    00000007     --HOLE--
+                  20229048    00000194     rts6400.lib : defs.obj (.far)
+                  202291dc    00000004     --HOLE--
+                  202291e0    00000188                 : atexit.obj (.far)
+                  20229368    0000017c     FS_EMCV_v4_001.lib : cvhistogram.obj (.far)
+                  202294e4    00000004     --HOLE--
+                  202294e8    00000146                        : cxdxt.obj (.far)
+                  2022962e    00000002     --HOLE--
+                  20229630    0000013e                        : cxarithm.obj (.far)
+                  2022976e    00000002     --HOLE--
+                  20229770    00000125                        : cvfilter.obj (.far)
+                  20229895    00000003     --HOLE--
+                  20229898    00000120     rts6400.lib : pow.obj (.far)
+                  202299b8    00000100     FS_EMCV_v4_001.lib : cxerror.obj (.far)
+                  20229ab8    000000f7                        : cxdrawing.obj (.far)
+                  20229baf    00000001     --HOLE--
+                  20229bb0    000000d0     rts6400.lib : trgdrv.obj (.far)
+                  20229c80    000000cc                 : lowlev.obj (.far)
+                  20229d4c    00000004     --HOLE--
+                  20229d50    0000008c     FS_EMCV_v4_001.lib : cxminmaxloc.obj (.far)
+                  20229ddc    00000004     --HOLE--
+                  20229de0    00000072                        : cvpyramids.obj (.far)
+                  20229e52    00000006     --HOLE--
+                  20229e58    00000063                        : cxmathfuncs.obj (.far)
+                  20229ebb    00000005     --HOLE--
+                  20229ec0    00000056                        : cxlut.obj (.far)
+                  20229f16    00000002     --HOLE--
+                  20229f18    00000040     rts6400.lib : cos.obj (.far)
+                  20229f58    00000040                 : sin.obj (.far)
+                  20229f98    00000030                 : exp.obj (.far)
+                  20229fc8    0000002e     FS_EMCV_v4_001.lib : cvderiv.obj (.far)
+                  20229ff6    00000002     --HOLE--
+                  20229ff8    00000029                        : cvutils.obj (.far)
+                  2022a021    00000007     --HOLE--
+                  2022a028    00000028                        : cvcanny.obj (.far)
+                  2022a050    00000020                        : cvtemplmatch.obj (.far)
+                  2022a070    00000010                        : cvsumpixels.obj (.far)
+                  2022a080    0000000c                        : cvthresh.obj (.far)
+                  2022a08c    0000000c     rts6400.lib : exit.obj (.far)
+                  2022a098    00000008     FS_EMCV_v4_001.lib : cxalloc.obj (.far)
+                  2022a0a0    00000008     rts6400.lib : _lock.obj (.far)
+                  2022a0a8    00000008                 : memory.obj (.far)
+                  2022a0b0    00000008                 : rand.obj (.far)
 
-.cinit     0    20244ae8    000c3c6c     
-                  20244ae8    000c0008     main.obj (.cinit)
-                  20304af0    0000087c     FS_EMCV_v4_001.lib : cxpersistence.obj (.cinit)
-                  2030536c    00000004     --HOLE-- [fill = 0]
-                  20305370    000007c7                        : cxdatastructs.obj (.cinit)
-                  20305b37    00000001     --HOLE-- [fill = 0]
-                  20305b38    0000064c                        : cxarray.obj (.cinit)
-                  20306184    00000004     --HOLE-- [fill = 0]
-                  20306188    0000032d                        : cvfilter.obj (.cinit)
-                  203064b5    00000003     --HOLE-- [fill = 0]
-                  203064b8    00000326                        : cvderiv.obj (.cinit)
-                  203067de    00000002     --HOLE-- [fill = 0]
-                  203067e0    00000326                        : cxmeansdv.obj (.cinit)
-                  20306b06    00000002     --HOLE-- [fill = 0]
-                  20306b08    000002fe                        : cxdxt.obj (.cinit)
-                  20306e06    00000002     --HOLE-- [fill = 0]
-                  20306e08    000002e3                        : cxmathfuncs.obj (.cinit)
-                  203070eb    00000005     --HOLE-- [fill = 0]
-                  203070f0    000002cf                        : cxconvert.obj (.cinit)
-                  203073bf    00000001     --HOLE-- [fill = 0]
-                  203073c0    00000229                        : cxsumpixels.obj (.cinit)
-                  203075e9    00000007     --HOLE-- [fill = 0]
-                  203075f0    00000215                        : cvaccum.obj (.cinit)
-                  20307805    00000003     --HOLE-- [fill = 0]
-                  20307808    0000020c                        : cvhistogram.obj (.cinit)
-                  20307a14    00000004     --HOLE-- [fill = 0]
-                  20307a18    000001e9                        : cxcopy.obj (.cinit)
-                  20307c01    00000007     --HOLE-- [fill = 0]
-                  20307c08    000001a6                        : cxarithm.obj (.cinit)
-                  20307dae    00000002     --HOLE-- [fill = 0]
-                  20307db0    0000019e                        : cxmean.obj (.cinit)
-                  20307f4e    00000002     --HOLE-- [fill = 0]
-                  20307f50    00000140     rts6400.lib : pow.obj (.cinit)
-                  20308090    00000139     FS_EMCV_v4_001.lib : cvutils.obj (.cinit)
-                  203081c9    00000007     --HOLE-- [fill = 0]
-                  203081d0    000000e4                        : cxminmaxloc.obj (.cinit)
-                  203082b4    00000004     --HOLE-- [fill = 0]
-                  203082b8    000000e2                        : cvpyramids.obj (.cinit)
-                  2030839a    00000006     --HOLE-- [fill = 0]
-                  203083a0    00000090                        : cvtemplmatch.obj (.cinit)
-                  20308430    0000005c     rts6400.lib : defs.obj (.cinit)
-                  2030848c    00000004     --HOLE-- [fill = 0]
-                  20308490    0000005c                 : lowlev.obj (.cinit)
-                  203084ec    00000004     --HOLE-- [fill = 0]
-                  203084f0    00000048                 : cos.obj (.cinit)
-                  20308538    00000048                 : sin.obj (.cinit)
-                  20308580    00000040                 : exp.obj (.cinit)
-                  203085c0    00000030     FS_EMCV_v4_001.lib : cvcanny.obj (.cinit)
-                  203085f0    0000002c     rts6400.lib : exit.obj (.cinit)
-                  2030861c    00000004     --HOLE-- [fill = 0]
-                  20308620    0000002c                 : memory.obj (.cinit)
-                  2030864c    00000004     --HOLE-- [fill = 0]
-                  20308650    0000001e     FS_EMCV_v4_001.lib : cxlut.obj (.cinit)
-                  2030866e    00000002     --HOLE-- [fill = 0]
-                  20308670    0000001c     rts6400.lib : _lock.obj (.cinit)
-                  2030868c    00000004     --HOLE-- [fill = 0]
-                  20308690    0000001c                 : atexit.obj (.cinit)
-                  203086ac    00000004     --HOLE-- [fill = 0]
-                  203086b0    00000018     FS_EMCV_v4_001.lib : cvsumpixels.obj (.cinit)
-                  203086c8    00000014                        : cvthresh.obj (.cinit)
-                  203086dc    00000004     --HOLE-- [fill = 0]
-                  203086e0    00000010                        : cxalloc.obj (.cinit)
-                  203086f0    00000010     rts6400.lib : rand.obj (.cinit)
-                  20308700    0000000c     FS_EMCV_v4_001.lib : cxerror.obj (.cinit)
-                  2030870c    00000004     --HOLE-- [fill = 0]
-                  20308710    0000000c     rts6400.lib : errno.obj (.cinit)
-                  2030871c    00000004     --HOLE-- [fill = 0]
-                  20308720    0000000c                 : fopen.obj (.cinit)
-                  2030872c    00000004     --HOLE-- [fill = 0]
-                  20308730    0000000c                 : sinit.obj (.cinit)
-                  2030873c    00000004     --HOLE-- [fill = 0]
-                  20308740    0000000c                 : vars.obj (.cinit)
-                  2030874c    00000004     --HOLE-- [fill = 0]
-                  20308750    00000004     (.pad.cinit) [fill = 0]
+.cinit     0    2022a0b8    0009d194     
+                  2022a0b8    00096010     main.obj (.cinit)
+                  202c00c8    0000339c     FS_EMCV_v4_001.lib : cxouttext.obj (.cinit)
+                  202c3464    00000004     --HOLE-- [fill = 0]
+                  202c3468    0000087c                        : cxpersistence.obj (.cinit)
+                  202c3ce4    00000004     --HOLE-- [fill = 0]
+                  202c3ce8    000007c7                        : cxdatastructs.obj (.cinit)
+                  202c44af    00000001     --HOLE-- [fill = 0]
+                  202c44b0    0000064c                        : cxarray.obj (.cinit)
+                  202c4afc    00000004     --HOLE-- [fill = 0]
+                  202c4b00    0000032d                        : cvfilter.obj (.cinit)
+                  202c4e2d    00000003     --HOLE-- [fill = 0]
+                  202c4e30    00000326                        : cvderiv.obj (.cinit)
+                  202c5156    00000002     --HOLE-- [fill = 0]
+                  202c5158    00000326                        : cxmeansdv.obj (.cinit)
+                  202c547e    00000002     --HOLE-- [fill = 0]
+                  202c5480    000002fe                        : cxdxt.obj (.cinit)
+                  202c577e    00000002     --HOLE-- [fill = 0]
+                  202c5780    000002e3                        : cxmathfuncs.obj (.cinit)
+                  202c5a63    00000005     --HOLE-- [fill = 0]
+                  202c5a68    000002cf                        : cxconvert.obj (.cinit)
+                  202c5d37    00000001     --HOLE-- [fill = 0]
+                  202c5d38    00000229                        : cxsumpixels.obj (.cinit)
+                  202c5f61    00000007     --HOLE-- [fill = 0]
+                  202c5f68    00000215                        : cvaccum.obj (.cinit)
+                  202c617d    00000003     --HOLE-- [fill = 0]
+                  202c6180    0000020c                        : cvhistogram.obj (.cinit)
+                  202c638c    00000004     --HOLE-- [fill = 0]
+                  202c6390    000001e9                        : cxcopy.obj (.cinit)
+                  202c6579    00000007     --HOLE-- [fill = 0]
+                  202c6580    000001a6                        : cxarithm.obj (.cinit)
+                  202c6726    00000002     --HOLE-- [fill = 0]
+                  202c6728    0000019e                        : cxmean.obj (.cinit)
+                  202c68c6    00000002     --HOLE-- [fill = 0]
+                  202c68c8    0000017f                        : cxdrawing.obj (.cinit)
+                  202c6a47    00000001     --HOLE-- [fill = 0]
+                  202c6a48    00000140     rts6400.lib : pow.obj (.cinit)
+                  202c6b88    00000139     FS_EMCV_v4_001.lib : cvutils.obj (.cinit)
+                  202c6cc1    00000007     --HOLE-- [fill = 0]
+                  202c6cc8    000000e4                        : cxminmaxloc.obj (.cinit)
+                  202c6dac    00000004     --HOLE-- [fill = 0]
+                  202c6db0    000000e2                        : cvpyramids.obj (.cinit)
+                  202c6e92    00000006     --HOLE-- [fill = 0]
+                  202c6e98    00000090                        : cvtemplmatch.obj (.cinit)
+                  202c6f28    0000005c     rts6400.lib : defs.obj (.cinit)
+                  202c6f84    00000004     --HOLE-- [fill = 0]
+                  202c6f88    0000005c                 : lowlev.obj (.cinit)
+                  202c6fe4    00000004     --HOLE-- [fill = 0]
+                  202c6fe8    00000048                 : cos.obj (.cinit)
+                  202c7030    00000048                 : sin.obj (.cinit)
+                  202c7078    00000040                 : exp.obj (.cinit)
+                  202c70b8    00000030     FS_EMCV_v4_001.lib : cvcanny.obj (.cinit)
+                  202c70e8    0000002c     rts6400.lib : exit.obj (.cinit)
+                  202c7114    00000004     --HOLE-- [fill = 0]
+                  202c7118    0000002c                 : memory.obj (.cinit)
+                  202c7144    00000004     --HOLE-- [fill = 0]
+                  202c7148    0000001e     FS_EMCV_v4_001.lib : cxlut.obj (.cinit)
+                  202c7166    00000002     --HOLE-- [fill = 0]
+                  202c7168    0000001c     rts6400.lib : _lock.obj (.cinit)
+                  202c7184    00000004     --HOLE-- [fill = 0]
+                  202c7188    0000001c                 : atexit.obj (.cinit)
+                  202c71a4    00000004     --HOLE-- [fill = 0]
+                  202c71a8    00000018     FS_EMCV_v4_001.lib : cvsumpixels.obj (.cinit)
+                  202c71c0    00000014                        : cvthresh.obj (.cinit)
+                  202c71d4    00000004     --HOLE-- [fill = 0]
+                  202c71d8    00000010                        : cxalloc.obj (.cinit)
+                  202c71e8    00000010     rts6400.lib : rand.obj (.cinit)
+                  202c71f8    0000000c     FS_EMCV_v4_001.lib : cxerror.obj (.cinit)
+                  202c7204    00000004     --HOLE-- [fill = 0]
+                  202c7208    0000000c     rts6400.lib : errno.obj (.cinit)
+                  202c7214    00000004     --HOLE-- [fill = 0]
+                  202c7218    0000000c                 : fopen.obj (.cinit)
+                  202c7224    00000004     --HOLE-- [fill = 0]
+                  202c7228    0000000c                 : sinit.obj (.cinit)
+                  202c7234    00000004     --HOLE-- [fill = 0]
+                  202c7238    0000000c                 : vars.obj (.cinit)
+                  202c7244    00000004     --HOLE-- [fill = 0]
+                  202c7248    00000004     (.pad.cinit) [fill = 0]
 
-.const     0    20308758    0000f400     
-                  20308758    00002259     FS_EMCV_v4_001.lib : cxpersistence.obj (.const:.string)
-                  2030a9b1    00001d1a                        : cxdatastructs.obj (.const:.string)
-                  2030c6cb    00000003     rts6400.lib : assert.obj (.const:.string)
-                  2030c6ce    00000002                 : fputs.obj (.const:.string)
-                  2030c6d0    000019cc     FS_EMCV_v4_001.lib : cxdxt.obj (.const:_icvOptimalDFTSize)
-                  2030e09c    000010b5                        : cxarray.obj (.const:.string)
-                  2030f151    00000007     --HOLE-- [fill = 0]
-                  2030f158    00001000                        : cxmathfuncs.obj (.const:_icvLogTab)
-                  20310158    00000c00                        : cvtables.obj (.const:_icv8x32fTab_cv)
-                  20310d58    000009d1                        : cxdxt.obj (.const:.string)
-                  20311729    0000086b                        : cvpyramids.obj (.const:.string)
-                  20311f94    000007d0                        : cvfilter.obj (.const:.string)
-                  20312764    000007ac     ModelBuilding.obj (.const:.string)
-                  20312f10    000006be     FS_EMCV_v4_001.lib : cvhistogram.obj (.const:.string)
-                  203135ce    00000002     --HOLE-- [fill = 0]
-                  203135d0    00000600                        : cvtables.obj (.const:_icv8x32fSqrTab)
-                  20313bd0    00000600                        : cxtables.obj (.const:_icv8x32fTab)
-                  203141d0    00000598                        : cxarithm.obj (.const:.string)
-                  20314768    000004bc                        : cxconvert.obj (.const:.string)
-                  20314c24    000004b0                        : cxsumpixels.obj (.const:.string)
-                  203150d4    00000004     --HOLE-- [fill = 0]
-                  203150d8    000003fe                        : cxtables.obj (.const:_icv8x16uSqrTab)
-                  203154d6    000003ae                        : cxerror.obj (.const:.string)
-                  20315884    00000346                        : cvtemplmatch.obj (.const:.string)
-                  20315bca    00000006     --HOLE-- [fill = 0]
-                  20315bd0    00000301                        : cxtables.obj (.const:_icvSaturate8u)
-                  20315ed1    00000007     --HOLE-- [fill = 0]
-                  20315ed8    00000300                        : cvtables.obj (.const:_my8x16uSqrTab)
-                  203161d8    000002f3                        : cvderiv.obj (.const:.string)
-                  203164cb    00000218                        : cvsumpixels.obj (.const:.string)
-                  203166e3    00000005     --HOLE-- [fill = 0]
-                  203166e8    00000200                        : cxdxt.obj (.const:_icvDxtTab)
-                  203168e8    00000200                        : cxmathfuncs.obj (.const:_icvExpTab)
-                  20316ae8    00000200                        : cxmathfuncs.obj (.const:_sin_table$5)
-                  20316ce8    0000017a                        : cvutils.obj (.const:.string)
-                  20316e62    0000011d                        : cxcopy.obj (.const:.string)
-                  20316f7f    00000001     --HOLE-- [fill = 0]
-                  20316f80    00000101     rts6400.lib : ctype.obj (.const:__ctypes_)
-                  20317081    000000f5     FS_EMCV_v4_001.lib : cvthresh.obj (.const:.string)
-                  20317176    00000002     --HOLE-- [fill = 0]
-                  20317178    000000f0                        : cxdxt.obj (.const:_icvDctScale$5)
-                  20317268    000000bf                        : cxmathfuncs.obj (.const:.string)
-                  20317327    0000009e                        : cxmeansdv.obj (.const:.string)
-                  203173c5    0000009c                        : cxlut.obj (.const:.string)
-                  20317461    0000009b                        : cxmean.obj (.const:.string)
-                  203174fc    00000004     --HOLE-- [fill = 0]
-                  20317500    00000098                        : cxarray.obj (.const)
-                  20317598    00000078                        : cvaccum.obj (.const:.string)
-                  20317610    00000068                        : cvderiv.obj (.const:___vtbl__15CvLaplaceFilter)
-                  20317678    00000061                        : cxminmaxloc.obj (.const:.string)
-                  203176d9    00000007     --HOLE-- [fill = 0]
-                  203176e0    00000060                        : cxsumpixels.obj (.const)
-                  20317740    00000060                        : cvfilter.obj (.const:___vtbl__11CvSepFilter)
-                  203177a0    00000050                        : cvfilter.obj (.const:___vtbl__14CvLinearFilter)
-                  203177f0    00000050     rts6400.lib : strtod.obj (.const:_digits)
-                  20317840    00000048     FS_EMCV_v4_001.lib : cvfilter.obj (.const:___vtbl__17CvBaseImageFilter)
-                  20317888    00000048     rts6400.lib : strtod.obj (.const:_powerof10)
-                  203178d0    00000046     FS_EMCV_v4_001.lib : cvcanny.obj (.const:.string)
-                  20317916    00000002     --HOLE-- [fill = 0]
-                  20317918    00000040                        : cxmeansdv.obj (.const)
-                  20317958    00000040                        : cvfilter.obj (.const:_small_gaussian_tab$8)
-                  20317998    00000030     main.obj (.const:.string)
-                  203179c8    00000029     FS_EMCV_v4_001.lib : cxalloc.obj (.const:.string)
-                  203179f1    00000023     rts6400.lib : _printfi.obj (.const:.string)
-                  20317a14    00000004     --HOLE-- [fill = 0]
-                  20317a18    00000020     FS_EMCV_v4_001.lib : cxmean.obj (.const)
-                  20317a38    00000020                        : cxmathfuncs.obj (.const:_icvAtanSign)
-                  20317a58    00000020                        : cxmathfuncs.obj (.const:_icvAtanTab)
-                  20317a78    00000020                        : cxdatastructs.obj (.const:_icvPower2ShiftTab)
-                  20317a98    0000001c     main.obj (.const:_$P$T2$1)
-                  20317ab4    00000004     --HOLE-- [fill = 0]
-                  20317ab8    00000012     FS_EMCV_v4_001.lib : cxpersistence.obj (.const:_$P$T3$33)
-                  20317aca    00000006     --HOLE-- [fill = 0]
-                  20317ad0    00000012                        : cxtables.obj (.const:_icvDepthToType)
-                  20317ae2    00000006     --HOLE-- [fill = 0]
-                  20317ae8    00000010                        : cxdxt.obj (.const:_log2tab)
-                  20317af8    00000010                        : cxmathfuncs.obj (.const:_shift$22)
-                  20317b08    00000010                        : cxmathfuncs.obj (.const:_shift$26)
-                  20317b18    0000000c                        : cxdatastructs.obj (.const)
-                  20317b24    00000004     --HOLE-- [fill = 0]
-                  20317b28    00000009                        : cxpersistence.obj (.const:_icvTypeSymbol)
-                  20317b31    00000003     --HOLE-- [fill = 0]
-                  20317b34    00000008                        : cxconvert.obj (.const)
-                  20317b3c    00000004     --HOLE-- [fill = 0]
-                  20317b40    00000008                        : cvcanny.obj (.const:_$P$T2$1)
-                  20317b48    00000008     rts6400.lib : divd.obj (.const:_initial_approx$1)
-                  20317b50    00000008                 : divf.obj (.const:_initial_approx$1)
+.const     0    202c7250    00024228     
+                  202c7250    000127a4     FS_EMCV_v4_001.lib : cxouttext.obj (.const:.string)
+                  202d99f4    00002259                        : cxpersistence.obj (.const:.string)
+                  202dbc4d    00001d1a                        : cxdatastructs.obj (.const:.string)
+                  202dd967    00000001     --HOLE-- [fill = 0]
+                  202dd968    000019cc                        : cxdxt.obj (.const:_icvOptimalDFTSize)
+                  202df334    000010b5                        : cxarray.obj (.const:.string)
+                  202e03e9    00000003     rts6400.lib : assert.obj (.const:.string)
+                  202e03ec    00000002                 : fputs.obj (.const:.string)
+                  202e03ee    00000002     --HOLE-- [fill = 0]
+                  202e03f0    00001000     FS_EMCV_v4_001.lib : cxmathfuncs.obj (.const:_icvLogTab)
+                  202e13f0    00000c04                        : cxdrawing.obj (.const:.string)
+                  202e1ff4    00000004     --HOLE-- [fill = 0]
+                  202e1ff8    00000c00                        : cvtables.obj (.const:_icv8x32fTab_cv)
+                  202e2bf8    000009d1                        : cxdxt.obj (.const:.string)
+                  202e35c9    0000086b                        : cvpyramids.obj (.const:.string)
+                  202e3e34    000007d0                        : cvfilter.obj (.const:.string)
+                  202e4604    000007ac     ModelBuilding.obj (.const:.string)
+                  202e4db0    0000070c     FS_EMCV_v4_001.lib : cxdrawing.obj (.const:_icvSinTable)
+                  202e54bc    000006be                        : cvhistogram.obj (.const:.string)
+                  202e5b7a    00000006     --HOLE-- [fill = 0]
+                  202e5b80    00000600                        : cvtables.obj (.const:_icv8x32fSqrTab)
+                  202e6180    00000600                        : cxtables.obj (.const:_icv8x32fTab)
+                  202e6780    00000598                        : cxarithm.obj (.const:.string)
+                  202e6d18    000004bc                        : cxconvert.obj (.const:.string)
+                  202e71d4    000004b0                        : cxsumpixels.obj (.const:.string)
+                  202e7684    00000004     --HOLE-- [fill = 0]
+                  202e7688    000003fe                        : cxtables.obj (.const:_icv8x16uSqrTab)
+                  202e7a86    000003ae                        : cxerror.obj (.const:.string)
+                  202e7e34    00000346                        : cvtemplmatch.obj (.const:.string)
+                  202e817a    00000006     --HOLE-- [fill = 0]
+                  202e8180    00000301                        : cxtables.obj (.const:_icvSaturate8u)
+                  202e8481    00000007     --HOLE-- [fill = 0]
+                  202e8488    00000300                        : cvtables.obj (.const:_my8x16uSqrTab)
+                  202e8788    000002f3                        : cvderiv.obj (.const:.string)
+                  202e8a7b    00000218                        : cvsumpixels.obj (.const:.string)
+                  202e8c93    00000005     --HOLE-- [fill = 0]
+                  202e8c98    00000200                        : cxdxt.obj (.const:_icvDxtTab)
+                  202e8e98    00000200                        : cxmathfuncs.obj (.const:_icvExpTab)
+                  202e9098    00000200                        : cxmathfuncs.obj (.const:_sin_table$5)
+                  202e9298    00000180                        : cxdrawing.obj (.const:_icvHersheyComplex)
+                  202e9418    00000180                        : cxdrawing.obj (.const:_icvHersheyComplexItalic)
+                  202e9598    00000180                        : cxdrawing.obj (.const:_icvHersheyComplexSmall)
+                  202e9718    00000180                        : cxdrawing.obj (.const:_icvHersheyComplexSmallItalic)
+                  202e9898    00000180                        : cxdrawing.obj (.const:_icvHersheyDuplex)
+                  202e9a18    00000180                        : cxdrawing.obj (.const:_icvHersheyPlain)
+                  202e9b98    00000180                        : cxdrawing.obj (.const:_icvHersheyPlainItalic)
+                  202e9d18    00000180                        : cxdrawing.obj (.const:_icvHersheyScriptComplex)
+                  202e9e98    00000180                        : cxdrawing.obj (.const:_icvHersheyScriptSimplex)
+                  202ea018    00000180                        : cxdrawing.obj (.const:_icvHersheySimplex)
+                  202ea198    00000180                        : cxdrawing.obj (.const:_icvHersheyTriplex)
+                  202ea318    00000180                        : cxdrawing.obj (.const:_icvHersheyTriplexItalic)
+                  202ea498    0000017a                        : cvutils.obj (.const:.string)
+                  202ea612    0000011d                        : cxcopy.obj (.const:.string)
+                  202ea72f    00000001     --HOLE-- [fill = 0]
+                  202ea730    00000101     rts6400.lib : ctype.obj (.const:__ctypes_)
+                  202ea831    00000007     --HOLE-- [fill = 0]
+                  202ea838    00000100     FS_EMCV_v4_001.lib : cxdrawing.obj (.const:_icvFilterTable)
+                  202ea938    000000f5                        : cvthresh.obj (.const:.string)
+                  202eaa2d    00000003     --HOLE-- [fill = 0]
+                  202eaa30    000000f0                        : cxdxt.obj (.const:_icvDctScale$5)
+                  202eab20    000000bf                        : cxmathfuncs.obj (.const:.string)
+                  202eabdf    0000009e                        : cxmeansdv.obj (.const:.string)
+                  202eac7d    0000009c                        : cxlut.obj (.const:.string)
+                  202ead19    0000009b                        : cxmean.obj (.const:.string)
+                  202eadb4    00000004     --HOLE-- [fill = 0]
+                  202eadb8    00000098                        : cxarray.obj (.const)
+                  202eae50    00000078                        : cvaccum.obj (.const:.string)
+                  202eaec8    00000068                        : cvderiv.obj (.const:___vtbl__15CvLaplaceFilter)
+                  202eaf30    00000061                        : cxminmaxloc.obj (.const:.string)
+                  202eaf91    00000007     --HOLE-- [fill = 0]
+                  202eaf98    00000060                        : cxsumpixels.obj (.const)
+                  202eaff8    00000060                        : cvfilter.obj (.const:___vtbl__11CvSepFilter)
+                  202eb058    00000050                        : cvfilter.obj (.const:___vtbl__14CvLinearFilter)
+                  202eb0a8    00000050     rts6400.lib : strtod.obj (.const:_digits)
+                  202eb0f8    00000048     FS_EMCV_v4_001.lib : cvfilter.obj (.const:___vtbl__17CvBaseImageFilter)
+                  202eb140    00000048     rts6400.lib : strtod.obj (.const:_powerof10)
+                  202eb188    00000046     FS_EMCV_v4_001.lib : cvcanny.obj (.const:.string)
+                  202eb1ce    00000002     --HOLE-- [fill = 0]
+                  202eb1d0    00000040                        : cxmeansdv.obj (.const)
+                  202eb210    00000040                        : cxdrawing.obj (.const:_icvCodeDeltas)
+                  202eb250    00000040                        : cvfilter.obj (.const:_small_gaussian_tab$8)
+                  202eb290    00000030     main.obj (.const:.string)
+                  202eb2c0    00000029     FS_EMCV_v4_001.lib : cxalloc.obj (.const:.string)
+                  202eb2e9    00000023     rts6400.lib : _printfi.obj (.const:.string)
+                  202eb30c    00000004     --HOLE-- [fill = 0]
+                  202eb310    00000020     FS_EMCV_v4_001.lib : cxmean.obj (.const)
+                  202eb330    00000020                        : cxmathfuncs.obj (.const:_icvAtanSign)
+                  202eb350    00000020                        : cxmathfuncs.obj (.const:_icvAtanTab)
+                  202eb370    00000020                        : cxdatastructs.obj (.const:_icvPower2ShiftTab)
+                  202eb390    00000020                        : cxdrawing.obj (.const:_icvSlopeCorrTable)
+                  202eb3b0    0000001c     main.obj (.const:_$P$T2$1)
+                  202eb3cc    00000004     --HOLE-- [fill = 0]
+                  202eb3d0    00000012     FS_EMCV_v4_001.lib : cxpersistence.obj (.const:_$P$T3$33)
+                  202eb3e2    00000006     --HOLE-- [fill = 0]
+                  202eb3e8    00000012                        : cxtables.obj (.const:_icvDepthToType)
+                  202eb3fa    00000006     --HOLE-- [fill = 0]
+                  202eb400    00000010                        : cxdxt.obj (.const:_log2tab)
+                  202eb410    00000010                        : cxmathfuncs.obj (.const:_shift$22)
+                  202eb420    00000010                        : cxmathfuncs.obj (.const:_shift$26)
+                  202eb430    0000000c                        : cxdatastructs.obj (.const)
+                  202eb43c    00000004     --HOLE-- [fill = 0]
+                  202eb440    00000009                        : cxpersistence.obj (.const:_icvTypeSymbol)
+                  202eb449    00000003     --HOLE-- [fill = 0]
+                  202eb44c    00000008                        : cxconvert.obj (.const)
+                  202eb454    00000008                        : cxdrawing.obj (.const)
+                  202eb45c    00000004     --HOLE-- [fill = 0]
+                  202eb460    00000008                        : cvcanny.obj (.const:_$P$T2$1)
+                  202eb468    00000008     rts6400.lib : divd.obj (.const:_initial_approx$1)
+                  202eb470    00000008                 : divf.obj (.const:_initial_approx$1)
 
-.bss       0    20317b58    000006fc     UNINITIALIZED
-                  20317b58    0000011c     FS_EMCV_v4_001.lib : cxmathfuncs.obj (.bss)
-                  20317c74    000000c4                        : cxmeansdv.obj (.bss)
-                  20317d38    000000b8                        : cvderiv.obj (.bss)
-                  20317df0    00000098                        : cxconvert.obj (.bss)
-                  20317e88    00000088                        : cxdxt.obj (.bss)
-                  20317f10    0000007c                        : cxsumpixels.obj (.bss)
-                  20317f8c    00000070                        : cvaccum.obj (.bss)
-                  20317ffc    0000006c                        : cvfilter.obj (.bss)
-                  20318068    00000064                        : cxcopy.obj (.bss)
-                  203180cc    00000064                        : cxmean.obj (.bss)
-                  20318130    0000004c                        : cxarithm.obj (.bss)
-                  2031817c    00000040                        : cvutils.obj (.bss)
-                  203181bc    00000034                        : cxminmaxloc.obj (.bss)
-                  203181f0    00000030                        : cvpyramids.obj (.bss)
-                  20318220    00000018                        : cvtemplmatch.obj (.bss)
-                  20318238    0000000c                        : cxpersistence.obj (.bss)
-                  20318244    00000008                        : cvcanny.obj (.bss)
-                  2031824c    00000004                        : cxerror.obj (.bss)
-                  20318250    00000004                        : cxlut.obj (.bss)
+.bss       0    202eb478    00000704     UNINITIALIZED
+                  202eb478    0000011c     FS_EMCV_v4_001.lib : cxmathfuncs.obj (.bss)
+                  202eb594    000000c4                        : cxmeansdv.obj (.bss)
+                  202eb658    000000b8                        : cvderiv.obj (.bss)
+                  202eb710    00000098                        : cxconvert.obj (.bss)
+                  202eb7a8    00000088                        : cxdxt.obj (.bss)
+                  202eb830    0000007c                        : cxsumpixels.obj (.bss)
+                  202eb8ac    00000070                        : cvaccum.obj (.bss)
+                  202eb91c    0000006c                        : cvfilter.obj (.bss)
+                  202eb988    00000064                        : cxcopy.obj (.bss)
+                  202eb9ec    00000064                        : cxmean.obj (.bss)
+                  202eba50    0000004c                        : cxarithm.obj (.bss)
+                  202eba9c    00000040                        : cvutils.obj (.bss)
+                  202ebadc    00000034                        : cxminmaxloc.obj (.bss)
+                  202ebb10    00000030                        : cvpyramids.obj (.bss)
+                  202ebb40    00000018                        : cvtemplmatch.obj (.bss)
+                  202ebb58    0000000c                        : cxpersistence.obj (.bss)
+                  202ebb64    00000008                        : cvcanny.obj (.bss)
+                  202ebb6c    00000004                        : cxerror.obj (.bss)
+                  202ebb70    00000008                        : cxdrawing.obj (.bss)
+                  202ebb78    00000004                        : cxlut.obj (.bss)
 
-.switch    0    20318254    00000474     
-                  20318254    000000a8     FS_EMCV_v4_001.lib : cxerror.obj (.switch:_cvErrorStr)
-                  203182fc    00000060                        : cxerror.obj (.switch:_cvErrorFromIppStatus)
-                  2031835c    00000040                        : cxpersistence.obj (.switch:_cvReadRawDataSlice)
-                  2031839c    00000020                        : cvhistogram.obj (.switch:_cvCompareHist)
-                  203183bc    00000020                        : cxarray.obj (.switch:_cvRawDataToScalar)
-                  203183dc    00000020                        : cxpersistence.obj (.switch:_cvWriteRawData)
-                  203183fc    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_16s_C1R__FPCUciPsT26CvSizedT6T2)
-                  2031841c    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_16u_C1R__FPCUciPUsT26CvSizedT6T2)
-                  2031843c    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_32f_C1R__FPCUciPfT26CvSizedT6T2)
-                  2031845c    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_32s_C1R__FPCUciPiT26CvSizedT6T2)
-                  2031847c    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_64f_C1R__FPCUciPdT26CvSizedT6T2)
-                  2031849c    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_8s_C1R__FPCUciPcT26CvSizedT6T2)
-                  203184bc    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_8u_C1R__FPCUciPUcT26CvSizedT6T2)
-                  203184dc    00000020                        : cxconvert.obj (.switch:_icvCvtTo_16s_C1R__FPCUciPsT26CvSizeT2)
-                  203184fc    00000020                        : cxconvert.obj (.switch:_icvCvtTo_16u_C1R__FPCUciPUsT26CvSizeT2)
-                  2031851c    00000020                        : cxconvert.obj (.switch:_icvCvtTo_32f_C1R__FPCUciPfT26CvSizeT2)
-                  2031853c    00000020                        : cxconvert.obj (.switch:_icvCvtTo_32s_C1R__FPCUciPiT26CvSizeT2)
-                  2031855c    00000020                        : cxconvert.obj (.switch:_icvCvtTo_8s_C1R__FPCUciPcT26CvSizeT2)
-                  2031857c    00000020                        : cxconvert.obj (.switch:_icvCvtTo_8u_C1R__FPCUciPUcT26CvSizeT2)
-                  2031859c    0000001c                        : cxarray.obj (.switch:_cvGetReal1D)
-                  203185b8    0000001c                        : cxarray.obj (.switch:_cvGetReal2D)
-                  203185d4    0000001c                        : cxarray.obj (.switch:_cvGetReal3D)
-                  203185f0    0000001c                        : cxarray.obj (.switch:_cvGetRealND)
-                  2031860c    0000001c                        : cxarray.obj (.switch:_cvScalarToRawData)
-                  20318628    00000018                        : cxconvert.obj (.switch:_icvCvtTo_64f_C1R__FPCUciPdT26CvSizeT2)
-                  20318640    00000014                        : cxarray.obj (.switch:_cvSetReal1D)
-                  20318654    00000014                        : cxarray.obj (.switch:_cvSetReal2D)
-                  20318668    00000014                        : cxarray.obj (.switch:_cvSetReal3D)
-                  2031867c    00000014                        : cxarray.obj (.switch:_cvSetRealND)
-                  20318690    00000014                        : cxconvert.obj (.switch:_icvCvtScaleAbsTo_8u_C1R__FPCUciPUcT26CvSizedT6T2)
-                  203186a4    00000014                        : cxpersistence.obj (.switch:_icvWriteFileNode__FP13CvFileStoragePCcPC10CvFileNode)
-                  203186b8    00000010     ModelBuilding.obj (.switch:_lhIsCalculateScore__FP5CvMatT1P5LhSeqsT4LN36T4PLT4)
+.switch    0    202ebb7c    00000494     
+                  202ebb7c    000000a8     FS_EMCV_v4_001.lib : cxerror.obj (.switch:_cvErrorStr)
+                  202ebc24    00000060                        : cxerror.obj (.switch:_cvErrorFromIppStatus)
+                  202ebc84    00000040                        : cxpersistence.obj (.switch:_cvReadRawDataSlice)
+                  202ebcc4    00000020                        : cvhistogram.obj (.switch:_cvCompareHist)
+                  202ebce4    00000020                        : cxdrawing.obj (.switch:_cvInitFont)
+                  202ebd04    00000020                        : cxarray.obj (.switch:_cvRawDataToScalar)
+                  202ebd24    00000020                        : cxpersistence.obj (.switch:_cvWriteRawData)
+                  202ebd44    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_16s_C1R__FPCUciPsT26CvSizedT6T2)
+                  202ebd64    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_16u_C1R__FPCUciPUsT26CvSizedT6T2)
+                  202ebd84    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_32f_C1R__FPCUciPfT26CvSizedT6T2)
+                  202ebda4    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_32s_C1R__FPCUciPiT26CvSizedT6T2)
+                  202ebdc4    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_64f_C1R__FPCUciPdT26CvSizedT6T2)
+                  202ebde4    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_8s_C1R__FPCUciPcT26CvSizedT6T2)
+                  202ebe04    00000020                        : cxconvert.obj (.switch:_icvCvtScaleTo_8u_C1R__FPCUciPUcT26CvSizedT6T2)
+                  202ebe24    00000020                        : cxconvert.obj (.switch:_icvCvtTo_16s_C1R__FPCUciPsT26CvSizeT2)
+                  202ebe44    00000020                        : cxconvert.obj (.switch:_icvCvtTo_16u_C1R__FPCUciPUsT26CvSizeT2)
+                  202ebe64    00000020                        : cxconvert.obj (.switch:_icvCvtTo_32f_C1R__FPCUciPfT26CvSizeT2)
+                  202ebe84    00000020                        : cxconvert.obj (.switch:_icvCvtTo_32s_C1R__FPCUciPiT26CvSizeT2)
+                  202ebea4    00000020                        : cxconvert.obj (.switch:_icvCvtTo_8s_C1R__FPCUciPcT26CvSizeT2)
+                  202ebec4    00000020                        : cxconvert.obj (.switch:_icvCvtTo_8u_C1R__FPCUciPUcT26CvSizeT2)
+                  202ebee4    0000001c                        : cxarray.obj (.switch:_cvGetReal1D)
+                  202ebf00    0000001c                        : cxarray.obj (.switch:_cvGetReal2D)
+                  202ebf1c    0000001c                        : cxarray.obj (.switch:_cvGetReal3D)
+                  202ebf38    0000001c                        : cxarray.obj (.switch:_cvGetRealND)
+                  202ebf54    0000001c                        : cxarray.obj (.switch:_cvScalarToRawData)
+                  202ebf70    00000018                        : cxconvert.obj (.switch:_icvCvtTo_64f_C1R__FPCUciPdT26CvSizeT2)
+                  202ebf88    00000014                        : cxarray.obj (.switch:_cvSetReal1D)
+                  202ebf9c    00000014                        : cxarray.obj (.switch:_cvSetReal2D)
+                  202ebfb0    00000014                        : cxarray.obj (.switch:_cvSetReal3D)
+                  202ebfc4    00000014                        : cxarray.obj (.switch:_cvSetRealND)
+                  202ebfd8    00000014                        : cxconvert.obj (.switch:_icvCvtScaleAbsTo_8u_C1R__FPCUciPUcT26CvSizedT6T2)
+                  202ebfec    00000014                        : cxpersistence.obj (.switch:_icvWriteFileNode__FP13CvFileStoragePCcPC10CvFileNode)
+                  202ec000    00000010     ModelBuilding.obj (.switch:_lhIsCalculateScore__FP5CvMatT1P5LhSeqsT4LN36T4PLT4)
 
-.cio       0    203186c8    00000120     UNINITIALIZED
-                  203186c8    00000120     rts6400.lib : trgmsg.obj (.cio)
+.cio       0    202ec010    00000120     UNINITIALIZED
+                  202ec010    00000120     rts6400.lib : trgmsg.obj (.cio)
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
 address    name
 --------   ----
-20317b58   $bss
-20317b58   .bss
+202eb478   $bss
+202eb478   .bss
 00000008   .data
 20000020   .text
-2015a6e0   C$$EXIT
-2015a298   C$$IO$$
-20149690   _AdaptiveFindThreshold
-20158840   _HOSTclose
-201569c0   _HOSTlseek
-20156f60   _HOSTopen
-20157060   _HOSTread
-201550a0   _HOSTrename
-20158060   _HOSTunlink
-20157160   _HOSTwrite
-203186c8   __CIOBUF_
+20166820   C$$EXIT
+20166398   C$$IO$$
+201554f0   _AdaptiveFindThreshold
+20164940   _HOSTclose
+20162ac0   _HOSTlseek
+20163060   _HOSTopen
+20163160   _HOSTread
+201611c0   _HOSTrename
+20164160   _HOSTunlink
+20163260   _HOSTwrite
+202ec010   __CIOBUF_
 10000008   __STACK_END
 10000000   __STACK_SIZE
 10000000   __SYSMEM_SIZE
 00000001   __TI_args_main
 2009a0a8   ___CPR116____ct__6CvTypeFPCcPFKPCv_iPFKPPv_vPFKP13CvFileStorageP10CvFileNode_PvPFKPJ37JPCcPCv10CvAttrList_vPFKPCv_Pv
-20244ac4   ___TI_enable_exit_profile_output
+2022a094   ___TI_enable_exit_profile_output
 ffffffff   ___TI_pprof_out_hndl
 ffffffff   ___TI_prof_data_size
 ffffffff   ___TI_prof_data_start
-2015a2a0   ___add_dtor
-20243d08   ___atexit_func_id__
+201663a0   ___add_dtor
+202291e0   ___atexit_func_id__
 ffffffff   ___binit__
-20317b58   ___bss__
+202eb478   ___bss__
 ffffffff   ___c_args__
-20244ae8   ___cinit__
+2022a0b8   ___cinit__
 20081610   ___ct__11CvSepFilterFiN21PC5CvMatT47CvPointT18CvScalar
 20081504   ___ct__11CvSepFilterFv
 200813a0   ___ct__14CvLinearFilterFiN21PC5CvMat7CvPointT18CvScalar
 20080740   ___ct__14CvLinearFilterFv
-2013c8e8   ___ct__15CvLaplaceFilterFiN21bN218CvScalar
-2013c2c8   ___ct__15CvLaplaceFilterFv
+20148748   ___ct__15CvLaplaceFilterFiN21bN218CvScalar
+20148128   ___ct__15CvLaplaceFilterFv
 20081260   ___ct__17CvBaseImageFilterFiN21b6CvSize7CvPointT18CvScalar
 200806b8   ___ct__17CvBaseImageFilterFv
 00000008   ___data__
-2015a5a0   ___default_new_handler__Fv
-2015a5c0   ___dl__FPv
+201666e0   ___default_new_handler__Fv
+20166700   ___dl__FPv
 2007c528   ___dt__11CvSepFilterFv
 20079780   ___dt__14CvLinearFilterFv
-2013b7c0   ___dt__15CvLaplaceFilterFv
+20147620   ___dt__15CvLaplaceFilterFv
 200796e0   ___dt__17CvBaseImageFilterFv
 2008ebe0   ___dt__6CvTypeFv
 00000008   ___edata__
-20318254   ___end__
-2015a760   ___etext__
-2015a2e0   ___isinf
-20158900   ___nw__FUi
+202ebb7c   ___end__
+201668a0   ___etext__
+201663e0   ___isinf
+20164a00   ___nw__FUi
 20000008   ___pinit__
 20115c08   ___sti___15_cvhistogram_cpp_94fcd9cc
 2009a18c   ___sti___17_cxpersistence_cpp_seq_type
 20000020   ___text__
-20317740   ___vtbl__11CvSepFilter
-203177a0   ___vtbl__14CvLinearFilter
-20317610   ___vtbl__15CvLaplaceFilter
-20317840   ___vtbl__17CvBaseImageFilter
-20159dc0   __abort_msg
-20153e20   __addd
-201511c0   __addf
-2015a3e0   __args_main
-20156ae0   __auto_init
-20156600   __buff_read
-20157260   __c6xabi_divi
-20158a80   __c6xabi_divu
-20158d80   __c6xabi_remi
-201595a0   __c6xabi_remu
-20157460   __c6xabi_strasgi
-20158140   __cleanup
-20244abc   __cleanup_ptr
-20158220   __cmpd
-201591e0   __cmpf
-20316f80   __ctypes_
-201589c0   __cvtdf
-20159e20   __cvtfd
-2014d8e0   __divd
-20150500   __divf
-20157260   __divi
-20159280   __divli
-20158a80   __divu
-20155d60   __divul
-201533a0   __divull
-201583e0   __doflush
-20244ac0   __dtors_ptr
-20159320   __fixdi
-201593c0   __fixdli
-20156c00   __fixdlli
-20159460   __fixfi
-20159e80   __fltid
-20159ee0   __fltif
-201598c0   __fltlid
-20157360   __fltllid
-2015a420   __fltud
-2015a460   __fltuf
-20154080   __frcaddd
-20156d20   __frcmpyd
-201542e0   __frcmpyd_div
-20159f40   __frcmpyf
-20159500   __frcmpyf_div
-20243d00   __ft_end
-20243b70   __ftable
-20159940   __llshl
-20159fa0   __llshru
-20244ad0   __lock
-20153920   __mpyd
-20154a00   __mpyf
-201599c0   __mpyll
-2015a4a0   __negd
-2015a4e0   __negf
-2015a5e0   __negll
-20243b6c   __new_handler
-2015a600   __nop
-201561e0   __nround
-2014fb60   __printfi
-20158cc0   __rd_ok
-20158d80   __remi
-2015a060   __remli
-201595a0   __remu
-2015a0c0   __remul
-20159640   __renormd
+202eaff8   ___vtbl__11CvSepFilter
+202eb058   ___vtbl__14CvLinearFilter
+202eaec8   ___vtbl__15CvLaplaceFilter
+202eb0f8   ___vtbl__17CvBaseImageFilter
+20165ec0   __abort_msg
+2015ff40   __addd
+2015d020   __addf
+201664e0   __args_main
+20162be0   __auto_init
+20162700   __buff_read
+20163360   __c6xabi_divi
+20164b80   __c6xabi_divu
+20164e80   __c6xabi_remi
+201656a0   __c6xabi_remu
+20163560   __c6xabi_strasgi
+20164240   __cleanup
+2022a08c   __cleanup_ptr
+20164320   __cmpd
+201652e0   __cmpf
+202ea730   __ctypes_
+20164ac0   __cvtdf
+20165f20   __cvtfd
+20159740   __divd
+2015c360   __divf
+20163360   __divi
+20165380   __divli
+20161cc0   __divlli
+20164b80   __divu
+20161e60   __divul
+2015f200   __divull
+201644e0   __doflush
+2022a090   __dtors_ptr
+20165420   __fixdi
+201654c0   __fixdli
+20162d00   __fixdlli
+20165560   __fixfi
+20165f80   __fltid
+20165fe0   __fltif
+201659c0   __fltlid
+20163460   __fltllid
+20166520   __fltud
+20166560   __fltuf
+201601a0   __frcaddd
+20162e20   __frcmpyd
+20160400   __frcmpyd_div
+20166040   __frcmpyf
+20165600   __frcmpyf_div
+202291d8   __ft_end
+20229048   __ftable
+20165a40   __llshl
+201660a0   __llshru
+2022a0a0   __lock
+2015fa40   __mpyd
+20160b20   __mpyf
+20165ac0   __mpyll
+201665a0   __negd
+201665e0   __negf
+20166720   __negll
+20228e7c   __new_handler
+20166740   __nop
+201622e0   __nround
+2015b9c0   __printfi
+20164dc0   __rd_ok
+20164e80   __remi
+20166160   __remli
+201656a0   __remu
+201661c0   __remul
+20165740   __renormd
 00000008   __stack
-20157460   __strasgi
-2015a120   __subcull
-2015a520   __subd
-2015a560   __subf
+20163560   __strasgi
+20166220   __subcull
+20166620   __subd
+20166660   __subf
 10000008   __sys_memory
-20243c60   __tmpnams
-2015a6c0   __trunc
-20244ad4   __unlock
-20157560   __wrt_ok
-2015a6e0   _abort
-20149ecc   _alloc1double__FUi
-20149e0c   _alloc1float__FUi
-20149d4c   _alloc1int__FUi
-20149b80   _alloc1longlong__FUi
-20149f08   _alloc2double__FUiT1
-20149e48   _alloc2float__FUiT1
-20149d88   _alloc2int__FUiT1
-20149bbc   _alloc2longlong__FUiT1
-20149f48   _alloc3double__FUiN21
-20149e88   _alloc3float__FUiN21
-20149dc8   _alloc3int__FUiN21
-20149bfc   _alloc3longlong__FUiN21
-20156e40   _atoi
-2015a760   _beauty_gray
-2015a180   _c_int00
-20157660   _call_dtors
+20229138   __tmpnams
+20166800   __trunc
+2022a0a4   __unlock
+20163660   __wrt_ok
+20166820   _abort
+20155d2c   _alloc1double__FUi
+20155c6c   _alloc1float__FUi
+20155bac   _alloc1int__FUi
+201559e0   _alloc1longlong__FUi
+20155d68   _alloc2double__FUiT1
+20155ca8   _alloc2float__FUiT1
+20155be8   _alloc2int__FUiT1
+20155a1c   _alloc2longlong__FUiT1
+20155da8   _alloc3double__FUiN21
+20155ce8   _alloc3float__FUiN21
+20155c28   _alloc3int__FUiN21
+20155a5c   _alloc3longlong__FUiN21
+20162f40   _atoi
+20166280   _c_int00
+20163760   _call_dtors
 2007c458   _clear__11CvSepFilterFv
 200795f4   _clear__14CvLinearFilterFv
 200795b8   _clear__17CvBaseImageFilterFv
-20157760   _close
-201596e0   _copy_in
-20150040   _cos
-2012658c   _cvAcc
+20163860   _close
+201657e0   _copy_in
+2015bea0   _cos
+201320ec   _cvAcc
 200664c0   _cvAdd
 200653c0   _cvAddS
 20064d98   _cvAddWeighted
-20159158   _cvAlloc
+20165258   _cvAlloc
 2008b270   _cvAttrValue
-20132840   _cvAvg
+2013e3a0   _cvAvg
 200afde0   _cvAvgSdv
 20115580   _cvCalcArrBackProject
 20111ee8   _cvCalcArrBackProjectPatch
 2010db90   _cvCalcArrHist
 20111aa0   _cvCalcBayesianProb
 201114ec   _cvCalcProbDensity
-201482a0   _cvCanny
-2011ed6c   _cvCartToPolar
-2011e140   _cvCbrt
+20154100   _cvCanny
+2012a8cc   _cvCartToPolar
+20129ca0   _cvCbrt
 200eb2a0   _cvChangeSeqBlock
-2011de00   _cvCheckArr
+20129960   _cvCheckArr
 200d7f4c   _cvCheckTermCriteria
+20121438   _cvCircle
 200f87a8   _cvClearGraph
 20111480   _cvClearHist
 200f8740   _cvClearMemStorage
 200d7bf0   _cvClearND
 200f8608   _cvClearSeq
 200f8660   _cvClearSet
+20115cc0   _cvClipLine
 20099ea8   _cvClone
 200f7de0   _cvCloneGraph
 200d79b4   _cvCloneImage
 200d7790   _cvCloneMat
 200d71c0   _cvCloneMatND
 200d6fac   _cvCloneSparseMat
+20120e20   _cvColorToScalar
 2010f5d0   _cvCompareHist
 200371c8   _cvConvertScale
 20036dc4   _cvConvertScaleAbs
-2012be4c   _cvCopy
+201379ac   _cvCopy
 201094e4   _cvCopyHist
-20147d0c   _cvCopyMakeBorder
+20153b6c   _cvCopyMakeBorder
 20107588   _cvCountNonZero
 200f1500   _cvCreateChildMemStorage
 200d5364   _cvCreateData
@@ -718,22 +755,27 @@ ffffffff   ___c_args__
 200e7cc0   _cvDCT
 200e57a0   _cvDFT
 20063ee8   _cvDiv
+2011f978   _cvDrawContours
+2011f1c0   _cvEllipse
+20118de0   _cvEllipse2Poly
 200f19c4   _cvEndWriteSeq
 2008ff40   _cvEndWriteStruct
 2010eb40   _cvEqualizeHist
-2014bbc0   _cvError
-2014ba70   _cvErrorFromIppStatus
-2014adc8   _cvErrorStr
-2011d800   _cvExp
-2011a1d0   _cvFastArctan
+20157a20   _cvError
+201578d0   _cvErrorFromIppStatus
+20156c28   _cvErrorStr
+20129360   _cvExp
+20125d30   _cvFastArctan
+2011ef08   _cvFillConvexPoly
+2011ea94   _cvFillPoly
 2008082c   _cvFilter2D
 200f7000   _cvFindGraphEdge
 200f6608   _cvFindGraphEdgeByPtr
 2008e9c4   _cvFindType
 20099e9c   _cvFirstType
-2012b724   _cvFlip
+20137284   _cvFlip
 200f17a0   _cvFlushSeqWriter
-20159140   _cvFree_
+20165240   _cvFree_
 200d4648   _cvGet1D
 200d4200   _cvGet2D
 200d3ee0   _cvGet3D
@@ -742,9 +784,9 @@ ffffffff   ___c_args__
 200d35e0   _cvGetDimSize
 200cc108   _cvGetDims
 200d348c   _cvGetElemType
-2014b898   _cvGetErrInfo
-2014b154   _cvGetErrMode
-2014b808   _cvGetErrStatus
+201576f8   _cvGetErrInfo
+20156fb4   _cvGetErrMode
+20157668   _cvGetErrStatus
 200922c0   _cvGetFileNode
 20084c68   _cvGetFileNodeByName
 200999c4   _cvGetFileNodeName
@@ -767,6 +809,7 @@ ffffffff   ___c_args__
 200eb3e0   _cvGetSeqReaderPos
 200d11c0   _cvGetSize
 200d0e68   _cvGetSubRect
+2011e400   _cvGetTextSize
 200f6ce0   _cvGraphAddEdge
 200f6780   _cvGraphAddEdgeByPtr
 200f6420   _cvGraphAddVtx
@@ -776,52 +819,58 @@ ffffffff   ___c_args__
 200f5ce8   _cvGraphRemoveVtxByPtr
 200f5700   _cvGraphVtxDegree
 200f55c8   _cvGraphVtxDegreeByPtr
-2014b628   _cvGuiBoxReport
+20157488   _cvGuiBoxReport
+2011e120   _cvInitFont
 200d08e4   _cvInitImageHeader
+201160e0   _cvInitLineIterator
 200cc320   _cvInitMatHeader
 200d05e0   _cvInitMatNDHeader
 200cfd40   _cvInitNArrayIterator
 200c63c0   _cvInitSparseMatIterator
 200e94a0   _cvInitTreeNodeIterator
 200f54c8   _cvInsertNodeIntoTree
-2014c530   _cvIntegral
-2014be20   _cvIntegralImage_8u32s64s_C1R__FPCUciPiT2PLT2T3T26CvSize
-20142e88   _cvLUT
-2013c360   _cvLaplace
+20158390   _cvIntegral
+20157c80   _cvIntegralImage_8u32s64s_C1R__FPCUciPiT2PLT2T3T26CvSize
+2014ece8   _cvLUT
+201481c0   _cvLaplace
+2011de70   _cvLine
 200999f0   _cvLoad
-2011d220   _cvLog
+20128d80   _cvLog
 2010a820   _cvMakeHistHeaderForArray
 200f2e60   _cvMakeSeqHeaderForArray
-20144cf8   _cvMatchTemplate
+20150b58   _cvMatchTemplate
 200e8dc0   _cvMemStorageAlloc
 200f53a0   _cvMemStorageAllocString
 20032400   _cvMerge
-20140060   _cvMinMaxLoc
+2014bec0   _cvMinMaxLoc
 200318e8   _cvMixChannels
 20063240   _cvMul
 200d8180   _cvMulSpectrums
-20125e20   _cvMultiplyAcc
+20131980   _cvMultiplyAcc
 200f4ee4   _cvNextGraphItem
 200cfbd8   _cvNextNArraySlice
 200e9520   _cvNextTreeNode
 2010a2a8   _cvNormalizeHist
-2014b590   _cvNulDevReport
+201573f0   _cvNulDevReport
 20098084   _cvOpenFileStorage
-20146720   _cvPointSeqFromMat
-2011c240   _cvPolarToCart
-2011aca8   _cvPow
+20152580   _cvPointSeqFromMat
+20127da0   _cvPolarToCart
+2011da90   _cvPolyLine
+20126808   _cvPow
 200f4aa8   _cvPrevTreeNode
 200c84e0   _cvPtr1D
 200c6c60   _cvPtr2D
 200c7860   _cvPtr3D
 200c71c0   _cvPtrND
+2011cd54   _cvPutText
 200c5c70   _cvPyrDown
 200c56f4   _cvPyrUp
 200cf360   _cvRawDataToScalar
 2008ec4c   _cvRead
 200865c0   _cvReadRawData
 20085600   _cvReadRawDataSlice
-2014b4e0   _cvRedirectError
+2011c9f4   _cvRectangle
+20157340   _cvRedirectError
 20106964   _cvReduce
 20099664   _cvRegisterType
 20099468   _cvRelease
@@ -835,12 +884,12 @@ ffffffff   ___c_args__
 200f1cc0   _cvReleaseMemStorage
 200cec68   _cvReleaseSparseMat
 200f47c0   _cvRemoveNodeFromTree
-2012aec0   _cvRepeat
+20136a20   _cvRepeat
 200cebd0   _cvResetImageROI
 200ce644   _cvReshape
 200cd6a0   _cvReshapeMatND
 200e8a40   _cvRestoreMemStoragePos
-20125730   _cvRunningAvg
+20131290   _cvRunningAvg
 20098fd4   _cvSave
 200e89e0   _cvSaveMemStoragePos
 200c90e4   _cvScalarToRawData
@@ -860,14 +909,14 @@ ffffffff   ___c_args__
 200ee600   _cvSeqSearch
 200ede50   _cvSeqSlice
 200eb4c0   _cvSeqSort
-2012a104   _cvSet
+20135c64   _cvSet
 200cbf00   _cvSet1D
 200cbd08   _cvSet2D
 200cba80   _cvSet3D
 200eaf0c   _cvSetAdd
 200cb230   _cvSetData
-2014b440   _cvSetErrMode
-2014b3a8   _cvSetErrStatus
+201572a0   _cvSetErrMode
+20157208   _cvSetErrStatus
 20108b14   _cvSetHistBinRanges
 200cade8   _cvSetImageCOI
 200cab68   _cvSetImageROI
@@ -879,23 +928,23 @@ ffffffff   ___c_args__
 200eacd0   _cvSetRemove
 200e9060   _cvSetSeqBlockSize
 200ea7a8   _cvSetSeqReaderPos
-20129ac0   _cvSetZero
+20135620   _cvSetZero
 200ea754   _cvSliceLength
-2013b854   _cvSobel
+201476b4   _cvSobel
 200311b0   _cvSplit
-201250ac   _cvSquareAcc
+20130c0c   _cvSquareAcc
 200ea3e0   _cvStartAppendToSeq
 20091800   _cvStartNextStream
 20085084   _cvStartReadRawData
 200ea600   _cvStartReadSeq
 200ea4e0   _cvStartWriteSeq
 200903f0   _cvStartWriteStruct
-2014b1e4   _cvStdErrReport
+20157044   _cvStdErrReport
 20061e00   _cvSub
 20060d08   _cvSubRS
 20105c64   _cvSum
 20109fc0   _cvThreshHist
-2014ebc0   _cvThreshold
+2015aa20   _cvThreshold
 200e9f48   _cvTreeToNodeSeq
 20091488   _cvTypeOf
 2008ea54   _cvUnregisterType
@@ -906,707 +955,713 @@ ffffffff   ___c_args__
 20086d60   _cvWriteRawData
 20090bc0   _cvWriteReal
 2008f460   _cvWriteString
-202439a4   _dtors
-2023e9d4   _errno
-20157860   _exit
-201520a0   _exp
-20156880   _fclose
-2015a700   _feof
-20157960   _fflush
-2015a720   _fgets
+202284a4   _dtors
+20220b14   _errno
+20163960   _exit
+2015df00   _exp
+20162980   _fclose
+20166840   _feof
+20163a60   _fflush
+20166860   _fgets
 2007d4e0   _fill_cyclic_buffer__17CvBaseImageFilterFPCUciN32
-20318238   _first__6CvType
-20159a40   _fopen
-20159ac0   _fprintf
-201564a0   _fputc
-20152760   _fputs
-201530c0   _free
-20149eec   _free1double__FPd
-20149e2c   _free1float__FPf
-20149d6c   _free1int__FPi
-20149ba0   _free1longlong__FPL
-20149f2c   _free2double__FPPd
-20149e6c   _free2float__FPPf
-20149dac   _free2int__FPPi
-20149be0   _free2longlong__FPPL
-20149f70   _free3double__FPPPd
-20149eb0   _free3float__FPPPf
-20149df0   _free3int__FPPPi
-20149c24   _free3longlong__FPPPL
-20155480   _frexp
-20157a60   _fseek
-201585a0   _ftell
-2013b5c0   _get_work_params__15CvLaplaceFilterFv
+202ebb58   _first__6CvType
+20165b40   _fopen
+20165bc0   _fprintf
+201625a0   _fputc
+2015e5c0   _fputs
+2015ef20   _free
+20155d4c   _free1double__FPd
+20155c8c   _free1float__FPf
+20155bcc   _free1int__FPi
+20155a00   _free1longlong__FPL
+20155d8c   _free2double__FPPd
+20155ccc   _free2float__FPPf
+20155c0c   _free2int__FPPi
+20155a40   _free2longlong__FPPL
+20155dd0   _free3double__FPPPd
+20155d10   _free3float__FPPPf
+20155c50   _free3int__FPPPi
+20155a84   _free3longlong__FPPPL
+201615a0   _frexp
+20163b60   _fseek
+201646a0   _ftell
+20147420   _get_work_params__15CvLaplaceFilterFv
 2007c800   _get_work_params__17CvBaseImageFilterFv
-20243e90   _hist_type
-203150d8   _icv8x16uSqrTab
-203135d0   _icv8x32fSqrTab
-20313bd0   _icv8x32fTab
-20310158   _icv8x32fTab_cv
-20124e24   _icvAddProduct_32f_C1IMR__FPCfiT1T2PCUcT2PfT26CvSize
-20317fc0   _icvAddProduct_32f_C1IMR_p
-20124d9c   _icvAddProduct_32f_C1IR__FPCfiT1T2PfT26CvSize
-20317fa0   _icvAddProduct_32f_C1IR_p
-20124eac   _icvAddProduct_32f_C3IMR__FPCfiT1T2PCUcT2PfT26CvSize
-20317fe0   _icvAddProduct_32f_C3IMR_p
-20124de0   _icvAddProduct_8u32f_C1IMR__FPCUciT1T2T1T2PfT26CvSize
-20317fbc   _icvAddProduct_8u32f_C1IMR_p
-20124d58   _icvAddProduct_8u32f_C1IR__FPCUciT1T2PfT26CvSize
-20317f9c   _icvAddProduct_8u32f_C1IR_p
-20124e68   _icvAddProduct_8u32f_C3IMR__FPCUciT1T2T1T2PfT26CvSize
-20317fdc   _icvAddProduct_8u32f_C3IMR_p
-20124c8c   _icvAddSquare_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
-20317fb8   _icvAddSquare_32f_C1IMR_p
-20124c14   _icvAddSquare_32f_C1IR__FPCfiPfT26CvSize
-20317f98   _icvAddSquare_32f_C1IR_p
-20124d14   _icvAddSquare_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
-20317fd8   _icvAddSquare_32f_C3IMR_p
-20124c48   _icvAddSquare_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
-20317fb4   _icvAddSquare_8u32f_C1IMR_p
-20124be0   _icvAddSquare_8u32f_C1IR__FPCUciPfT26CvSize
-20317f94   _icvAddSquare_8u32f_C1IR_p
-20124cd0   _icvAddSquare_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
-20317fd4   _icvAddSquare_8u32f_C3IMR_p
-20124f9c   _icvAddWeighted_32f_C1IMR__FPCfiPCUcT2PfT26CvSizef
-20317fc8   _icvAddWeighted_32f_C1IMR_p
-20124f24   _icvAddWeighted_32f_C1IR__FPCfiPfT26CvSizef
-20317fa8   _icvAddWeighted_32f_C1IR_p
-20125024   _icvAddWeighted_32f_C3IMR__FPCfiPCUcT2PfT26CvSizef
-20317fe8   _icvAddWeighted_32f_C3IMR_p
-20124f58   _icvAddWeighted_8u32f_C1IMR__FPCUciT1T2PfT26CvSizef
-20317fc4   _icvAddWeighted_8u32f_C1IMR_p
-20124ef0   _icvAddWeighted_8u32f_C1IR__FPCUciPfT26CvSizef
-20317fa4   _icvAddWeighted_8u32f_C1IR_p
-20124fe0   _icvAddWeighted_8u32f_C3IMR__FPCUciT1T2PfT26CvSizef
-20317fe4   _icvAddWeighted_8u32f_C3IMR_p
+20229368   _hist_type
+202e7688   _icv8x16uSqrTab
+202e5b80   _icv8x32fSqrTab
+202e6180   _icv8x32fTab
+202e1ff8   _icv8x32fTab_cv
+20130984   _icvAddProduct_32f_C1IMR__FPCfiT1T2PCUcT2PfT26CvSize
+202eb8e0   _icvAddProduct_32f_C1IMR_p
+201308fc   _icvAddProduct_32f_C1IR__FPCfiT1T2PfT26CvSize
+202eb8c0   _icvAddProduct_32f_C1IR_p
+20130a0c   _icvAddProduct_32f_C3IMR__FPCfiT1T2PCUcT2PfT26CvSize
+202eb900   _icvAddProduct_32f_C3IMR_p
+20130940   _icvAddProduct_8u32f_C1IMR__FPCUciT1T2T1T2PfT26CvSize
+202eb8dc   _icvAddProduct_8u32f_C1IMR_p
+201308b8   _icvAddProduct_8u32f_C1IR__FPCUciT1T2PfT26CvSize
+202eb8bc   _icvAddProduct_8u32f_C1IR_p
+201309c8   _icvAddProduct_8u32f_C3IMR__FPCUciT1T2T1T2PfT26CvSize
+202eb8fc   _icvAddProduct_8u32f_C3IMR_p
+201307ec   _icvAddSquare_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
+202eb8d8   _icvAddSquare_32f_C1IMR_p
+20130774   _icvAddSquare_32f_C1IR__FPCfiPfT26CvSize
+202eb8b8   _icvAddSquare_32f_C1IR_p
+20130874   _icvAddSquare_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
+202eb8f8   _icvAddSquare_32f_C3IMR_p
+201307a8   _icvAddSquare_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
+202eb8d4   _icvAddSquare_8u32f_C1IMR_p
+20130740   _icvAddSquare_8u32f_C1IR__FPCUciPfT26CvSize
+202eb8b4   _icvAddSquare_8u32f_C1IR_p
+20130830   _icvAddSquare_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
+202eb8f4   _icvAddSquare_8u32f_C3IMR_p
+20130afc   _icvAddWeighted_32f_C1IMR__FPCfiPCUcT2PfT26CvSizef
+202eb8e8   _icvAddWeighted_32f_C1IMR_p
+20130a84   _icvAddWeighted_32f_C1IR__FPCfiPfT26CvSizef
+202eb8c8   _icvAddWeighted_32f_C1IR_p
+20130b84   _icvAddWeighted_32f_C3IMR__FPCfiPCUcT2PfT26CvSizef
+202eb908   _icvAddWeighted_32f_C3IMR_p
+20130ab8   _icvAddWeighted_8u32f_C1IMR__FPCUciT1T2PfT26CvSizef
+202eb8e4   _icvAddWeighted_8u32f_C1IMR_p
+20130a50   _icvAddWeighted_8u32f_C1IR__FPCUciPfT26CvSizef
+202eb8c4   _icvAddWeighted_8u32f_C1IR_p
+20130b40   _icvAddWeighted_8u32f_C3IMR__FPCUciT1T2PfT26CvSizef
+202eb904   _icvAddWeighted_8u32f_C3IMR_p
 20060bb4   _icvAdd_16s_C1R__FPCsiT1T2PsT26CvSizeT2
-20318138   _icvAdd_16s_C1R_p
+202eba58   _icvAdd_16s_C1R_p
 20060b70   _icvAdd_16u_C1R__FPCUsiT1T2PUsT26CvSizeT2
-20318134   _icvAdd_16u_C1R_p
-20124b58   _icvAdd_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
-20317fb0   _icvAdd_32f_C1IMR_p
-20124ae0   _icvAdd_32f_C1IR__FPCfiPfT26CvSize
-20317f90   _icvAdd_32f_C1IR_p
+202eba54   _icvAdd_16u_C1R_p
+201306b8   _icvAdd_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
+202eb8d0   _icvAdd_32f_C1IMR_p
+20130640   _icvAdd_32f_C1IR__FPCfiPfT26CvSize
+202eb8b0   _icvAdd_32f_C1IR_p
 20060c3c   _icvAdd_32f_C1R__FPCfiT1T2PfT26CvSize
-20318140   _icvAdd_32f_C1R_p
-20124b9c   _icvAdd_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
-20317fd0   _icvAdd_32f_C3IMR_p
+202eba60   _icvAdd_32f_C1R_p
+201306fc   _icvAdd_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
+202eb8f0   _icvAdd_32f_C3IMR_p
 20060bf8   _icvAdd_32s_C1R__FPCiiT1T2PiT26CvSize
-2031813c   _icvAdd_32s_C1R_p
+202eba5c   _icvAdd_32s_C1R_p
 20060c80   _icvAdd_64f_C1R__FPCdiT1T2PdT26CvSize
-20318144   _icvAdd_64f_C1R_p
-20124b14   _icvAdd_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
-20317fac   _icvAdd_8u32f_C1IMR_p
-20124aac   _icvAdd_8u32f_C1IR__FPCUciPfT26CvSize
-20317f8c   _icvAdd_8u32f_C1IR_p
-20125068   _icvAdd_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
-20317fcc   _icvAdd_8u32f_C3IMR_p
+202eba64   _icvAdd_64f_C1R_p
+20130674   _icvAdd_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
+202eb8cc   _icvAdd_8u32f_C1IMR_p
+2013060c   _icvAdd_8u32f_C1IR__FPCUciPfT26CvSize
+202eb8ac   _icvAdd_8u32f_C1IR_p
+20130bc8   _icvAdd_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
+202eb8ec   _icvAdd_8u32f_C3IMR_p
 20060b2c   _icvAdd_8u_C1R__FPCUciT1T2PUcT26CvSizeT2
-20318130   _icvAdd_8u_C1R_p
-20318244   _icvCannyGetSize_p
-20318248   _icvCanny_16s8u_C1R_p
-2011ac74   _icvCheckArray_32f_C1R__FPCfi6CvSizeT2dT5
-20317ba0   _icvCheckArray_32f_C1R_p
-2011ac40   _icvCheckArray_64f_C1R__FPCdi6CvSizeT2dT5
-20317ba4   _icvCheckArray_64f_C1R_p
-203181a0   _icvCopyReplicateBorder_16s_C1IR_p
-20318180   _icvCopyReplicateBorder_16s_C1R_p
-203181ac   _icvCopyReplicateBorder_16s_C3IR_p
-2031818c   _icvCopyReplicateBorder_16s_C3R_p
-203181b0   _icvCopyReplicateBorder_16s_C4IR_p
-20318190   _icvCopyReplicateBorder_16s_C4R_p
-203181a8   _icvCopyReplicateBorder_32s_C1IR_p
-20318188   _icvCopyReplicateBorder_32s_C1R_p
-203181b4   _icvCopyReplicateBorder_32s_C3IR_p
-20318194   _icvCopyReplicateBorder_32s_C3R_p
-203181b8   _icvCopyReplicateBorder_32s_C4IR_p
-20318198   _icvCopyReplicateBorder_32s_C4R_p
-2031819c   _icvCopyReplicateBorder_8u_C1IR_p
-2031817c   _icvCopyReplicateBorder_8u_C1R_p
-203181a4   _icvCopyReplicateBorder_8u_C3IR_p
-20318184   _icvCopyReplicateBorder_8u_C3R_p
-20146100   _icvCopyReplicateBorder_8u__FPCUci6CvSizePUcT2T3N32T1
+202eba50   _icvAdd_8u_C1R_p
+202ebb64   _icvCannyGetSize_p
+202ebb68   _icvCanny_16s8u_C1R_p
+201267d4   _icvCheckArray_32f_C1R__FPCfi6CvSizeT2dT5
+202eb4c0   _icvCheckArray_32f_C1R_p
+201267a0   _icvCheckArray_64f_C1R__FPCdi6CvSizeT2dT5
+202eb4c4   _icvCheckArray_64f_C1R_p
+202ebac0   _icvCopyReplicateBorder_16s_C1IR_p
+202ebaa0   _icvCopyReplicateBorder_16s_C1R_p
+202ebacc   _icvCopyReplicateBorder_16s_C3IR_p
+202ebaac   _icvCopyReplicateBorder_16s_C3R_p
+202ebad0   _icvCopyReplicateBorder_16s_C4IR_p
+202ebab0   _icvCopyReplicateBorder_16s_C4R_p
+202ebac8   _icvCopyReplicateBorder_32s_C1IR_p
+202ebaa8   _icvCopyReplicateBorder_32s_C1R_p
+202ebad4   _icvCopyReplicateBorder_32s_C3IR_p
+202ebab4   _icvCopyReplicateBorder_32s_C3R_p
+202ebad8   _icvCopyReplicateBorder_32s_C4IR_p
+202ebab8   _icvCopyReplicateBorder_32s_C4R_p
+202ebabc   _icvCopyReplicateBorder_8u_C1IR_p
+202eba9c   _icvCopyReplicateBorder_8u_C1R_p
+202ebac4   _icvCopyReplicateBorder_8u_C3IR_p
+202ebaa4   _icvCopyReplicateBorder_8u_C3R_p
+20151f60   _icvCopyReplicateBorder_8u__FPCUci6CvSizePUcT2T3N32T1
 20030fd0   _icvCopy_16s_C1CnCR__FPCUsiPUsT26CvSizeN22
-20317e64   _icvCopy_16s_C1CnCR_p
-201296e0   _icvCopy_16s_C1MR__FPCUsiPUsT26CvSizePCUcT2
-20318098   _icvCopy_16s_C1MR_p
+202eb784   _icvCopy_16s_C1CnCR_p
+20135240   _icvCopy_16s_C1MR__FPCUsiPUsT26CvSizePCUcT2
+202eb9b8   _icvCopy_16s_C1MR_p
 20030a88   _icvCopy_16s_C2P2R__FPCUsiPPUsT26CvSize
-20317dfc   _icvCopy_16s_C2P2R_p
-2012977c   _icvCopy_16s_C3MR__FPCUsiPUsT26CvSizePCUcT2
-203180a4   _icvCopy_16s_C3MR_p
+202eb71c   _icvCopy_16s_C2P2R_p
+201352dc   _icvCopy_16s_C3MR__FPCUsiPUsT26CvSizePCUcT2
+202eb9c4   _icvCopy_16s_C3MR_p
 20030abc   _icvCopy_16s_C3P3R__FPCUsiPPUsT26CvSize
-20317e00   _icvCopy_16s_C3P3R_p
-201297b0   _icvCopy_16s_C4MR__FPCLiPLT26CvSizePCUcT2
-203180a8   _icvCopy_16s_C4MR_p
+202eb720   _icvCopy_16s_C3P3R_p
+20135310   _icvCopy_16s_C4MR__FPCLiPLT26CvSizePCUcT2
+202eb9c8   _icvCopy_16s_C4MR_p
 20030af0   _icvCopy_16s_C4P4R__FPCUsiPPUsT26CvSize
-20317e04   _icvCopy_16s_C4P4R_p
+202eb724   _icvCopy_16s_C4P4R_p
 20030c90   _icvCopy_16s_CnC1CR__FPCUsiPUsT26CvSizeN22
-20317e24   _icvCopy_16s_CnC1CR_p
+202eb744   _icvCopy_16s_CnC1CR_p
 20030dc8   _icvCopy_16s_P2C2R__FPPCUsiPUsT26CvSize
-20317e3c   _icvCopy_16s_P2C2R_p
+202eb75c   _icvCopy_16s_P2C2R_p
 20030dfc   _icvCopy_16s_P3C3R__FPPCUsiPUsT26CvSize
-20317e40   _icvCopy_16s_P3C3R_p
+202eb760   _icvCopy_16s_P3C3R_p
 20030e30   _icvCopy_16s_P4C4R__FPPCUsiPUsT26CvSize
-20317e44   _icvCopy_16s_P4C4R_p
+202eb764   _icvCopy_16s_P4C4R_p
 20031004   _icvCopy_32f_C1CnCR__FPCiiPiT26CvSizeN22
-20317e68   _icvCopy_32f_C1CnCR_p
+202eb788   _icvCopy_32f_C1CnCR_p
 20030b24   _icvCopy_32f_C2P2R__FPCiiPPiT26CvSize
-20317e08   _icvCopy_32f_C2P2R_p
-201297e4   _icvCopy_32f_C3MR__FPCiiPiT26CvSizePCUcT2
-203180ac   _icvCopy_32f_C3MR_p
+202eb728   _icvCopy_32f_C2P2R_p
+20135344   _icvCopy_32f_C3MR__FPCiiPiT26CvSizePCUcT2
+202eb9cc   _icvCopy_32f_C3MR_p
 20030b58   _icvCopy_32f_C3P3R__FPCiiPPiT26CvSize
-20317e0c   _icvCopy_32f_C3P3R_p
-20129818   _icvCopy_32f_C4MR__FPCiiPiT26CvSizePCUcT2
-203180b0   _icvCopy_32f_C4MR_p
+202eb72c   _icvCopy_32f_C3P3R_p
+20135378   _icvCopy_32f_C4MR__FPCiiPiT26CvSizePCUcT2
+202eb9d0   _icvCopy_32f_C4MR_p
 20030b8c   _icvCopy_32f_C4P4R__FPCiiPPiT26CvSize
-20317e10   _icvCopy_32f_C4P4R_p
+202eb730   _icvCopy_32f_C4P4R_p
 20030cc4   _icvCopy_32f_CnC1CR__FPCiiPiT26CvSizeN22
-20317e28   _icvCopy_32f_CnC1CR_p
+202eb748   _icvCopy_32f_CnC1CR_p
 20030e64   _icvCopy_32f_P2C2R__FPPCiiPiT26CvSize
-20317e48   _icvCopy_32f_P2C2R_p
+202eb768   _icvCopy_32f_P2C2R_p
 20030e98   _icvCopy_32f_P3C3R__FPPCiiPiT26CvSize
-20317e4c   _icvCopy_32f_P3C3R_p
+202eb76c   _icvCopy_32f_P3C3R_p
 20030ecc   _icvCopy_32f_P4C4R__FPPCiiPiT26CvSize
-20317e50   _icvCopy_32f_P4C4R_p
+202eb770   _icvCopy_32f_P4C4R_p
 20031038   _icvCopy_64f_C1CnCR__FPCLiPLT26CvSizeN22
-20317e6c   _icvCopy_64f_C1CnCR_p
+202eb78c   _icvCopy_64f_C1CnCR_p
 20030bc0   _icvCopy_64f_C2P2R__FPCLiPPLT26CvSize
-20317e14   _icvCopy_64f_C2P2R_p
+202eb734   _icvCopy_64f_C2P2R_p
 20030bf4   _icvCopy_64f_C3P3R__FPCLiPPLT26CvSize
-20317e18   _icvCopy_64f_C3P3R_p
+202eb738   _icvCopy_64f_C3P3R_p
 20030c28   _icvCopy_64f_C4P4R__FPCLiPPLT26CvSize
-20317e1c   _icvCopy_64f_C4P4R_p
+202eb73c   _icvCopy_64f_C4P4R_p
 20030cf8   _icvCopy_64f_CnC1CR__FPCLiPLT26CvSizeN22
-20317e2c   _icvCopy_64f_CnC1CR_p
+202eb74c   _icvCopy_64f_CnC1CR_p
 20030f00   _icvCopy_64f_P2C2R__FPPCLiPLT26CvSize
-20317e54   _icvCopy_64f_P2C2R_p
+202eb774   _icvCopy_64f_P2C2R_p
 20030f34   _icvCopy_64f_P3C3R__FPPCLiPLT26CvSize
-20317e58   _icvCopy_64f_P3C3R_p
+202eb778   _icvCopy_64f_P3C3R_p
 20030f68   _icvCopy_64f_P4C4R__FPPCLiPLT26CvSize
-20317e5c   _icvCopy_64f_P4C4R_p
-2012984c   _icvCopy_64s_C3MR__FPCLiPLT26CvSizePCUcT2
-203180b4   _icvCopy_64s_C3MR_p
-20129880   _icvCopy_64s_C4MR__FPCLiPLT26CvSizePCUcT2
-203180b8   _icvCopy_64s_C4MR_p
+202eb77c   _icvCopy_64f_P4C4R_p
+201353ac   _icvCopy_64s_C3MR__FPCLiPLT26CvSizePCUcT2
+202eb9d4   _icvCopy_64s_C3MR_p
+201353e0   _icvCopy_64s_C4MR__FPCLiPLT26CvSizePCUcT2
+202eb9d8   _icvCopy_64s_C4MR_p
 20030f9c   _icvCopy_8u_C1CnCR__FPCUciPUcT26CvSizeN22
-20317e60   _icvCopy_8u_C1CnCR_p
-201296ac   _icvCopy_8u_C1MR__FPCUciPUcT26CvSizeT1T2
-20318094   _icvCopy_8u_C1MR_p
-20129a84   _icvCopy_8u_C1R__FPCUciPUcT26CvSize
-20318068   _icvCopy_8u_C1R_p
+202eb780   _icvCopy_8u_C1CnCR_p
+2013520c   _icvCopy_8u_C1MR__FPCUciPUcT26CvSizeT1T2
+202eb9b4   _icvCopy_8u_C1MR_p
+201355e4   _icvCopy_8u_C1R__FPCUciPUcT26CvSize
+202eb988   _icvCopy_8u_C1R_p
 200309ec   _icvCopy_8u_C2P2R__FPCUciPPUcT26CvSize
-20317df0   _icvCopy_8u_C2P2R_p
-20129714   _icvCopy_8u_C3MR__FPCUciPUcT26CvSizeT1T2
-2031809c   _icvCopy_8u_C3MR_p
+202eb710   _icvCopy_8u_C2P2R_p
+20135274   _icvCopy_8u_C3MR__FPCUciPUcT26CvSizeT1T2
+202eb9bc   _icvCopy_8u_C3MR_p
 20030a20   _icvCopy_8u_C3P3R__FPCUciPPUcT26CvSize
-20317df4   _icvCopy_8u_C3P3R_p
-20129748   _icvCopy_8u_C4MR__FPCiiPiT26CvSizePCUcT2
-203180a0   _icvCopy_8u_C4MR_p
+202eb714   _icvCopy_8u_C3P3R_p
+201352a8   _icvCopy_8u_C4MR__FPCiiPiT26CvSizePCUcT2
+202eb9c0   _icvCopy_8u_C4MR_p
 20030a54   _icvCopy_8u_C4P4R__FPCUciPPUcT26CvSize
-20317df8   _icvCopy_8u_C4P4R_p
+202eb718   _icvCopy_8u_C4P4R_p
 20030c5c   _icvCopy_8u_CnC1CR__FPCUciPUcT26CvSizeN22
-20317e20   _icvCopy_8u_CnC1CR_p
+202eb740   _icvCopy_8u_CnC1CR_p
 20030d2c   _icvCopy_8u_P2C2R__FPPCUciPUcT26CvSize
-20317e30   _icvCopy_8u_P2C2R_p
+202eb750   _icvCopy_8u_P2C2R_p
 20030d60   _icvCopy_8u_P3C3R__FPPCUciPUcT26CvSize
-20317e34   _icvCopy_8u_P3C3R_p
+202eb754   _icvCopy_8u_P3C3R_p
 20030d94   _icvCopy_8u_P4C4R__FPPCUciPUcT26CvSize
-20317e38   _icvCopy_8u_P4C4R_p
+202eb758   _icvCopy_8u_P4C4R_p
 20105b60   _icvCountNonZero_16s_C1R__FPCUsi6CvSizePi
-20317f74   _icvCountNonZero_16s_C1R_p
+202eb894   _icvCountNonZero_16s_C1R_p
 20105bc8   _icvCountNonZero_32f_C1R__FPCii6CvSizePi
-20317f7c   _icvCountNonZero_32f_C1R_p
+202eb89c   _icvCountNonZero_32f_C1R_p
 20105b94   _icvCountNonZero_32s_C1R__FPCii6CvSizePi
-20317f78   _icvCountNonZero_32s_C1R_p
+202eb898   _icvCountNonZero_32s_C1R_p
 20105bfc   _icvCountNonZero_64f_C1R__FPCLi6CvSizePi
-20317f80   _icvCountNonZero_64f_C1R_p
+202eb8a0   _icvCountNonZero_64f_C1R_p
 20105b2c   _icvCountNonZero_8u_C1R__FPCUci6CvSizePi
-20317f70   _icvCountNonZero_8u_C1R_p
-20318230   _icvCrossCorrValid_NormLevel_32f_C1R_p
-20318224   _icvCrossCorrValid_NormLevel_8u32f_C1R_p
-2031822c   _icvCrossCorrValid_Norm_32f_C1R_p
-20318220   _icvCrossCorrValid_Norm_8u32f_C1R_p
-20143820   _icvCrossCorr__FPCvT1Pv7CvPoint
+202eb890   _icvCountNonZero_8u_C1R_p
+202ebb50   _icvCrossCorrValid_NormLevel_32f_C1R_p
+202ebb44   _icvCrossCorrValid_NormLevel_8u32f_C1R_p
+202ebb4c   _icvCrossCorrValid_Norm_32f_C1R_p
+202ebb40   _icvCrossCorrValid_Norm_8u32f_C1R_p
+2014f680   _icvCrossCorr__FPCvT1Pv7CvPoint
 2003107c   _icvCvt_32f64f__FPCfPdi
-20317e70   _icvCvt_32f64f_p
+202eb790   _icvCvt_32f64f_p
 2003106c   _icvCvt_64f32f__FPCdPfi
-20317e74   _icvCvt_64f32f_p
-20317e8c   _icvDFTFree_C_32fc_p
-20317ea0   _icvDFTFree_C_64fc_p
-20317eb4   _icvDFTFree_R_32f_p
-20317ec8   _icvDFTFree_R_64f_p
-20317e94   _icvDFTFwd_CToC_32fc_p
-20317ea8   _icvDFTFwd_CToC_64fc_p
-20317ebc   _icvDFTFwd_RToPack_32f_p
-20317ed0   _icvDFTFwd_RToPack_64f_p
-20317e90   _icvDFTGetBufSize_C_32fc_p
-20317ea4   _icvDFTGetBufSize_C_64fc_p
-20317eb8   _icvDFTGetBufSize_R_32f_p
-20317ecc   _icvDFTGetBufSize_R_64f_p
-20317e88   _icvDFTInitAlloc_C_32fc_p
-20317e9c   _icvDFTInitAlloc_C_64fc_p
-20317eb0   _icvDFTInitAlloc_R_32f_p
-20317ec4   _icvDFTInitAlloc_R_64f_p
-20317e98   _icvDFTInv_CToC_32fc_p
-20317eac   _icvDFTInv_CToC_64fc_p
-20317ec0   _icvDFTInv_PackToR_32f_p
-20317ed4   _icvDFTInv_PackToR_64f_p
-20317ad0   _icvDepthToType
-2011ac30   _icvExp_32f__FPCfPfi
-20317b88   _icvExp_32f_p
-2011ac20   _icvExp_64f__FPCdPdi
-20317b8c   _icvExp_64f_p
-2011ac10   _icvFastArctan_32f__FPCfT1Pfi
-20317b58   _icvFastArctan_32f_p
-2031802c   _icvFilterColumn_16s_C1R_p
-20318030   _icvFilterColumn_16s_C3R_p
-20318034   _icvFilterColumn_16s_C4R_p
-20318038   _icvFilterColumn_32f_C1R_p
-2031803c   _icvFilterColumn_32f_C3R_p
-20318040   _icvFilterColumn_32f_C4R_p
-20318020   _icvFilterColumn_8u_C1R_p
-20318024   _icvFilterColumn_8u_C3R_p
-20318028   _icvFilterColumn_8u_C4R_p
-20317dec   _icvFilterLaplacianBorder_32f_C1R_p
-20317de4   _icvFilterLaplacianBorder_8u16s_C1R_p
-20317de8   _icvFilterLaplacianGetBufSize_32f_C1R_p
-20317de0   _icvFilterLaplacianGetBufSize_8u16s_C1R_p
-20318008   _icvFilterRow_16s_C1R_p
-2031800c   _icvFilterRow_16s_C3R_p
-20318010   _icvFilterRow_16s_C4R_p
-20318014   _icvFilterRow_32f_C1R_p
-20318018   _icvFilterRow_32f_C3R_p
-2031801c   _icvFilterRow_32f_C4R_p
-20317ffc   _icvFilterRow_8u_C1R_p
-20318000   _icvFilterRow_8u_C3R_p
-20318004   _icvFilterRow_8u_C4R_p
-20317d7c   _icvFilterScharrHorizBorder_32f_C1R_p
-20317d74   _icvFilterScharrHorizBorder_8u16s_C1R_p
-20317d78   _icvFilterScharrHorizGetBufSize_32f_C1R_p
-20317d70   _icvFilterScharrHorizGetBufSize_8u16s_C1R_p
-20317d6c   _icvFilterScharrHoriz_32f_C1R_p
-20317d64   _icvFilterScharrHoriz_8u16s_C1R_p
-20317d8c   _icvFilterScharrVertBorder_32f_C1R_p
-20317d84   _icvFilterScharrVertBorder_8u16s_C1R_p
-20317d88   _icvFilterScharrVertGetBufSize_32f_C1R_p
-20317d80   _icvFilterScharrVertGetBufSize_8u16s_C1R_p
-20317d68   _icvFilterScharrVert_32f_C1R_p
-20317d60   _icvFilterScharrVert_8u16s_C1R_p
-20317ddc   _icvFilterSobelCrossBorder_32f_C1R_p
-20317dd4   _icvFilterSobelCrossBorder_8u16s_C1R_p
-20317dd8   _icvFilterSobelCrossGetBufSize_32f_C1R_p
-20317dd0   _icvFilterSobelCrossGetBufSize_8u16s_C1R_p
-20317d5c   _icvFilterSobelCross_32f_C1R_p
-20317d48   _icvFilterSobelCross_8u16s_C1R_p
-20317d9c   _icvFilterSobelHorizBorder_32f_C1R_p
-20317d94   _icvFilterSobelHorizBorder_8u16s_C1R_p
-20317d98   _icvFilterSobelHorizGetBufSize_32f_C1R_p
-20317d90   _icvFilterSobelHorizGetBufSize_8u16s_C1R_p
-20317dbc   _icvFilterSobelHorizSecondBorder_32f_C1R_p
-20317db4   _icvFilterSobelHorizSecondBorder_8u16s_C1R_p
-20317db8   _icvFilterSobelHorizSecondGetBufSize_32f_C1R_p
-20317db0   _icvFilterSobelHorizSecondGetBufSize_8u16s_C1R_p
-20317d58   _icvFilterSobelHorizSecond_32f_C1R_p
-20317d44   _icvFilterSobelHorizSecond_8u16s_C1R_p
-20317d50   _icvFilterSobelHoriz_32f_C1R_p
-20317d3c   _icvFilterSobelHoriz_8u16s_C1R_p
-20317dac   _icvFilterSobelNegVertBorder_32f_C1R_p
-20317da4   _icvFilterSobelNegVertBorder_8u16s_C1R_p
-20317da8   _icvFilterSobelNegVertGetBufSize_32f_C1R_p
-20317da0   _icvFilterSobelNegVertGetBufSize_8u16s_C1R_p
-20317dcc   _icvFilterSobelVertSecondBorder_32f_C1R_p
-20317dc4   _icvFilterSobelVertSecondBorder_8u16s_C1R_p
-20317dc8   _icvFilterSobelVertSecondGetBufSize_32f_C1R_p
-20317dc0   _icvFilterSobelVertSecondGetBufSize_8u16s_C1R_p
-20317d54   _icvFilterSobelVertSecond_32f_C1R_p
-20317d40   _icvFilterSobelVertSecond_8u16s_C1R_p
-20317d4c   _icvFilterSobelVert_32f_C1R_p
-20317d38   _icvFilterSobelVert_8u16s_C1R_p
-20318050   _icvFilter_16s_C1R_p
-20318054   _icvFilter_16s_C3R_p
-20318058   _icvFilter_16s_C4R_p
-2031805c   _icvFilter_32f_C1R_p
-20318060   _icvFilter_32f_C3R_p
-20318064   _icvFilter_32f_C4R_p
-20318044   _icvFilter_8u_C1R_p
-20318048   _icvFilter_8u_C3R_p
-2031804c   _icvFilter_8u_C4R_p
-201299e0   _icvGetCopyMaskFunc__Fi
+202eb794   _icvCvt_64f32f_p
+202eb7ac   _icvDFTFree_C_32fc_p
+202eb7c0   _icvDFTFree_C_64fc_p
+202eb7d4   _icvDFTFree_R_32f_p
+202eb7e8   _icvDFTFree_R_64f_p
+202eb7b4   _icvDFTFwd_CToC_32fc_p
+202eb7c8   _icvDFTFwd_CToC_64fc_p
+202eb7dc   _icvDFTFwd_RToPack_32f_p
+202eb7f0   _icvDFTFwd_RToPack_64f_p
+202eb7b0   _icvDFTGetBufSize_C_32fc_p
+202eb7c4   _icvDFTGetBufSize_C_64fc_p
+202eb7d8   _icvDFTGetBufSize_R_32f_p
+202eb7ec   _icvDFTGetBufSize_R_64f_p
+202eb7a8   _icvDFTInitAlloc_C_32fc_p
+202eb7bc   _icvDFTInitAlloc_C_64fc_p
+202eb7d0   _icvDFTInitAlloc_R_32f_p
+202eb7e4   _icvDFTInitAlloc_R_64f_p
+202eb7b8   _icvDFTInv_CToC_32fc_p
+202eb7cc   _icvDFTInv_CToC_64fc_p
+202eb7e0   _icvDFTInv_PackToR_32f_p
+202eb7f4   _icvDFTInv_PackToR_64f_p
+202eb3e8   _icvDepthToType
+20126790   _icvExp_32f__FPCfPfi
+202eb4a8   _icvExp_32f_p
+20126780   _icvExp_64f__FPCdPdi
+202eb4ac   _icvExp_64f_p
+20126770   _icvFastArctan_32f__FPCfT1Pfi
+202eb478   _icvFastArctan_32f_p
+202eb94c   _icvFilterColumn_16s_C1R_p
+202eb950   _icvFilterColumn_16s_C3R_p
+202eb954   _icvFilterColumn_16s_C4R_p
+202eb958   _icvFilterColumn_32f_C1R_p
+202eb95c   _icvFilterColumn_32f_C3R_p
+202eb960   _icvFilterColumn_32f_C4R_p
+202eb940   _icvFilterColumn_8u_C1R_p
+202eb944   _icvFilterColumn_8u_C3R_p
+202eb948   _icvFilterColumn_8u_C4R_p
+202eb70c   _icvFilterLaplacianBorder_32f_C1R_p
+202eb704   _icvFilterLaplacianBorder_8u16s_C1R_p
+202eb708   _icvFilterLaplacianGetBufSize_32f_C1R_p
+202eb700   _icvFilterLaplacianGetBufSize_8u16s_C1R_p
+202eb928   _icvFilterRow_16s_C1R_p
+202eb92c   _icvFilterRow_16s_C3R_p
+202eb930   _icvFilterRow_16s_C4R_p
+202eb934   _icvFilterRow_32f_C1R_p
+202eb938   _icvFilterRow_32f_C3R_p
+202eb93c   _icvFilterRow_32f_C4R_p
+202eb91c   _icvFilterRow_8u_C1R_p
+202eb920   _icvFilterRow_8u_C3R_p
+202eb924   _icvFilterRow_8u_C4R_p
+202eb69c   _icvFilterScharrHorizBorder_32f_C1R_p
+202eb694   _icvFilterScharrHorizBorder_8u16s_C1R_p
+202eb698   _icvFilterScharrHorizGetBufSize_32f_C1R_p
+202eb690   _icvFilterScharrHorizGetBufSize_8u16s_C1R_p
+202eb68c   _icvFilterScharrHoriz_32f_C1R_p
+202eb684   _icvFilterScharrHoriz_8u16s_C1R_p
+202eb6ac   _icvFilterScharrVertBorder_32f_C1R_p
+202eb6a4   _icvFilterScharrVertBorder_8u16s_C1R_p
+202eb6a8   _icvFilterScharrVertGetBufSize_32f_C1R_p
+202eb6a0   _icvFilterScharrVertGetBufSize_8u16s_C1R_p
+202eb688   _icvFilterScharrVert_32f_C1R_p
+202eb680   _icvFilterScharrVert_8u16s_C1R_p
+202eb6fc   _icvFilterSobelCrossBorder_32f_C1R_p
+202eb6f4   _icvFilterSobelCrossBorder_8u16s_C1R_p
+202eb6f8   _icvFilterSobelCrossGetBufSize_32f_C1R_p
+202eb6f0   _icvFilterSobelCrossGetBufSize_8u16s_C1R_p
+202eb67c   _icvFilterSobelCross_32f_C1R_p
+202eb668   _icvFilterSobelCross_8u16s_C1R_p
+202eb6bc   _icvFilterSobelHorizBorder_32f_C1R_p
+202eb6b4   _icvFilterSobelHorizBorder_8u16s_C1R_p
+202eb6b8   _icvFilterSobelHorizGetBufSize_32f_C1R_p
+202eb6b0   _icvFilterSobelHorizGetBufSize_8u16s_C1R_p
+202eb6dc   _icvFilterSobelHorizSecondBorder_32f_C1R_p
+202eb6d4   _icvFilterSobelHorizSecondBorder_8u16s_C1R_p
+202eb6d8   _icvFilterSobelHorizSecondGetBufSize_32f_C1R_p
+202eb6d0   _icvFilterSobelHorizSecondGetBufSize_8u16s_C1R_p
+202eb678   _icvFilterSobelHorizSecond_32f_C1R_p
+202eb664   _icvFilterSobelHorizSecond_8u16s_C1R_p
+202eb670   _icvFilterSobelHoriz_32f_C1R_p
+202eb65c   _icvFilterSobelHoriz_8u16s_C1R_p
+202eb6cc   _icvFilterSobelNegVertBorder_32f_C1R_p
+202eb6c4   _icvFilterSobelNegVertBorder_8u16s_C1R_p
+202eb6c8   _icvFilterSobelNegVertGetBufSize_32f_C1R_p
+202eb6c0   _icvFilterSobelNegVertGetBufSize_8u16s_C1R_p
+202eb6ec   _icvFilterSobelVertSecondBorder_32f_C1R_p
+202eb6e4   _icvFilterSobelVertSecondBorder_8u16s_C1R_p
+202eb6e8   _icvFilterSobelVertSecondGetBufSize_32f_C1R_p
+202eb6e0   _icvFilterSobelVertSecondGetBufSize_8u16s_C1R_p
+202eb674   _icvFilterSobelVertSecond_32f_C1R_p
+202eb660   _icvFilterSobelVertSecond_8u16s_C1R_p
+202eb66c   _icvFilterSobelVert_32f_C1R_p
+202eb658   _icvFilterSobelVert_8u16s_C1R_p
+202eb970   _icvFilter_16s_C1R_p
+202eb974   _icvFilter_16s_C3R_p
+202eb978   _icvFilter_16s_C4R_p
+202eb97c   _icvFilter_32f_C1R_p
+202eb980   _icvFilter_32f_C3R_p
+202eb984   _icvFilter_32f_C4R_p
+202eb964   _icvFilter_8u_C1R_p
+202eb968   _icvFilter_8u_C3R_p
+202eb96c   _icvFilter_8u_C4R_p
+20135540   _icvGetCopyMaskFunc__Fi
+20224b40   _icvHersheyGlyphs
 20080544   _icvIPPFilterInit__FPC5CvMati6CvSize
 200802e4   _icvIPPFilterNextStripe__FPC5CvMatP5CvMati6CvSize7CvPoint
 2007f640   _icvIPPSepFilter__FPC5CvMatP5CvMatN217CvPoint
-2011abd0   _icvInvSqrt_32f__FPCfPfi
-20317b5c   _icvInvSqrt_32f_p
-2011abc0   _icvInvSqrt_64f__FPCdPdi
-20317b68   _icvInvSqrt_64f_p
-20142ca4   _icvLUT_Transform8u_16u_C1R__FPCUciPUsT26CvSizePCUs
-201425c0   _icvLUT_Transform8u_32s_C1R__FPCUciPiT26CvSizePCi
-20141ea0   _icvLUT_Transform8u_64f_C1R__FPCUciPdT26CvSizePCd
-20141760   _icvLUT_Transform8u_8u_C1R__FPCUciPUcT26CvSizeT1
-201415e8   _icvLUT_Transform8u_8u_C2R__FPCUciPUcT26CvSizeT1
-20141434   _icvLUT_Transform8u_8u_C3R__FPCUciPUcT26CvSizeT1
-20141260   _icvLUT_Transform8u_8u_C4R__FPCUciPUcT26CvSizeT1
-2011ac00   _icvLog_32f__FPCfPfi
-20317b98   _icvLog_32f_p
-2011abf0   _icvLog_64f__FPCdPdi
-20317b9c   _icvLog_64f_p
-201324cc   _icvMean_16s_C1MR__FPCsiPCUcT26CvSizePd
-203180ec   _icvMean_16s_C1MR_p
-20132500   _icvMean_16s_C2MR__FPCsiPCUcT26CvSizePd
-203180f0   _icvMean_16s_C2MR_p
-20132534   _icvMean_16s_C3MR__FPCsiPCUcT26CvSizePd
-203180f4   _icvMean_16s_C3MR_p
-20132568   _icvMean_16s_C4MR__FPCsiPCUcT26CvSizePd
-203180f8   _icvMean_16s_C4MR_p
-201323fc   _icvMean_16u_C1MR__FPCUsiPCUcT26CvSizePd
-203180dc   _icvMean_16u_C1MR_p
-20132430   _icvMean_16u_C2MR__FPCUsiPCUcT26CvSizePd
-203180e0   _icvMean_16u_C2MR_p
-20132464   _icvMean_16u_C3MR__FPCUsiPCUcT26CvSizePd
-203180e4   _icvMean_16u_C3MR_p
-20132498   _icvMean_16u_C4MR__FPCUsiPCUcT26CvSizePd
-203180e8   _icvMean_16u_C4MR_p
-2013266c   _icvMean_32f_C1MR__FPCfiPCUcT26CvSizePd
-2031810c   _icvMean_32f_C1MR_p
-201326a0   _icvMean_32f_C2MR__FPCfiPCUcT26CvSizePd
-20318110   _icvMean_32f_C2MR_p
-201326d4   _icvMean_32f_C3MR__FPCfiPCUcT26CvSizePd
-20318114   _icvMean_32f_C3MR_p
-20132708   _icvMean_32f_C4MR__FPCfiPCUcT26CvSizePd
-20318118   _icvMean_32f_C4MR_p
-2013259c   _icvMean_32s_C1MR__FPCiiPCUcT26CvSizePd
-203180fc   _icvMean_32s_C1MR_p
-201325d0   _icvMean_32s_C2MR__FPCiiPCUcT26CvSizePd
-20318100   _icvMean_32s_C2MR_p
-20132604   _icvMean_32s_C3MR__FPCiiPCUcT26CvSizePd
-20318104   _icvMean_32s_C3MR_p
-20132638   _icvMean_32s_C4MR__FPCiiPCUcT26CvSizePd
-20318108   _icvMean_32s_C4MR_p
-2013273c   _icvMean_64f_C1MR__FPCdiPCUcT26CvSizePd
-2031811c   _icvMean_64f_C1MR_p
-20132770   _icvMean_64f_C2MR__FPCdiPCUcT26CvSizePd
-20318120   _icvMean_64f_C2MR_p
-201327a4   _icvMean_64f_C3MR__FPCdiPCUcT26CvSizePd
-20318124   _icvMean_64f_C3MR_p
-201327d8   _icvMean_64f_C4MR__FPCdiPCUcT26CvSizePd
-20318128   _icvMean_64f_C4MR_p
-20132360   _icvMean_8u_C1MR__FPCUciT1T26CvSizePd
-203180cc   _icvMean_8u_C1MR_p
-20132394   _icvMean_8u_C2MR__FPCUciT1T26CvSizePd
-203180d0   _icvMean_8u_C2MR_p
-201323c8   _icvMean_8u_C3MR__FPCUciT1T26CvSizePd
-203180d4   _icvMean_8u_C3MR_p
-2013280c   _icvMean_8u_C4MR__FPCUciT1T26CvSizePd
-203180d8   _icvMean_8u_C4MR_p
+20126730   _icvInvSqrt_32f__FPCfPfi
+202eb47c   _icvInvSqrt_32f_p
+20126720   _icvInvSqrt_64f__FPCdPdi
+202eb488   _icvInvSqrt_64f_p
+2014eb04   _icvLUT_Transform8u_16u_C1R__FPCUciPUsT26CvSizePCUs
+2014e420   _icvLUT_Transform8u_32s_C1R__FPCUciPiT26CvSizePCi
+2014dd00   _icvLUT_Transform8u_64f_C1R__FPCUciPdT26CvSizePCd
+2014d5c0   _icvLUT_Transform8u_8u_C1R__FPCUciPUcT26CvSizeT1
+2014d448   _icvLUT_Transform8u_8u_C2R__FPCUciPUcT26CvSizeT1
+2014d294   _icvLUT_Transform8u_8u_C3R__FPCUciPUcT26CvSizeT1
+2014d0c0   _icvLUT_Transform8u_8u_C4R__FPCUciPUcT26CvSizeT1
+20126760   _icvLog_32f__FPCfPfi
+202eb4b8   _icvLog_32f_p
+20126750   _icvLog_64f__FPCdPdi
+202eb4bc   _icvLog_64f_p
+2013e02c   _icvMean_16s_C1MR__FPCsiPCUcT26CvSizePd
+202eba0c   _icvMean_16s_C1MR_p
+2013e060   _icvMean_16s_C2MR__FPCsiPCUcT26CvSizePd
+202eba10   _icvMean_16s_C2MR_p
+2013e094   _icvMean_16s_C3MR__FPCsiPCUcT26CvSizePd
+202eba14   _icvMean_16s_C3MR_p
+2013e0c8   _icvMean_16s_C4MR__FPCsiPCUcT26CvSizePd
+202eba18   _icvMean_16s_C4MR_p
+2013df5c   _icvMean_16u_C1MR__FPCUsiPCUcT26CvSizePd
+202eb9fc   _icvMean_16u_C1MR_p
+2013df90   _icvMean_16u_C2MR__FPCUsiPCUcT26CvSizePd
+202eba00   _icvMean_16u_C2MR_p
+2013dfc4   _icvMean_16u_C3MR__FPCUsiPCUcT26CvSizePd
+202eba04   _icvMean_16u_C3MR_p
+2013dff8   _icvMean_16u_C4MR__FPCUsiPCUcT26CvSizePd
+202eba08   _icvMean_16u_C4MR_p
+2013e1cc   _icvMean_32f_C1MR__FPCfiPCUcT26CvSizePd
+202eba2c   _icvMean_32f_C1MR_p
+2013e200   _icvMean_32f_C2MR__FPCfiPCUcT26CvSizePd
+202eba30   _icvMean_32f_C2MR_p
+2013e234   _icvMean_32f_C3MR__FPCfiPCUcT26CvSizePd
+202eba34   _icvMean_32f_C3MR_p
+2013e268   _icvMean_32f_C4MR__FPCfiPCUcT26CvSizePd
+202eba38   _icvMean_32f_C4MR_p
+2013e0fc   _icvMean_32s_C1MR__FPCiiPCUcT26CvSizePd
+202eba1c   _icvMean_32s_C1MR_p
+2013e130   _icvMean_32s_C2MR__FPCiiPCUcT26CvSizePd
+202eba20   _icvMean_32s_C2MR_p
+2013e164   _icvMean_32s_C3MR__FPCiiPCUcT26CvSizePd
+202eba24   _icvMean_32s_C3MR_p
+2013e198   _icvMean_32s_C4MR__FPCiiPCUcT26CvSizePd
+202eba28   _icvMean_32s_C4MR_p
+2013e29c   _icvMean_64f_C1MR__FPCdiPCUcT26CvSizePd
+202eba3c   _icvMean_64f_C1MR_p
+2013e2d0   _icvMean_64f_C2MR__FPCdiPCUcT26CvSizePd
+202eba40   _icvMean_64f_C2MR_p
+2013e304   _icvMean_64f_C3MR__FPCdiPCUcT26CvSizePd
+202eba44   _icvMean_64f_C3MR_p
+2013e338   _icvMean_64f_C4MR__FPCdiPCUcT26CvSizePd
+202eba48   _icvMean_64f_C4MR_p
+2013dec0   _icvMean_8u_C1MR__FPCUciT1T26CvSizePd
+202eb9ec   _icvMean_8u_C1MR_p
+2013def4   _icvMean_8u_C2MR__FPCUciT1T26CvSizePd
+202eb9f0   _icvMean_8u_C2MR_p
+2013df28   _icvMean_8u_C3MR__FPCUciT1T26CvSizePd
+202eb9f4   _icvMean_8u_C3MR_p
+2013e36c   _icvMean_8u_C4MR__FPCUciT1T26CvSizePd
+202eb9f8   _icvMean_8u_C4MR_p
 200afa68   _icvMean_StdDev_16s_C1MR__FPCsiPCUcT26CvSizePdT6
-20317cc4   _icvMean_StdDev_16s_C1MR_p
+202eb5e4   _icvMean_StdDev_16s_C1MR_p
 200af588   _icvMean_StdDev_16s_C1R__FPCsi6CvSizePdT4
-20317cb4   _icvMean_StdDev_16s_C1R_p
+202eb5d4   _icvMean_StdDev_16s_C1R_p
 200afa9c   _icvMean_StdDev_16s_C2MR__FPCsiPCUcT26CvSizePdT6
-20317cc8   _icvMean_StdDev_16s_C2MR_p
+202eb5e8   _icvMean_StdDev_16s_C2MR_p
 200af5bc   _icvMean_StdDev_16s_C2R__FPCsi6CvSizePdT4
-20317cb8   _icvMean_StdDev_16s_C2R_p
+202eb5d8   _icvMean_StdDev_16s_C2R_p
 200afad0   _icvMean_StdDev_16s_C3MR__FPCsiPCUcT26CvSizePdT6
-20317ccc   _icvMean_StdDev_16s_C3MR_p
+202eb5ec   _icvMean_StdDev_16s_C3MR_p
 200af5f0   _icvMean_StdDev_16s_C3R__FPCsi6CvSizePdT4
-20317cbc   _icvMean_StdDev_16s_C3R_p
+202eb5dc   _icvMean_StdDev_16s_C3R_p
 200afb04   _icvMean_StdDev_16s_C4MR__FPCsiPCUcT26CvSizePdT6
-20317cd0   _icvMean_StdDev_16s_C4MR_p
+202eb5f0   _icvMean_StdDev_16s_C4MR_p
 200af624   _icvMean_StdDev_16s_C4R__FPCsi6CvSizePdT4
-20317cc0   _icvMean_StdDev_16s_C4R_p
+202eb5e0   _icvMean_StdDev_16s_C4R_p
 200af998   _icvMean_StdDev_16u_C1MR__FPCUsiPCUcT26CvSizePdT6
-20317ca4   _icvMean_StdDev_16u_C1MR_p
+202eb5c4   _icvMean_StdDev_16u_C1MR_p
 200af4b8   _icvMean_StdDev_16u_C1R__FPCUsi6CvSizePdT4
-20317c94   _icvMean_StdDev_16u_C1R_p
+202eb5b4   _icvMean_StdDev_16u_C1R_p
 200af9cc   _icvMean_StdDev_16u_C2MR__FPCUsiPCUcT26CvSizePdT6
-20317ca8   _icvMean_StdDev_16u_C2MR_p
+202eb5c8   _icvMean_StdDev_16u_C2MR_p
 200af4ec   _icvMean_StdDev_16u_C2R__FPCUsi6CvSizePdT4
-20317c98   _icvMean_StdDev_16u_C2R_p
+202eb5b8   _icvMean_StdDev_16u_C2R_p
 200afa00   _icvMean_StdDev_16u_C3MR__FPCUsiPCUcT26CvSizePdT6
-20317cac   _icvMean_StdDev_16u_C3MR_p
+202eb5cc   _icvMean_StdDev_16u_C3MR_p
 200af520   _icvMean_StdDev_16u_C3R__FPCUsi6CvSizePdT4
-20317c9c   _icvMean_StdDev_16u_C3R_p
+202eb5bc   _icvMean_StdDev_16u_C3R_p
 200afa34   _icvMean_StdDev_16u_C4MR__FPCUsiPCUcT26CvSizePdT6
-20317cb0   _icvMean_StdDev_16u_C4MR_p
+202eb5d0   _icvMean_StdDev_16u_C4MR_p
 200af554   _icvMean_StdDev_16u_C4R__FPCUsi6CvSizePdT4
-20317ca0   _icvMean_StdDev_16u_C4R_p
+202eb5c0   _icvMean_StdDev_16u_C4R_p
 200afc08   _icvMean_StdDev_32f_C1MR__FPCfiPCUcT26CvSizePdT6
-20317d04   _icvMean_StdDev_32f_C1MR_p
+202eb624   _icvMean_StdDev_32f_C1MR_p
 200af728   _icvMean_StdDev_32f_C1R__FPCfi6CvSizePdT4
-20317cf4   _icvMean_StdDev_32f_C1R_p
+202eb614   _icvMean_StdDev_32f_C1R_p
 200afc3c   _icvMean_StdDev_32f_C2MR__FPCfiPCUcT26CvSizePdT6
-20317d08   _icvMean_StdDev_32f_C2MR_p
+202eb628   _icvMean_StdDev_32f_C2MR_p
 200af75c   _icvMean_StdDev_32f_C2R__FPCfi6CvSizePdT4
-20317cf8   _icvMean_StdDev_32f_C2R_p
+202eb618   _icvMean_StdDev_32f_C2R_p
 200afc70   _icvMean_StdDev_32f_C3MR__FPCfiPCUcT26CvSizePdT6
-20317d0c   _icvMean_StdDev_32f_C3MR_p
+202eb62c   _icvMean_StdDev_32f_C3MR_p
 200af790   _icvMean_StdDev_32f_C3R__FPCfi6CvSizePdT4
-20317cfc   _icvMean_StdDev_32f_C3R_p
+202eb61c   _icvMean_StdDev_32f_C3R_p
 200afca4   _icvMean_StdDev_32f_C4MR__FPCfiPCUcT26CvSizePdT6
-20317d10   _icvMean_StdDev_32f_C4MR_p
+202eb630   _icvMean_StdDev_32f_C4MR_p
 200af7c4   _icvMean_StdDev_32f_C4R__FPCfi6CvSizePdT4
-20317d00   _icvMean_StdDev_32f_C4R_p
+202eb620   _icvMean_StdDev_32f_C4R_p
 200afb38   _icvMean_StdDev_32s_C1MR__FPCiiPCUcT26CvSizePdT6
-20317ce4   _icvMean_StdDev_32s_C1MR_p
+202eb604   _icvMean_StdDev_32s_C1MR_p
 200af658   _icvMean_StdDev_32s_C1R__FPCii6CvSizePdT4
-20317cd4   _icvMean_StdDev_32s_C1R_p
+202eb5f4   _icvMean_StdDev_32s_C1R_p
 200afb6c   _icvMean_StdDev_32s_C2MR__FPCiiPCUcT26CvSizePdT6
-20317ce8   _icvMean_StdDev_32s_C2MR_p
+202eb608   _icvMean_StdDev_32s_C2MR_p
 200af68c   _icvMean_StdDev_32s_C2R__FPCii6CvSizePdT4
-20317cd8   _icvMean_StdDev_32s_C2R_p
+202eb5f8   _icvMean_StdDev_32s_C2R_p
 200afba0   _icvMean_StdDev_32s_C3MR__FPCiiPCUcT26CvSizePdT6
-20317cec   _icvMean_StdDev_32s_C3MR_p
+202eb60c   _icvMean_StdDev_32s_C3MR_p
 200af6c0   _icvMean_StdDev_32s_C3R__FPCii6CvSizePdT4
-20317cdc   _icvMean_StdDev_32s_C3R_p
+202eb5fc   _icvMean_StdDev_32s_C3R_p
 200afbd4   _icvMean_StdDev_32s_C4MR__FPCiiPCUcT26CvSizePdT6
-20317cf0   _icvMean_StdDev_32s_C4MR_p
+202eb610   _icvMean_StdDev_32s_C4MR_p
 200af6f4   _icvMean_StdDev_32s_C4R__FPCii6CvSizePdT4
-20317ce0   _icvMean_StdDev_32s_C4R_p
+202eb600   _icvMean_StdDev_32s_C4R_p
 200afcd8   _icvMean_StdDev_64f_C1MR__FPCdiPCUcT26CvSizePdT6
-20317d24   _icvMean_StdDev_64f_C1MR_p
+202eb644   _icvMean_StdDev_64f_C1MR_p
 200af7f8   _icvMean_StdDev_64f_C1R__FPCdi6CvSizePdT4
-20317d14   _icvMean_StdDev_64f_C1R_p
+202eb634   _icvMean_StdDev_64f_C1R_p
 200afd0c   _icvMean_StdDev_64f_C2MR__FPCdiPCUcT26CvSizePdT6
-20317d28   _icvMean_StdDev_64f_C2MR_p
+202eb648   _icvMean_StdDev_64f_C2MR_p
 200af82c   _icvMean_StdDev_64f_C2R__FPCdi6CvSizePdT4
-20317d18   _icvMean_StdDev_64f_C2R_p
+202eb638   _icvMean_StdDev_64f_C2R_p
 200afd40   _icvMean_StdDev_64f_C3MR__FPCdiPCUcT26CvSizePdT6
-20317d2c   _icvMean_StdDev_64f_C3MR_p
+202eb64c   _icvMean_StdDev_64f_C3MR_p
 200af860   _icvMean_StdDev_64f_C3R__FPCdi6CvSizePdT4
-20317d1c   _icvMean_StdDev_64f_C3R_p
+202eb63c   _icvMean_StdDev_64f_C3R_p
 200afd74   _icvMean_StdDev_64f_C4MR__FPCdiPCUcT26CvSizePdT6
-20317d30   _icvMean_StdDev_64f_C4MR_p
+202eb650   _icvMean_StdDev_64f_C4MR_p
 200af894   _icvMean_StdDev_64f_C4R__FPCdi6CvSizePdT4
-20317d20   _icvMean_StdDev_64f_C4R_p
+202eb640   _icvMean_StdDev_64f_C4R_p
 200af8c8   _icvMean_StdDev_8u_C1MR__FPCUciT1T26CvSizePdT6
-20317c84   _icvMean_StdDev_8u_C1MR_p
+202eb5a4   _icvMean_StdDev_8u_C1MR_p
 200af41c   _icvMean_StdDev_8u_C1R__FPCUci6CvSizePdT4
-20317c74   _icvMean_StdDev_8u_C1R_p
+202eb594   _icvMean_StdDev_8u_C1R_p
 200af8fc   _icvMean_StdDev_8u_C2MR__FPCUciT1T26CvSizePdT6
-20317c88   _icvMean_StdDev_8u_C2MR_p
+202eb5a8   _icvMean_StdDev_8u_C2MR_p
 200af450   _icvMean_StdDev_8u_C2R__FPCUci6CvSizePdT4
-20317c78   _icvMean_StdDev_8u_C2R_p
+202eb598   _icvMean_StdDev_8u_C2R_p
 200af930   _icvMean_StdDev_8u_C3MR__FPCUciT1T26CvSizePdT6
-20317c8c   _icvMean_StdDev_8u_C3MR_p
+202eb5ac   _icvMean_StdDev_8u_C3MR_p
 200af484   _icvMean_StdDev_8u_C3R__FPCUci6CvSizePdT4
-20317c7c   _icvMean_StdDev_8u_C3R_p
+202eb59c   _icvMean_StdDev_8u_C3R_p
 200af964   _icvMean_StdDev_8u_C4MR__FPCUciT1T26CvSizePdT6
-20317c90   _icvMean_StdDev_8u_C4MR_p
+202eb5b0   _icvMean_StdDev_8u_C4MR_p
 200afda8   _icvMean_StdDev_8u_C4R__FPCUci6CvSizePdT4
-20317c80   _icvMean_StdDev_8u_C4R_p
-2013ff5c   _icvMinMaxIndx_16s_C1MR__FPCsiPCUcT26CvSizePfT6P7CvPointT8
-203181dc   _icvMinMaxIndx_16s_C1MR_p
-2013fe24   _icvMinMaxIndx_16s_C1R__FPCsi6CvSizePfT4P7CvPointT6
-203181c4   _icvMinMaxIndx_16s_C1R_p
-2013ff28   _icvMinMaxIndx_16u_C1MR__FPCUsiPCUcT26CvSizePfT6P7CvPointT8
-203181d8   _icvMinMaxIndx_16u_C1MR_p
-2013fdf0   _icvMinMaxIndx_16u_C1R__FPCUsi6CvSizePfT4P7CvPointT6
-203181c0   _icvMinMaxIndx_16u_C1R_p
-2013ffc4   _icvMinMaxIndx_32f_C1MR__FPCiiPCUcT26CvSizePfT6P7CvPointT8
-203181e4   _icvMinMaxIndx_32f_C1MR_p
-2013fe8c   _icvMinMaxIndx_32f_C1R__FPCii6CvSizePfT4P7CvPointT6
-203181cc   _icvMinMaxIndx_32f_C1R_p
-2013ff90   _icvMinMaxIndx_32s_C1MR__FPCiiPCUcT26CvSizePdT6P7CvPointT8
-203181e0   _icvMinMaxIndx_32s_C1MR_p
-2013fe58   _icvMinMaxIndx_32s_C1R__FPCii6CvSizePdT4P7CvPointT6
-203181c8   _icvMinMaxIndx_32s_C1R_p
-2013fff8   _icvMinMaxIndx_64f_C1MR__FPCLiPCUcT26CvSizePdT6P7CvPointT8
-203181e8   _icvMinMaxIndx_64f_C1MR_p
-2013fec0   _icvMinMaxIndx_64f_C1R__FPCLi6CvSizePdT4P7CvPointT6
-203181d0   _icvMinMaxIndx_64f_C1R_p
-2013fef4   _icvMinMaxIndx_8u_C1MR__FPCUciT1T26CvSizePfT6P7CvPointT8
-203181d4   _icvMinMaxIndx_8u_C1MR_p
-2014002c   _icvMinMaxIndx_8u_C1R__FPCUci6CvSizePfT4P7CvPointT6
-203181bc   _icvMinMaxIndx_8u_C1R_p
-2014adc0   _icvPthreadDestructor__FPv
-20318214   _icvPyrDownGetBufSize_Gauss5x5_p
-203181f8   _icvPyrDown_Gauss5x5_32f_C1R_p
-203181fc   _icvPyrDown_Gauss5x5_32f_C3R_p
-203181f0   _icvPyrDown_Gauss5x5_8u_C1R_p
-203181f4   _icvPyrDown_Gauss5x5_8u_C3R_p
-20318210   _icvPyrUpGetBufSize_Gauss5x5_p
-20318208   _icvPyrUp_Gauss5x5_32f_C1R_p
-2031820c   _icvPyrUp_Gauss5x5_32f_C3R_p
-20318200   _icvPyrUp_Gauss5x5_8u_C1R_p
-20318204   _icvPyrUp_Gauss5x5_8u_C3R_p
-20315bd0   _icvSaturate8u
+202eb5a0   _icvMean_StdDev_8u_C4R_p
+2014bdbc   _icvMinMaxIndx_16s_C1MR__FPCsiPCUcT26CvSizePfT6P7CvPointT8
+202ebafc   _icvMinMaxIndx_16s_C1MR_p
+2014bc84   _icvMinMaxIndx_16s_C1R__FPCsi6CvSizePfT4P7CvPointT6
+202ebae4   _icvMinMaxIndx_16s_C1R_p
+2014bd88   _icvMinMaxIndx_16u_C1MR__FPCUsiPCUcT26CvSizePfT6P7CvPointT8
+202ebaf8   _icvMinMaxIndx_16u_C1MR_p
+2014bc50   _icvMinMaxIndx_16u_C1R__FPCUsi6CvSizePfT4P7CvPointT6
+202ebae0   _icvMinMaxIndx_16u_C1R_p
+2014be24   _icvMinMaxIndx_32f_C1MR__FPCiiPCUcT26CvSizePfT6P7CvPointT8
+202ebb04   _icvMinMaxIndx_32f_C1MR_p
+2014bcec   _icvMinMaxIndx_32f_C1R__FPCii6CvSizePfT4P7CvPointT6
+202ebaec   _icvMinMaxIndx_32f_C1R_p
+2014bdf0   _icvMinMaxIndx_32s_C1MR__FPCiiPCUcT26CvSizePdT6P7CvPointT8
+202ebb00   _icvMinMaxIndx_32s_C1MR_p
+2014bcb8   _icvMinMaxIndx_32s_C1R__FPCii6CvSizePdT4P7CvPointT6
+202ebae8   _icvMinMaxIndx_32s_C1R_p
+2014be58   _icvMinMaxIndx_64f_C1MR__FPCLiPCUcT26CvSizePdT6P7CvPointT8
+202ebb08   _icvMinMaxIndx_64f_C1MR_p
+2014bd20   _icvMinMaxIndx_64f_C1R__FPCLi6CvSizePdT4P7CvPointT6
+202ebaf0   _icvMinMaxIndx_64f_C1R_p
+2014bd54   _icvMinMaxIndx_8u_C1MR__FPCUciT1T26CvSizePfT6P7CvPointT8
+202ebaf4   _icvMinMaxIndx_8u_C1MR_p
+2014be8c   _icvMinMaxIndx_8u_C1R__FPCUci6CvSizePfT4P7CvPointT6
+202ebadc   _icvMinMaxIndx_8u_C1R_p
+20156c20   _icvPthreadDestructor__FPv
+202ebb34   _icvPyrDownGetBufSize_Gauss5x5_p
+202ebb18   _icvPyrDown_Gauss5x5_32f_C1R_p
+202ebb1c   _icvPyrDown_Gauss5x5_32f_C3R_p
+202ebb10   _icvPyrDown_Gauss5x5_8u_C1R_p
+202ebb14   _icvPyrDown_Gauss5x5_8u_C3R_p
+202ebb30   _icvPyrUpGetBufSize_Gauss5x5_p
+202ebb28   _icvPyrUp_Gauss5x5_32f_C1R_p
+202ebb2c   _icvPyrUp_Gauss5x5_32f_C3R_p
+202ebb20   _icvPyrUp_Gauss5x5_8u_C1R_p
+202ebb24   _icvPyrUp_Gauss5x5_8u_C3R_p
+202e8180   _icvSaturate8u
 20000340   _icvScale_32f__FPCfPfifT4
 20000020   _icvScale_64f__FPCdPdidT4
-201385f0   _icvSepConvSmall3_32f__FPfiT1T26CvSizePCfT6T1
-203180bc   _icvSetByte_8u_C1R_p
-201298e8   _icvSetZero_8u_C1R__FPUci6CvSize
-2012950c   _icvSet_16s_C1MR__FPUsiPCUcT26CvSizePCUs
-20318070   _icvSet_16s_C1MR_p
-20129574   _icvSet_16s_C3MR__FPUsiPCUcT26CvSizePCUs
-2031807c   _icvSet_16s_C3MR_p
-201295a8   _icvSet_16s_C4MR__FPLiPCUcT26CvSizePCL
-20318080   _icvSet_16s_C4MR_p
-201295dc   _icvSet_32f_C3MR__FPiiPCUcT26CvSizePCi
-20318084   _icvSet_32f_C3MR_p
-20129610   _icvSet_32f_C4MR__FPiiPCUcT26CvSizePCi
-20318088   _icvSet_32f_C4MR_p
-20129644   _icvSet_64s_C3MR__FPLiPCUcT26CvSizePCL
-2031808c   _icvSet_64s_C3MR_p
-20129678   _icvSet_64s_C4MR__FPLiPCUcT26CvSizePCL
-20318090   _icvSet_64s_C4MR_p
-201294d8   _icvSet_8u_C1MR__FPUciPCUcT26CvSizeT3
-2031806c   _icvSet_8u_C1MR_p
-20129540   _icvSet_8u_C3MR__FPUciPCUcT26CvSizeT3
-20318074   _icvSet_8u_C3MR_p
-201298b4   _icvSet_8u_C4MR__FPiiPCUcT26CvSizePCi
-20318078   _icvSet_8u_C4MR_p
-20318234   _icvSqrDistanceValid_Norm_32f_C1R_p
-20318228   _icvSqrDistanceValid_Norm_8u32f_C1R_p
-2011abb0   _icvSqrt_32f__FPCfPfi
-20317b60   _icvSqrt_32f_p
-2011abe0   _icvSqrt_64f__FPCdPdi
-20317b64   _icvSqrt_64f_p
+20144450   _icvSepConvSmall3_32f__FPfiT1T26CvSizePCfT6T1
+202eb9dc   _icvSetByte_8u_C1R_p
+20135448   _icvSetZero_8u_C1R__FPUci6CvSize
+2013506c   _icvSet_16s_C1MR__FPUsiPCUcT26CvSizePCUs
+202eb990   _icvSet_16s_C1MR_p
+201350d4   _icvSet_16s_C3MR__FPUsiPCUcT26CvSizePCUs
+202eb99c   _icvSet_16s_C3MR_p
+20135108   _icvSet_16s_C4MR__FPLiPCUcT26CvSizePCL
+202eb9a0   _icvSet_16s_C4MR_p
+2013513c   _icvSet_32f_C3MR__FPiiPCUcT26CvSizePCi
+202eb9a4   _icvSet_32f_C3MR_p
+20135170   _icvSet_32f_C4MR__FPiiPCUcT26CvSizePCi
+202eb9a8   _icvSet_32f_C4MR_p
+201351a4   _icvSet_64s_C3MR__FPLiPCUcT26CvSizePCL
+202eb9ac   _icvSet_64s_C3MR_p
+201351d8   _icvSet_64s_C4MR__FPLiPCUcT26CvSizePCL
+202eb9b0   _icvSet_64s_C4MR_p
+20135038   _icvSet_8u_C1MR__FPUciPCUcT26CvSizeT3
+202eb98c   _icvSet_8u_C1MR_p
+201350a0   _icvSet_8u_C3MR__FPUciPCUcT26CvSizeT3
+202eb994   _icvSet_8u_C3MR_p
+20135414   _icvSet_8u_C4MR__FPiiPCUcT26CvSizePCi
+202eb998   _icvSet_8u_C4MR_p
+202ebb54   _icvSqrDistanceValid_Norm_32f_C1R_p
+202ebb48   _icvSqrDistanceValid_Norm_8u32f_C1R_p
+20126710   _icvSqrt_32f__FPCfPfi
+202eb480   _icvSqrt_32f_p
+20126740   _icvSqrt_64f__FPCdPdi
+202eb484   _icvSqrt_64f_p
 20060a1c   _icvSub_16s_C1R__FPCsiT1T2PsT26CvSizeT2
-20318150   _icvSub_16s_C1R_p
+202eba70   _icvSub_16s_C1R_p
 200609d8   _icvSub_16u_C1R__FPCUsiT1T2PUsT26CvSizeT2
-2031814c   _icvSub_16u_C1R_p
+202eba6c   _icvSub_16u_C1R_p
 20060aa4   _icvSub_32f_C1R__FPCfiT1T2PfT26CvSize
-20318158   _icvSub_32f_C1R_p
+202eba78   _icvSub_32f_C1R_p
 20060a60   _icvSub_32s_C1R__FPCiiT1T2PiT26CvSize
-20318154   _icvSub_32s_C1R_p
+202eba74   _icvSub_32s_C1R_p
 20060ae8   _icvSub_64f_C1R__FPCdiT1T2PdT26CvSize
-2031815c   _icvSub_64f_C1R_p
+202eba7c   _icvSub_64f_C1R_p
 20060cc4   _icvSub_8u_C1R__FPCUciT1T2PUcT26CvSizeT2
-20318148   _icvSub_8u_C1R_p
+202eba68   _icvSub_8u_C1R_p
 201057dc   _icvSum_16s_C1R__FPCsi6CvSizePd
-20317f30   _icvSum_16s_C1R_p
+202eb850   _icvSum_16s_C1R_p
 20105810   _icvSum_16s_C2R__FPCsi6CvSizePd
-20317f34   _icvSum_16s_C2R_p
+202eb854   _icvSum_16s_C2R_p
 20105844   _icvSum_16s_C3R__FPCsi6CvSizePd
-20317f38   _icvSum_16s_C3R_p
+202eb858   _icvSum_16s_C3R_p
 20105878   _icvSum_16s_C4R__FPCsi6CvSizePd
-20317f3c   _icvSum_16s_C4R_p
+202eb85c   _icvSum_16s_C4R_p
 2010570c   _icvSum_16u_C1R__FPCUsi6CvSizePd
-20317f20   _icvSum_16u_C1R_p
+202eb840   _icvSum_16u_C1R_p
 20105740   _icvSum_16u_C2R__FPCUsi6CvSizePd
-20317f24   _icvSum_16u_C2R_p
+202eb844   _icvSum_16u_C2R_p
 20105774   _icvSum_16u_C3R__FPCUsi6CvSizePd
-20317f28   _icvSum_16u_C3R_p
+202eb848   _icvSum_16u_C3R_p
 201057a8   _icvSum_16u_C4R__FPCUsi6CvSizePd
-20317f2c   _icvSum_16u_C4R_p
+202eb84c   _icvSum_16u_C4R_p
 2010597c   _icvSum_32f_C1R__FPCfi6CvSizePd15CvHintAlgorithm
-20317f50   _icvSum_32f_C1R_p
+202eb870   _icvSum_32f_C1R_p
 201059b4   _icvSum_32f_C2R__FPCfi6CvSizePd15CvHintAlgorithm
-20317f54   _icvSum_32f_C2R_p
+202eb874   _icvSum_32f_C2R_p
 201059ec   _icvSum_32f_C3R__FPCfi6CvSizePd15CvHintAlgorithm
-20317f58   _icvSum_32f_C3R_p
+202eb878   _icvSum_32f_C3R_p
 20105a24   _icvSum_32f_C4R__FPCfi6CvSizePd15CvHintAlgorithm
-20317f5c   _icvSum_32f_C4R_p
+202eb87c   _icvSum_32f_C4R_p
 201058ac   _icvSum_32s_C1R__FPCii6CvSizePd
-20317f40   _icvSum_32s_C1R_p
+202eb860   _icvSum_32s_C1R_p
 201058e0   _icvSum_32s_C2R__FPCii6CvSizePd
-20317f44   _icvSum_32s_C2R_p
+202eb864   _icvSum_32s_C2R_p
 20105914   _icvSum_32s_C3R__FPCii6CvSizePd
-20317f48   _icvSum_32s_C3R_p
+202eb868   _icvSum_32s_C3R_p
 20105948   _icvSum_32s_C4R__FPCii6CvSizePd
-20317f4c   _icvSum_32s_C4R_p
+202eb86c   _icvSum_32s_C4R_p
 20105a5c   _icvSum_64f_C1R__FPCdi6CvSizePd
-20317f60   _icvSum_64f_C1R_p
+202eb880   _icvSum_64f_C1R_p
 20105a90   _icvSum_64f_C2R__FPCdi6CvSizePd
-20317f64   _icvSum_64f_C2R_p
+202eb884   _icvSum_64f_C2R_p
 20105ac4   _icvSum_64f_C3R__FPCdi6CvSizePd
-20317f68   _icvSum_64f_C3R_p
+202eb888   _icvSum_64f_C3R_p
 20105af8   _icvSum_64f_C4R__FPCdi6CvSizePd
-20317f6c   _icvSum_64f_C4R_p
+202eb88c   _icvSum_64f_C4R_p
 20105670   _icvSum_8u_C1R__FPCUci6CvSizePd
-20317f10   _icvSum_8u_C1R_p
+202eb830   _icvSum_8u_C1R_p
 201056a4   _icvSum_8u_C2R__FPCUci6CvSizePd
-20317f14   _icvSum_8u_C2R_p
+202eb834   _icvSum_8u_C2R_p
 201056d8   _icvSum_8u_C3R__FPCUci6CvSizePd
-20317f18   _icvSum_8u_C3R_p
+202eb838   _icvSum_8u_C3R_p
 20105c30   _icvSum_8u_C4R__FPCUci6CvSizePd
-20317f1c   _icvSum_8u_C4R_p
-20242a10   _image_type
+202eb83c   _icvSum_8u_C4R_p
+20227ee8   _image_type
 2007ad00   _init__11CvSepFilterFiN21PC5CvMatT47CvPointT18CvScalar
 2007c4b0   _init__11CvSepFilterFiN21b6CvSize7CvPointT18CvScalar
 2007e880   _init__14CvLinearFilterFiN21PC5CvMat7CvPointT18CvScalar
 2007965c   _init__14CvLinearFilterFiN21b6CvSize7CvPointT18CvScalar
-2013858c   _init__15CvLaplaceFilterFiN21PC5CvMatT47CvPointT18CvScalar
-20138514   _init__15CvLaplaceFilterFiN21b6CvSize7CvPointT18CvScalar
-201381a0   _init__15CvLaplaceFilterFiN21bN218CvScalar
+201443ec   _init__15CvLaplaceFilterFiN21PC5CvMatT47CvPointT18CvScalar
+20144374   _init__15CvLaplaceFilterFiN21b6CvSize7CvPointT18CvScalar
+20144000   _init__15CvLaplaceFilterFiN21bN218CvScalar
 2007e2e0   _init__17CvBaseImageFilterFiN21b6CvSize7CvPointT18CvScalar
 2007dc20   _init_deriv__11CvSepFilterFiN61
 2007e000   _init_gaussian__11CvSepFilterFiN31d
 2007988c   _init_gaussian_kernel__11CvSepFilterSFP5CvMatd
 2007a728   _init_scharr_kernel__11CvSepFilterSFP5CvMatT1iN23
 20079eb0   _init_sobel_kernel__11CvSepFilterSFP5CvMatT1iN23
-2031823c   _last__6CvType
-20154c40   _ldexp
-201371c8   _lhBuildingImagePyramidFromImage__FP9_IplImagesi
-20136738   _lhBuildingRotatedTemplateFromImage__FPC5LhSeqP12CvMemStoragef
-2013688c   _lhBuildingTemplatePyramidFromImage__FP9_IplImageP12CvMemStorageisPi
-20134b60   _lhComputeAveDistanceFromReferencePt__FPC5LhSeq
-20134e54   _lhComputeTheresholdsBasedOnMinContract__FsPdT2
-20134c50   _lhComputeTopLayerDeltaTheta__FPC5LhSeqiPfPi
-201350a0   _lhCreateSingleSeqFromImage__FP9_IplImageP12CvMemStoragesi
-20137780   _lhFindCoordinateBasedOnUpPyramid__FP17LhTemplatePyramidP14LhImagePyramidfT3s
-201365a4   _lhFindMaxPoint3D__FPPPLiN22
-20137000   _lhFreeTemplatePyramid__FP17LhTemplatePyramid
-20134f2c   _lhRefineSeqUsingRandomDelete__FPC5LhSeqP12CvMemStoragef
-201355e0   _lhRotateSingleSeq__FPC5LhSeqP12CvMemStoragefT3
-20135e9c   _lhSearchImageRegularization__FP5CvMatT1s
-20136094   _lhSeqRegularization__FP5LhSeq
-20135d64   _lhSetReferencePoint__FP5LhSeq7CvPoint
-20157b60   _lseek
-20157c60   _ltoa
-20155be0   _main
+202ebb5c   _last__6CvType
+20160d60   _ldexp
+20142e78   _lhBuildingImagePyramidFromImage__FP9_IplImagesi
+2014230c   _lhBuildingRotatedTemplateFromImage__FPC5LhSeqP12CvMemStoragef
+20142460   _lhBuildingTemplatePyramidFromImage__FP9_IplImageP12CvMemStorageisPi
+2014073c   _lhComputeAveDistanceFromReferencePt__FPC5LhSeq
+20140a30   _lhComputeTheresholdsBasedOnMinContract__FsPdT2
+2014082c   _lhComputeTopLayerDeltaTheta__FPC5LhSeqiPfPi
+20140c7c   _lhCreateSingleSeqFromImage__FP9_IplImageP12CvMemStoragesi
+20143e38   _lhDrawModelOnImage__FP9_IplImageP5LhSeqiT3
+20143430   _lhFindCoordinateBasedOnUpPyramid__FP17LhTemplatePyramidP14LhImagePyramidfT3s
+20142180   _lhFindMaxPoint3D__FPPPLiN22
+20142d9c   _lhFreeImagePyramid__FP14LhImagePyramid
+20142bd4   _lhFreeTemplatePyramid__FP17LhTemplatePyramid
+20140b08   _lhRefineSeqUsingRandomDelete__FPC5LhSeqP12CvMemStoragef
+201411bc   _lhRotateSingleSeq__FPC5LhSeqP12CvMemStoragefT3
+20141a78   _lhSearchImageRegularization__FP5CvMatT1s
+20141c70   _lhSeqRegularization__FP5LhSeq
+20141940   _lhSetReferencePoint__FP5LhSeq7CvPoint
+201666a0   _llabs
+20163c60   _lseek
+20163d60   _ltoa
+2015f7c0   _main
 2007c620   _make_y_border__17CvBaseImageFilterFiN21
-20155660   _malloc
-20242a14   _mat_type
-20242a18   _matnd_type
-20152dc0   _memalign
-20159b40   _memccpy
-20158680   _memcpy
-2015a1e0   _memmove
-20157d60   _memset
-20158760   _modf
-20315ed8   _my8x16uSqrTab
-20155820   _open
-2014cc60   _pow
-20159bc0   _printf
+20161780   _malloc
+20227eec   _mat_type
+20227ef0   _matnd_type
+2015ec20   _memalign
+20165c40   _memccpy
+20164780   _memcpy
+201662e0   _memmove
+20163e60   _memset
+20164860   _modf
+202e8488   _my8x16uSqrTab
+20161940   _open
+20158ac0   _pow
+20165cc0   _printf
 2007ca80   _process__17CvBaseImageFilterFPC5CvMatP5CvMat6CvRect7CvPointi
-201564a0   _putc
-20159820   _rand
-20157e60   _read
-20159c40   _readmsg
-2015a740   _remove
-20242a08   _seq_graph_type
-20242a04   _seq_tree_type
-20242a00   _seq_type
-201559e0   _setvbuf
-20150960   _sin
-20242a0c   _sparse_mat_type
-20159cc0   _sprintf
-20153660   _sqrt
+201625a0   _putc
+20165920   _rand
+20163f60   _read
+20165d40   _readmsg
+20166880   _remove
+20227ee0   _seq_graph_type
+20227edc   _seq_tree_type
+20227ed8   _seq_type
+20161b00   _setvbuf
+2015c7c0   _sin
+20227ee4   _sparse_mat_type
+20165dc0   _sprintf
+2015f4c0   _sqrt
 2007f060   _start_process__17CvBaseImageFilterF7CvSlicei
-20158fc0   _strstr
-2014e600   _strtod
-2014f660   _strtol
-20159d40   _unlink
-20157f60   _write
-2015a240   _writemsg
-2014a3d4   _zero1double__FPdUi
-2014a1b0   _zero1float__FPfUi
-20149f8c   _zero1int__FPiUi
-2014a43c   _zero2double__FPPdUiT2
-2014a218   _zero2float__FPPfUiT2
-20149ff4   _zero2int__FPPiUiT2
-2014a4f0   _zero3double__FPPPdUiN22
-2014a2cc   _zero3float__FPPPfUiN22
-2014a0a8   _zero3int__FPPPiUiN22
-20149c40   _zero3longlong__FPPPLUiN22
-2014aaac   _zero4float__FPPPPfUiN32
-2014ac00   _zero5float__FPPPPPfUiN42
+201650c0   _strstr
+2015a460   _strtod
+2015b4c0   _strtol
+20165e40   _unlink
+201668a0   _w_3662_01
+201b18a0   _w_3662_01r2
+20164060   _write
+20166340   _writemsg
+20156234   _zero1double__FPdUi
+20156010   _zero1float__FPfUi
+20155dec   _zero1int__FPiUi
+2015629c   _zero2double__FPPdUiT2
+20156078   _zero2float__FPPfUiT2
+20155e54   _zero2int__FPPiUiT2
+20156350   _zero3double__FPPPdUiN22
+2015612c   _zero3float__FPPPfUiN22
+20155f08   _zero3int__FPPPiUiN22
+20155aa0   _zero3longlong__FPPPLUiN22
+2015690c   _zero4float__FPPPPfUiN32
+20156a60   _zero5float__FPPPPPfUiN42
 ffffffff   binit
-20244ae8   cinit
+2022a0b8   cinit
 00000008   edata
-20318254   end
-2015a760   etext
+202ebb7c   end
+201668a0   etext
 20000008   pinit
 
 
@@ -1990,727 +2045,748 @@ address    name
 20111ee8   _cvCalcArrBackProjectPatch
 20115580   _cvCalcArrBackProject
 20115c08   ___sti___15_cvhistogram_cpp_94fcd9cc
-2011a1d0   _cvFastArctan
-2011abb0   _icvSqrt_32f__FPCfPfi
-2011abc0   _icvInvSqrt_64f__FPCdPdi
-2011abd0   _icvInvSqrt_32f__FPCfPfi
-2011abe0   _icvSqrt_64f__FPCdPdi
-2011abf0   _icvLog_64f__FPCdPdi
-2011ac00   _icvLog_32f__FPCfPfi
-2011ac10   _icvFastArctan_32f__FPCfT1Pfi
-2011ac20   _icvExp_64f__FPCdPdi
-2011ac30   _icvExp_32f__FPCfPfi
-2011ac40   _icvCheckArray_64f_C1R__FPCdi6CvSizeT2dT5
-2011ac74   _icvCheckArray_32f_C1R__FPCfi6CvSizeT2dT5
-2011aca8   _cvPow
-2011c240   _cvPolarToCart
-2011d220   _cvLog
-2011d800   _cvExp
-2011de00   _cvCheckArr
-2011e140   _cvCbrt
-2011ed6c   _cvCartToPolar
-20124aac   _icvAdd_8u32f_C1IR__FPCUciPfT26CvSize
-20124ae0   _icvAdd_32f_C1IR__FPCfiPfT26CvSize
-20124b14   _icvAdd_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
-20124b58   _icvAdd_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
-20124b9c   _icvAdd_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
-20124be0   _icvAddSquare_8u32f_C1IR__FPCUciPfT26CvSize
-20124c14   _icvAddSquare_32f_C1IR__FPCfiPfT26CvSize
-20124c48   _icvAddSquare_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
-20124c8c   _icvAddSquare_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
-20124cd0   _icvAddSquare_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
-20124d14   _icvAddSquare_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
-20124d58   _icvAddProduct_8u32f_C1IR__FPCUciT1T2PfT26CvSize
-20124d9c   _icvAddProduct_32f_C1IR__FPCfiT1T2PfT26CvSize
-20124de0   _icvAddProduct_8u32f_C1IMR__FPCUciT1T2T1T2PfT26CvSize
-20124e24   _icvAddProduct_32f_C1IMR__FPCfiT1T2PCUcT2PfT26CvSize
-20124e68   _icvAddProduct_8u32f_C3IMR__FPCUciT1T2T1T2PfT26CvSize
-20124eac   _icvAddProduct_32f_C3IMR__FPCfiT1T2PCUcT2PfT26CvSize
-20124ef0   _icvAddWeighted_8u32f_C1IR__FPCUciPfT26CvSizef
-20124f24   _icvAddWeighted_32f_C1IR__FPCfiPfT26CvSizef
-20124f58   _icvAddWeighted_8u32f_C1IMR__FPCUciT1T2PfT26CvSizef
-20124f9c   _icvAddWeighted_32f_C1IMR__FPCfiPCUcT2PfT26CvSizef
-20124fe0   _icvAddWeighted_8u32f_C3IMR__FPCUciT1T2PfT26CvSizef
-20125024   _icvAddWeighted_32f_C3IMR__FPCfiPCUcT2PfT26CvSizef
-20125068   _icvAdd_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
-201250ac   _cvSquareAcc
-20125730   _cvRunningAvg
-20125e20   _cvMultiplyAcc
-2012658c   _cvAcc
-201294d8   _icvSet_8u_C1MR__FPUciPCUcT26CvSizeT3
-2012950c   _icvSet_16s_C1MR__FPUsiPCUcT26CvSizePCUs
-20129540   _icvSet_8u_C3MR__FPUciPCUcT26CvSizeT3
-20129574   _icvSet_16s_C3MR__FPUsiPCUcT26CvSizePCUs
-201295a8   _icvSet_16s_C4MR__FPLiPCUcT26CvSizePCL
-201295dc   _icvSet_32f_C3MR__FPiiPCUcT26CvSizePCi
-20129610   _icvSet_32f_C4MR__FPiiPCUcT26CvSizePCi
-20129644   _icvSet_64s_C3MR__FPLiPCUcT26CvSizePCL
-20129678   _icvSet_64s_C4MR__FPLiPCUcT26CvSizePCL
-201296ac   _icvCopy_8u_C1MR__FPCUciPUcT26CvSizeT1T2
-201296e0   _icvCopy_16s_C1MR__FPCUsiPUsT26CvSizePCUcT2
-20129714   _icvCopy_8u_C3MR__FPCUciPUcT26CvSizeT1T2
-20129748   _icvCopy_8u_C4MR__FPCiiPiT26CvSizePCUcT2
-2012977c   _icvCopy_16s_C3MR__FPCUsiPUsT26CvSizePCUcT2
-201297b0   _icvCopy_16s_C4MR__FPCLiPLT26CvSizePCUcT2
-201297e4   _icvCopy_32f_C3MR__FPCiiPiT26CvSizePCUcT2
-20129818   _icvCopy_32f_C4MR__FPCiiPiT26CvSizePCUcT2
-2012984c   _icvCopy_64s_C3MR__FPCLiPLT26CvSizePCUcT2
-20129880   _icvCopy_64s_C4MR__FPCLiPLT26CvSizePCUcT2
-201298b4   _icvSet_8u_C4MR__FPiiPCUcT26CvSizePCi
-201298e8   _icvSetZero_8u_C1R__FPUci6CvSize
-201299e0   _icvGetCopyMaskFunc__Fi
-20129a84   _icvCopy_8u_C1R__FPCUciPUcT26CvSize
-20129ac0   _cvSetZero
-2012a104   _cvSet
-2012aec0   _cvRepeat
-2012b724   _cvFlip
-2012be4c   _cvCopy
-20132360   _icvMean_8u_C1MR__FPCUciT1T26CvSizePd
-20132394   _icvMean_8u_C2MR__FPCUciT1T26CvSizePd
-201323c8   _icvMean_8u_C3MR__FPCUciT1T26CvSizePd
-201323fc   _icvMean_16u_C1MR__FPCUsiPCUcT26CvSizePd
-20132430   _icvMean_16u_C2MR__FPCUsiPCUcT26CvSizePd
-20132464   _icvMean_16u_C3MR__FPCUsiPCUcT26CvSizePd
-20132498   _icvMean_16u_C4MR__FPCUsiPCUcT26CvSizePd
-201324cc   _icvMean_16s_C1MR__FPCsiPCUcT26CvSizePd
-20132500   _icvMean_16s_C2MR__FPCsiPCUcT26CvSizePd
-20132534   _icvMean_16s_C3MR__FPCsiPCUcT26CvSizePd
-20132568   _icvMean_16s_C4MR__FPCsiPCUcT26CvSizePd
-2013259c   _icvMean_32s_C1MR__FPCiiPCUcT26CvSizePd
-201325d0   _icvMean_32s_C2MR__FPCiiPCUcT26CvSizePd
-20132604   _icvMean_32s_C3MR__FPCiiPCUcT26CvSizePd
-20132638   _icvMean_32s_C4MR__FPCiiPCUcT26CvSizePd
-2013266c   _icvMean_32f_C1MR__FPCfiPCUcT26CvSizePd
-201326a0   _icvMean_32f_C2MR__FPCfiPCUcT26CvSizePd
-201326d4   _icvMean_32f_C3MR__FPCfiPCUcT26CvSizePd
-20132708   _icvMean_32f_C4MR__FPCfiPCUcT26CvSizePd
-2013273c   _icvMean_64f_C1MR__FPCdiPCUcT26CvSizePd
-20132770   _icvMean_64f_C2MR__FPCdiPCUcT26CvSizePd
-201327a4   _icvMean_64f_C3MR__FPCdiPCUcT26CvSizePd
-201327d8   _icvMean_64f_C4MR__FPCdiPCUcT26CvSizePd
-2013280c   _icvMean_8u_C4MR__FPCUciT1T26CvSizePd
-20132840   _cvAvg
-20134b60   _lhComputeAveDistanceFromReferencePt__FPC5LhSeq
-20134c50   _lhComputeTopLayerDeltaTheta__FPC5LhSeqiPfPi
-20134e54   _lhComputeTheresholdsBasedOnMinContract__FsPdT2
-20134f2c   _lhRefineSeqUsingRandomDelete__FPC5LhSeqP12CvMemStoragef
-201350a0   _lhCreateSingleSeqFromImage__FP9_IplImageP12CvMemStoragesi
-201355e0   _lhRotateSingleSeq__FPC5LhSeqP12CvMemStoragefT3
-20135d64   _lhSetReferencePoint__FP5LhSeq7CvPoint
-20135e9c   _lhSearchImageRegularization__FP5CvMatT1s
-20136094   _lhSeqRegularization__FP5LhSeq
-201365a4   _lhFindMaxPoint3D__FPPPLiN22
-20136738   _lhBuildingRotatedTemplateFromImage__FPC5LhSeqP12CvMemStoragef
-2013688c   _lhBuildingTemplatePyramidFromImage__FP9_IplImageP12CvMemStorageisPi
-20137000   _lhFreeTemplatePyramid__FP17LhTemplatePyramid
-201371c8   _lhBuildingImagePyramidFromImage__FP9_IplImagesi
-20137780   _lhFindCoordinateBasedOnUpPyramid__FP17LhTemplatePyramidP14LhImagePyramidfT3s
-201381a0   _init__15CvLaplaceFilterFiN21bN218CvScalar
-20138514   _init__15CvLaplaceFilterFiN21b6CvSize7CvPointT18CvScalar
-2013858c   _init__15CvLaplaceFilterFiN21PC5CvMatT47CvPointT18CvScalar
-201385f0   _icvSepConvSmall3_32f__FPfiT1T26CvSizePCfT6T1
-2013b5c0   _get_work_params__15CvLaplaceFilterFv
-2013b7c0   ___dt__15CvLaplaceFilterFv
-2013b854   _cvSobel
-2013c2c8   ___ct__15CvLaplaceFilterFv
-2013c360   _cvLaplace
-2013c8e8   ___ct__15CvLaplaceFilterFiN21bN218CvScalar
-2013fdf0   _icvMinMaxIndx_16u_C1R__FPCUsi6CvSizePfT4P7CvPointT6
-2013fe24   _icvMinMaxIndx_16s_C1R__FPCsi6CvSizePfT4P7CvPointT6
-2013fe58   _icvMinMaxIndx_32s_C1R__FPCii6CvSizePdT4P7CvPointT6
-2013fe8c   _icvMinMaxIndx_32f_C1R__FPCii6CvSizePfT4P7CvPointT6
-2013fec0   _icvMinMaxIndx_64f_C1R__FPCLi6CvSizePdT4P7CvPointT6
-2013fef4   _icvMinMaxIndx_8u_C1MR__FPCUciT1T26CvSizePfT6P7CvPointT8
-2013ff28   _icvMinMaxIndx_16u_C1MR__FPCUsiPCUcT26CvSizePfT6P7CvPointT8
-2013ff5c   _icvMinMaxIndx_16s_C1MR__FPCsiPCUcT26CvSizePfT6P7CvPointT8
-2013ff90   _icvMinMaxIndx_32s_C1MR__FPCiiPCUcT26CvSizePdT6P7CvPointT8
-2013ffc4   _icvMinMaxIndx_32f_C1MR__FPCiiPCUcT26CvSizePfT6P7CvPointT8
-2013fff8   _icvMinMaxIndx_64f_C1MR__FPCLiPCUcT26CvSizePdT6P7CvPointT8
-2014002c   _icvMinMaxIndx_8u_C1R__FPCUci6CvSizePfT4P7CvPointT6
-20140060   _cvMinMaxLoc
-20141260   _icvLUT_Transform8u_8u_C4R__FPCUciPUcT26CvSizeT1
-20141434   _icvLUT_Transform8u_8u_C3R__FPCUciPUcT26CvSizeT1
-201415e8   _icvLUT_Transform8u_8u_C2R__FPCUciPUcT26CvSizeT1
-20141760   _icvLUT_Transform8u_8u_C1R__FPCUciPUcT26CvSizeT1
-20141ea0   _icvLUT_Transform8u_64f_C1R__FPCUciPdT26CvSizePCd
-201425c0   _icvLUT_Transform8u_32s_C1R__FPCUciPiT26CvSizePCi
-20142ca4   _icvLUT_Transform8u_16u_C1R__FPCUciPUsT26CvSizePCUs
-20142e88   _cvLUT
-20143820   _icvCrossCorr__FPCvT1Pv7CvPoint
-20144cf8   _cvMatchTemplate
-20146100   _icvCopyReplicateBorder_8u__FPCUci6CvSizePUcT2T3N32T1
-20146720   _cvPointSeqFromMat
-20147d0c   _cvCopyMakeBorder
-201482a0   _cvCanny
-20149690   _AdaptiveFindThreshold
-20149b80   _alloc1longlong__FUi
-20149ba0   _free1longlong__FPL
-20149bbc   _alloc2longlong__FUiT1
-20149be0   _free2longlong__FPPL
-20149bfc   _alloc3longlong__FUiN21
-20149c24   _free3longlong__FPPPL
-20149c40   _zero3longlong__FPPPLUiN22
-20149d4c   _alloc1int__FUi
-20149d6c   _free1int__FPi
-20149d88   _alloc2int__FUiT1
-20149dac   _free2int__FPPi
-20149dc8   _alloc3int__FUiN21
-20149df0   _free3int__FPPPi
-20149e0c   _alloc1float__FUi
-20149e2c   _free1float__FPf
-20149e48   _alloc2float__FUiT1
-20149e6c   _free2float__FPPf
-20149e88   _alloc3float__FUiN21
-20149eb0   _free3float__FPPPf
-20149ecc   _alloc1double__FUi
-20149eec   _free1double__FPd
-20149f08   _alloc2double__FUiT1
-20149f2c   _free2double__FPPd
-20149f48   _alloc3double__FUiN21
-20149f70   _free3double__FPPPd
-20149f8c   _zero1int__FPiUi
-20149ff4   _zero2int__FPPiUiT2
-2014a0a8   _zero3int__FPPPiUiN22
-2014a1b0   _zero1float__FPfUi
-2014a218   _zero2float__FPPfUiT2
-2014a2cc   _zero3float__FPPPfUiN22
-2014a3d4   _zero1double__FPdUi
-2014a43c   _zero2double__FPPdUiT2
-2014a4f0   _zero3double__FPPPdUiN22
-2014aaac   _zero4float__FPPPPfUiN32
-2014ac00   _zero5float__FPPPPPfUiN42
-2014adc0   _icvPthreadDestructor__FPv
-2014adc8   _cvErrorStr
-2014b154   _cvGetErrMode
-2014b1e4   _cvStdErrReport
-2014b3a8   _cvSetErrStatus
-2014b440   _cvSetErrMode
-2014b4e0   _cvRedirectError
-2014b590   _cvNulDevReport
-2014b628   _cvGuiBoxReport
-2014b808   _cvGetErrStatus
-2014b898   _cvGetErrInfo
-2014ba70   _cvErrorFromIppStatus
-2014bbc0   _cvError
-2014be20   _cvIntegralImage_8u32s64s_C1R__FPCUciPiT2PLT2T3T26CvSize
-2014c530   _cvIntegral
-2014cc60   _pow
-2014d8e0   __divd
-2014e600   _strtod
-2014ebc0   _cvThreshold
-2014f660   _strtol
-2014fb60   __printfi
-20150040   _cos
-20150500   __divf
-20150960   _sin
-201511c0   __addf
-201520a0   _exp
-20152760   _fputs
-20152dc0   _memalign
-201530c0   _free
-201533a0   __divull
-20153660   _sqrt
-20153920   __mpyd
-20153e20   __addd
-20154080   __frcaddd
-201542e0   __frcmpyd_div
-20154a00   __mpyf
-20154c40   _ldexp
-201550a0   _HOSTrename
-20155480   _frexp
-20155660   _malloc
-20155820   _open
-201559e0   _setvbuf
-20155be0   _main
-20155d60   __divul
-201561e0   __nround
-201564a0   _fputc
-201564a0   _putc
-20156600   __buff_read
-20156880   _fclose
-201569c0   _HOSTlseek
-20156ae0   __auto_init
-20156c00   __fixdlli
-20156d20   __frcmpyd
-20156e40   _atoi
-20156f60   _HOSTopen
-20157060   _HOSTread
-20157160   _HOSTwrite
-20157260   __c6xabi_divi
-20157260   __divi
-20157360   __fltllid
-20157460   __c6xabi_strasgi
-20157460   __strasgi
-20157560   __wrt_ok
-20157660   _call_dtors
-20157760   _close
-20157860   _exit
-20157960   _fflush
-20157a60   _fseek
-20157b60   _lseek
-20157c60   _ltoa
-20157d60   _memset
-20157e60   _read
-20157f60   _write
-20158060   _HOSTunlink
-20158140   __cleanup
-20158220   __cmpd
-201583e0   __doflush
-201585a0   _ftell
-20158680   _memcpy
-20158760   _modf
-20158840   _HOSTclose
-20158900   ___nw__FUi
-201589c0   __cvtdf
-20158a80   __c6xabi_divu
-20158a80   __divu
-20158cc0   __rd_ok
-20158d80   __c6xabi_remi
-20158d80   __remi
-20158fc0   _strstr
-20159140   _cvFree_
-20159158   _cvAlloc
-201591e0   __cmpf
-20159280   __divli
-20159320   __fixdi
-201593c0   __fixdli
-20159460   __fixfi
-20159500   __frcmpyf_div
-201595a0   __c6xabi_remu
-201595a0   __remu
-20159640   __renormd
-201596e0   _copy_in
-20159820   _rand
-201598c0   __fltlid
-20159940   __llshl
-201599c0   __mpyll
-20159a40   _fopen
-20159ac0   _fprintf
-20159b40   _memccpy
-20159bc0   _printf
-20159c40   _readmsg
-20159cc0   _sprintf
-20159d40   _unlink
-20159dc0   __abort_msg
-20159e20   __cvtfd
-20159e80   __fltid
-20159ee0   __fltif
-20159f40   __frcmpyf
-20159fa0   __llshru
-2015a060   __remli
-2015a0c0   __remul
-2015a120   __subcull
-2015a180   _c_int00
-2015a1e0   _memmove
-2015a240   _writemsg
-2015a298   C$$IO$$
-2015a2a0   ___add_dtor
-2015a2e0   ___isinf
-2015a3e0   __args_main
-2015a420   __fltud
-2015a460   __fltuf
-2015a4a0   __negd
-2015a4e0   __negf
-2015a520   __subd
-2015a560   __subf
-2015a5a0   ___default_new_handler__Fv
-2015a5c0   ___dl__FPv
-2015a5e0   __negll
-2015a600   __nop
-2015a6c0   __trunc
-2015a6e0   C$$EXIT
-2015a6e0   _abort
-2015a700   _feof
-2015a720   _fgets
-2015a740   _remove
-2015a760   ___etext__
-2015a760   _beauty_gray
-2015a760   etext
-2023e9d4   _errno
-20242a00   _seq_type
-20242a04   _seq_tree_type
-20242a08   _seq_graph_type
-20242a0c   _sparse_mat_type
-20242a10   _image_type
-20242a14   _mat_type
-20242a18   _matnd_type
-202439a4   _dtors
-20243b6c   __new_handler
-20243b70   __ftable
-20243c60   __tmpnams
-20243d00   __ft_end
-20243d08   ___atexit_func_id__
-20243e90   _hist_type
-20244abc   __cleanup_ptr
-20244ac0   __dtors_ptr
-20244ac4   ___TI_enable_exit_profile_output
-20244ad0   __lock
-20244ad4   __unlock
-20244ae8   ___cinit__
-20244ae8   cinit
-20310158   _icv8x32fTab_cv
-203135d0   _icv8x32fSqrTab
-20313bd0   _icv8x32fTab
-203150d8   _icv8x16uSqrTab
-20315bd0   _icvSaturate8u
-20315ed8   _my8x16uSqrTab
-20316f80   __ctypes_
-20317610   ___vtbl__15CvLaplaceFilter
-20317740   ___vtbl__11CvSepFilter
-203177a0   ___vtbl__14CvLinearFilter
-20317840   ___vtbl__17CvBaseImageFilter
-20317ad0   _icvDepthToType
-20317b58   $bss
-20317b58   .bss
-20317b58   ___bss__
-20317b58   _icvFastArctan_32f_p
-20317b5c   _icvInvSqrt_32f_p
-20317b60   _icvSqrt_32f_p
-20317b64   _icvSqrt_64f_p
-20317b68   _icvInvSqrt_64f_p
-20317b88   _icvExp_32f_p
-20317b8c   _icvExp_64f_p
-20317b98   _icvLog_32f_p
-20317b9c   _icvLog_64f_p
-20317ba0   _icvCheckArray_32f_C1R_p
-20317ba4   _icvCheckArray_64f_C1R_p
-20317c74   _icvMean_StdDev_8u_C1R_p
-20317c78   _icvMean_StdDev_8u_C2R_p
-20317c7c   _icvMean_StdDev_8u_C3R_p
-20317c80   _icvMean_StdDev_8u_C4R_p
-20317c84   _icvMean_StdDev_8u_C1MR_p
-20317c88   _icvMean_StdDev_8u_C2MR_p
-20317c8c   _icvMean_StdDev_8u_C3MR_p
-20317c90   _icvMean_StdDev_8u_C4MR_p
-20317c94   _icvMean_StdDev_16u_C1R_p
-20317c98   _icvMean_StdDev_16u_C2R_p
-20317c9c   _icvMean_StdDev_16u_C3R_p
-20317ca0   _icvMean_StdDev_16u_C4R_p
-20317ca4   _icvMean_StdDev_16u_C1MR_p
-20317ca8   _icvMean_StdDev_16u_C2MR_p
-20317cac   _icvMean_StdDev_16u_C3MR_p
-20317cb0   _icvMean_StdDev_16u_C4MR_p
-20317cb4   _icvMean_StdDev_16s_C1R_p
-20317cb8   _icvMean_StdDev_16s_C2R_p
-20317cbc   _icvMean_StdDev_16s_C3R_p
-20317cc0   _icvMean_StdDev_16s_C4R_p
-20317cc4   _icvMean_StdDev_16s_C1MR_p
-20317cc8   _icvMean_StdDev_16s_C2MR_p
-20317ccc   _icvMean_StdDev_16s_C3MR_p
-20317cd0   _icvMean_StdDev_16s_C4MR_p
-20317cd4   _icvMean_StdDev_32s_C1R_p
-20317cd8   _icvMean_StdDev_32s_C2R_p
-20317cdc   _icvMean_StdDev_32s_C3R_p
-20317ce0   _icvMean_StdDev_32s_C4R_p
-20317ce4   _icvMean_StdDev_32s_C1MR_p
-20317ce8   _icvMean_StdDev_32s_C2MR_p
-20317cec   _icvMean_StdDev_32s_C3MR_p
-20317cf0   _icvMean_StdDev_32s_C4MR_p
-20317cf4   _icvMean_StdDev_32f_C1R_p
-20317cf8   _icvMean_StdDev_32f_C2R_p
-20317cfc   _icvMean_StdDev_32f_C3R_p
-20317d00   _icvMean_StdDev_32f_C4R_p
-20317d04   _icvMean_StdDev_32f_C1MR_p
-20317d08   _icvMean_StdDev_32f_C2MR_p
-20317d0c   _icvMean_StdDev_32f_C3MR_p
-20317d10   _icvMean_StdDev_32f_C4MR_p
-20317d14   _icvMean_StdDev_64f_C1R_p
-20317d18   _icvMean_StdDev_64f_C2R_p
-20317d1c   _icvMean_StdDev_64f_C3R_p
-20317d20   _icvMean_StdDev_64f_C4R_p
-20317d24   _icvMean_StdDev_64f_C1MR_p
-20317d28   _icvMean_StdDev_64f_C2MR_p
-20317d2c   _icvMean_StdDev_64f_C3MR_p
-20317d30   _icvMean_StdDev_64f_C4MR_p
-20317d38   _icvFilterSobelVert_8u16s_C1R_p
-20317d3c   _icvFilterSobelHoriz_8u16s_C1R_p
-20317d40   _icvFilterSobelVertSecond_8u16s_C1R_p
-20317d44   _icvFilterSobelHorizSecond_8u16s_C1R_p
-20317d48   _icvFilterSobelCross_8u16s_C1R_p
-20317d4c   _icvFilterSobelVert_32f_C1R_p
-20317d50   _icvFilterSobelHoriz_32f_C1R_p
-20317d54   _icvFilterSobelVertSecond_32f_C1R_p
-20317d58   _icvFilterSobelHorizSecond_32f_C1R_p
-20317d5c   _icvFilterSobelCross_32f_C1R_p
-20317d60   _icvFilterScharrVert_8u16s_C1R_p
-20317d64   _icvFilterScharrHoriz_8u16s_C1R_p
-20317d68   _icvFilterScharrVert_32f_C1R_p
-20317d6c   _icvFilterScharrHoriz_32f_C1R_p
-20317d70   _icvFilterScharrHorizGetBufSize_8u16s_C1R_p
-20317d74   _icvFilterScharrHorizBorder_8u16s_C1R_p
-20317d78   _icvFilterScharrHorizGetBufSize_32f_C1R_p
-20317d7c   _icvFilterScharrHorizBorder_32f_C1R_p
-20317d80   _icvFilterScharrVertGetBufSize_8u16s_C1R_p
-20317d84   _icvFilterScharrVertBorder_8u16s_C1R_p
-20317d88   _icvFilterScharrVertGetBufSize_32f_C1R_p
-20317d8c   _icvFilterScharrVertBorder_32f_C1R_p
-20317d90   _icvFilterSobelHorizGetBufSize_8u16s_C1R_p
-20317d94   _icvFilterSobelHorizBorder_8u16s_C1R_p
-20317d98   _icvFilterSobelHorizGetBufSize_32f_C1R_p
-20317d9c   _icvFilterSobelHorizBorder_32f_C1R_p
-20317da0   _icvFilterSobelNegVertGetBufSize_8u16s_C1R_p
-20317da4   _icvFilterSobelNegVertBorder_8u16s_C1R_p
-20317da8   _icvFilterSobelNegVertGetBufSize_32f_C1R_p
-20317dac   _icvFilterSobelNegVertBorder_32f_C1R_p
-20317db0   _icvFilterSobelHorizSecondGetBufSize_8u16s_C1R_p
-20317db4   _icvFilterSobelHorizSecondBorder_8u16s_C1R_p
-20317db8   _icvFilterSobelHorizSecondGetBufSize_32f_C1R_p
-20317dbc   _icvFilterSobelHorizSecondBorder_32f_C1R_p
-20317dc0   _icvFilterSobelVertSecondGetBufSize_8u16s_C1R_p
-20317dc4   _icvFilterSobelVertSecondBorder_8u16s_C1R_p
-20317dc8   _icvFilterSobelVertSecondGetBufSize_32f_C1R_p
-20317dcc   _icvFilterSobelVertSecondBorder_32f_C1R_p
-20317dd0   _icvFilterSobelCrossGetBufSize_8u16s_C1R_p
-20317dd4   _icvFilterSobelCrossBorder_8u16s_C1R_p
-20317dd8   _icvFilterSobelCrossGetBufSize_32f_C1R_p
-20317ddc   _icvFilterSobelCrossBorder_32f_C1R_p
-20317de0   _icvFilterLaplacianGetBufSize_8u16s_C1R_p
-20317de4   _icvFilterLaplacianBorder_8u16s_C1R_p
-20317de8   _icvFilterLaplacianGetBufSize_32f_C1R_p
-20317dec   _icvFilterLaplacianBorder_32f_C1R_p
-20317df0   _icvCopy_8u_C2P2R_p
-20317df4   _icvCopy_8u_C3P3R_p
-20317df8   _icvCopy_8u_C4P4R_p
-20317dfc   _icvCopy_16s_C2P2R_p
-20317e00   _icvCopy_16s_C3P3R_p
-20317e04   _icvCopy_16s_C4P4R_p
-20317e08   _icvCopy_32f_C2P2R_p
-20317e0c   _icvCopy_32f_C3P3R_p
-20317e10   _icvCopy_32f_C4P4R_p
-20317e14   _icvCopy_64f_C2P2R_p
-20317e18   _icvCopy_64f_C3P3R_p
-20317e1c   _icvCopy_64f_C4P4R_p
-20317e20   _icvCopy_8u_CnC1CR_p
-20317e24   _icvCopy_16s_CnC1CR_p
-20317e28   _icvCopy_32f_CnC1CR_p
-20317e2c   _icvCopy_64f_CnC1CR_p
-20317e30   _icvCopy_8u_P2C2R_p
-20317e34   _icvCopy_8u_P3C3R_p
-20317e38   _icvCopy_8u_P4C4R_p
-20317e3c   _icvCopy_16s_P2C2R_p
-20317e40   _icvCopy_16s_P3C3R_p
-20317e44   _icvCopy_16s_P4C4R_p
-20317e48   _icvCopy_32f_P2C2R_p
-20317e4c   _icvCopy_32f_P3C3R_p
-20317e50   _icvCopy_32f_P4C4R_p
-20317e54   _icvCopy_64f_P2C2R_p
-20317e58   _icvCopy_64f_P3C3R_p
-20317e5c   _icvCopy_64f_P4C4R_p
-20317e60   _icvCopy_8u_C1CnCR_p
-20317e64   _icvCopy_16s_C1CnCR_p
-20317e68   _icvCopy_32f_C1CnCR_p
-20317e6c   _icvCopy_64f_C1CnCR_p
-20317e70   _icvCvt_32f64f_p
-20317e74   _icvCvt_64f32f_p
-20317e88   _icvDFTInitAlloc_C_32fc_p
-20317e8c   _icvDFTFree_C_32fc_p
-20317e90   _icvDFTGetBufSize_C_32fc_p
-20317e94   _icvDFTFwd_CToC_32fc_p
-20317e98   _icvDFTInv_CToC_32fc_p
-20317e9c   _icvDFTInitAlloc_C_64fc_p
-20317ea0   _icvDFTFree_C_64fc_p
-20317ea4   _icvDFTGetBufSize_C_64fc_p
-20317ea8   _icvDFTFwd_CToC_64fc_p
-20317eac   _icvDFTInv_CToC_64fc_p
-20317eb0   _icvDFTInitAlloc_R_32f_p
-20317eb4   _icvDFTFree_R_32f_p
-20317eb8   _icvDFTGetBufSize_R_32f_p
-20317ebc   _icvDFTFwd_RToPack_32f_p
-20317ec0   _icvDFTInv_PackToR_32f_p
-20317ec4   _icvDFTInitAlloc_R_64f_p
-20317ec8   _icvDFTFree_R_64f_p
-20317ecc   _icvDFTGetBufSize_R_64f_p
-20317ed0   _icvDFTFwd_RToPack_64f_p
-20317ed4   _icvDFTInv_PackToR_64f_p
-20317f10   _icvSum_8u_C1R_p
-20317f14   _icvSum_8u_C2R_p
-20317f18   _icvSum_8u_C3R_p
-20317f1c   _icvSum_8u_C4R_p
-20317f20   _icvSum_16u_C1R_p
-20317f24   _icvSum_16u_C2R_p
-20317f28   _icvSum_16u_C3R_p
-20317f2c   _icvSum_16u_C4R_p
-20317f30   _icvSum_16s_C1R_p
-20317f34   _icvSum_16s_C2R_p
-20317f38   _icvSum_16s_C3R_p
-20317f3c   _icvSum_16s_C4R_p
-20317f40   _icvSum_32s_C1R_p
-20317f44   _icvSum_32s_C2R_p
-20317f48   _icvSum_32s_C3R_p
-20317f4c   _icvSum_32s_C4R_p
-20317f50   _icvSum_32f_C1R_p
-20317f54   _icvSum_32f_C2R_p
-20317f58   _icvSum_32f_C3R_p
-20317f5c   _icvSum_32f_C4R_p
-20317f60   _icvSum_64f_C1R_p
-20317f64   _icvSum_64f_C2R_p
-20317f68   _icvSum_64f_C3R_p
-20317f6c   _icvSum_64f_C4R_p
-20317f70   _icvCountNonZero_8u_C1R_p
-20317f74   _icvCountNonZero_16s_C1R_p
-20317f78   _icvCountNonZero_32s_C1R_p
-20317f7c   _icvCountNonZero_32f_C1R_p
-20317f80   _icvCountNonZero_64f_C1R_p
-20317f8c   _icvAdd_8u32f_C1IR_p
-20317f90   _icvAdd_32f_C1IR_p
-20317f94   _icvAddSquare_8u32f_C1IR_p
-20317f98   _icvAddSquare_32f_C1IR_p
-20317f9c   _icvAddProduct_8u32f_C1IR_p
-20317fa0   _icvAddProduct_32f_C1IR_p
-20317fa4   _icvAddWeighted_8u32f_C1IR_p
-20317fa8   _icvAddWeighted_32f_C1IR_p
-20317fac   _icvAdd_8u32f_C1IMR_p
-20317fb0   _icvAdd_32f_C1IMR_p
-20317fb4   _icvAddSquare_8u32f_C1IMR_p
-20317fb8   _icvAddSquare_32f_C1IMR_p
-20317fbc   _icvAddProduct_8u32f_C1IMR_p
-20317fc0   _icvAddProduct_32f_C1IMR_p
-20317fc4   _icvAddWeighted_8u32f_C1IMR_p
-20317fc8   _icvAddWeighted_32f_C1IMR_p
-20317fcc   _icvAdd_8u32f_C3IMR_p
-20317fd0   _icvAdd_32f_C3IMR_p
-20317fd4   _icvAddSquare_8u32f_C3IMR_p
-20317fd8   _icvAddSquare_32f_C3IMR_p
-20317fdc   _icvAddProduct_8u32f_C3IMR_p
-20317fe0   _icvAddProduct_32f_C3IMR_p
-20317fe4   _icvAddWeighted_8u32f_C3IMR_p
-20317fe8   _icvAddWeighted_32f_C3IMR_p
-20317ffc   _icvFilterRow_8u_C1R_p
-20318000   _icvFilterRow_8u_C3R_p
-20318004   _icvFilterRow_8u_C4R_p
-20318008   _icvFilterRow_16s_C1R_p
-2031800c   _icvFilterRow_16s_C3R_p
-20318010   _icvFilterRow_16s_C4R_p
-20318014   _icvFilterRow_32f_C1R_p
-20318018   _icvFilterRow_32f_C3R_p
-2031801c   _icvFilterRow_32f_C4R_p
-20318020   _icvFilterColumn_8u_C1R_p
-20318024   _icvFilterColumn_8u_C3R_p
-20318028   _icvFilterColumn_8u_C4R_p
-2031802c   _icvFilterColumn_16s_C1R_p
-20318030   _icvFilterColumn_16s_C3R_p
-20318034   _icvFilterColumn_16s_C4R_p
-20318038   _icvFilterColumn_32f_C1R_p
-2031803c   _icvFilterColumn_32f_C3R_p
-20318040   _icvFilterColumn_32f_C4R_p
-20318044   _icvFilter_8u_C1R_p
-20318048   _icvFilter_8u_C3R_p
-2031804c   _icvFilter_8u_C4R_p
-20318050   _icvFilter_16s_C1R_p
-20318054   _icvFilter_16s_C3R_p
-20318058   _icvFilter_16s_C4R_p
-2031805c   _icvFilter_32f_C1R_p
-20318060   _icvFilter_32f_C3R_p
-20318064   _icvFilter_32f_C4R_p
-20318068   _icvCopy_8u_C1R_p
-2031806c   _icvSet_8u_C1MR_p
-20318070   _icvSet_16s_C1MR_p
-20318074   _icvSet_8u_C3MR_p
-20318078   _icvSet_8u_C4MR_p
-2031807c   _icvSet_16s_C3MR_p
-20318080   _icvSet_16s_C4MR_p
-20318084   _icvSet_32f_C3MR_p
-20318088   _icvSet_32f_C4MR_p
-2031808c   _icvSet_64s_C3MR_p
-20318090   _icvSet_64s_C4MR_p
-20318094   _icvCopy_8u_C1MR_p
-20318098   _icvCopy_16s_C1MR_p
-2031809c   _icvCopy_8u_C3MR_p
-203180a0   _icvCopy_8u_C4MR_p
-203180a4   _icvCopy_16s_C3MR_p
-203180a8   _icvCopy_16s_C4MR_p
-203180ac   _icvCopy_32f_C3MR_p
-203180b0   _icvCopy_32f_C4MR_p
-203180b4   _icvCopy_64s_C3MR_p
-203180b8   _icvCopy_64s_C4MR_p
-203180bc   _icvSetByte_8u_C1R_p
-203180cc   _icvMean_8u_C1MR_p
-203180d0   _icvMean_8u_C2MR_p
-203180d4   _icvMean_8u_C3MR_p
-203180d8   _icvMean_8u_C4MR_p
-203180dc   _icvMean_16u_C1MR_p
-203180e0   _icvMean_16u_C2MR_p
-203180e4   _icvMean_16u_C3MR_p
-203180e8   _icvMean_16u_C4MR_p
-203180ec   _icvMean_16s_C1MR_p
-203180f0   _icvMean_16s_C2MR_p
-203180f4   _icvMean_16s_C3MR_p
-203180f8   _icvMean_16s_C4MR_p
-203180fc   _icvMean_32s_C1MR_p
-20318100   _icvMean_32s_C2MR_p
-20318104   _icvMean_32s_C3MR_p
-20318108   _icvMean_32s_C4MR_p
-2031810c   _icvMean_32f_C1MR_p
-20318110   _icvMean_32f_C2MR_p
-20318114   _icvMean_32f_C3MR_p
-20318118   _icvMean_32f_C4MR_p
-2031811c   _icvMean_64f_C1MR_p
-20318120   _icvMean_64f_C2MR_p
-20318124   _icvMean_64f_C3MR_p
-20318128   _icvMean_64f_C4MR_p
-20318130   _icvAdd_8u_C1R_p
-20318134   _icvAdd_16u_C1R_p
-20318138   _icvAdd_16s_C1R_p
-2031813c   _icvAdd_32s_C1R_p
-20318140   _icvAdd_32f_C1R_p
-20318144   _icvAdd_64f_C1R_p
-20318148   _icvSub_8u_C1R_p
-2031814c   _icvSub_16u_C1R_p
-20318150   _icvSub_16s_C1R_p
-20318154   _icvSub_32s_C1R_p
-20318158   _icvSub_32f_C1R_p
-2031815c   _icvSub_64f_C1R_p
-2031817c   _icvCopyReplicateBorder_8u_C1R_p
-20318180   _icvCopyReplicateBorder_16s_C1R_p
-20318184   _icvCopyReplicateBorder_8u_C3R_p
-20318188   _icvCopyReplicateBorder_32s_C1R_p
-2031818c   _icvCopyReplicateBorder_16s_C3R_p
-20318190   _icvCopyReplicateBorder_16s_C4R_p
-20318194   _icvCopyReplicateBorder_32s_C3R_p
-20318198   _icvCopyReplicateBorder_32s_C4R_p
-2031819c   _icvCopyReplicateBorder_8u_C1IR_p
-203181a0   _icvCopyReplicateBorder_16s_C1IR_p
-203181a4   _icvCopyReplicateBorder_8u_C3IR_p
-203181a8   _icvCopyReplicateBorder_32s_C1IR_p
-203181ac   _icvCopyReplicateBorder_16s_C3IR_p
-203181b0   _icvCopyReplicateBorder_16s_C4IR_p
-203181b4   _icvCopyReplicateBorder_32s_C3IR_p
-203181b8   _icvCopyReplicateBorder_32s_C4IR_p
-203181bc   _icvMinMaxIndx_8u_C1R_p
-203181c0   _icvMinMaxIndx_16u_C1R_p
-203181c4   _icvMinMaxIndx_16s_C1R_p
-203181c8   _icvMinMaxIndx_32s_C1R_p
-203181cc   _icvMinMaxIndx_32f_C1R_p
-203181d0   _icvMinMaxIndx_64f_C1R_p
-203181d4   _icvMinMaxIndx_8u_C1MR_p
-203181d8   _icvMinMaxIndx_16u_C1MR_p
-203181dc   _icvMinMaxIndx_16s_C1MR_p
-203181e0   _icvMinMaxIndx_32s_C1MR_p
-203181e4   _icvMinMaxIndx_32f_C1MR_p
-203181e8   _icvMinMaxIndx_64f_C1MR_p
-203181f0   _icvPyrDown_Gauss5x5_8u_C1R_p
-203181f4   _icvPyrDown_Gauss5x5_8u_C3R_p
-203181f8   _icvPyrDown_Gauss5x5_32f_C1R_p
-203181fc   _icvPyrDown_Gauss5x5_32f_C3R_p
-20318200   _icvPyrUp_Gauss5x5_8u_C1R_p
-20318204   _icvPyrUp_Gauss5x5_8u_C3R_p
-20318208   _icvPyrUp_Gauss5x5_32f_C1R_p
-2031820c   _icvPyrUp_Gauss5x5_32f_C3R_p
-20318210   _icvPyrUpGetBufSize_Gauss5x5_p
-20318214   _icvPyrDownGetBufSize_Gauss5x5_p
-20318220   _icvCrossCorrValid_Norm_8u32f_C1R_p
-20318224   _icvCrossCorrValid_NormLevel_8u32f_C1R_p
-20318228   _icvSqrDistanceValid_Norm_8u32f_C1R_p
-2031822c   _icvCrossCorrValid_Norm_32f_C1R_p
-20318230   _icvCrossCorrValid_NormLevel_32f_C1R_p
-20318234   _icvSqrDistanceValid_Norm_32f_C1R_p
-20318238   _first__6CvType
-2031823c   _last__6CvType
-20318244   _icvCannyGetSize_p
-20318248   _icvCanny_16s8u_C1R_p
-20318254   ___end__
-20318254   end
-203186c8   __CIOBUF_
+20115cc0   _cvClipLine
+201160e0   _cvInitLineIterator
+20118de0   _cvEllipse2Poly
+2011c9f4   _cvRectangle
+2011cd54   _cvPutText
+2011da90   _cvPolyLine
+2011de70   _cvLine
+2011e120   _cvInitFont
+2011e400   _cvGetTextSize
+2011ea94   _cvFillPoly
+2011ef08   _cvFillConvexPoly
+2011f1c0   _cvEllipse
+2011f978   _cvDrawContours
+20120e20   _cvColorToScalar
+20121438   _cvCircle
+20125d30   _cvFastArctan
+20126710   _icvSqrt_32f__FPCfPfi
+20126720   _icvInvSqrt_64f__FPCdPdi
+20126730   _icvInvSqrt_32f__FPCfPfi
+20126740   _icvSqrt_64f__FPCdPdi
+20126750   _icvLog_64f__FPCdPdi
+20126760   _icvLog_32f__FPCfPfi
+20126770   _icvFastArctan_32f__FPCfT1Pfi
+20126780   _icvExp_64f__FPCdPdi
+20126790   _icvExp_32f__FPCfPfi
+201267a0   _icvCheckArray_64f_C1R__FPCdi6CvSizeT2dT5
+201267d4   _icvCheckArray_32f_C1R__FPCfi6CvSizeT2dT5
+20126808   _cvPow
+20127da0   _cvPolarToCart
+20128d80   _cvLog
+20129360   _cvExp
+20129960   _cvCheckArr
+20129ca0   _cvCbrt
+2012a8cc   _cvCartToPolar
+2013060c   _icvAdd_8u32f_C1IR__FPCUciPfT26CvSize
+20130640   _icvAdd_32f_C1IR__FPCfiPfT26CvSize
+20130674   _icvAdd_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
+201306b8   _icvAdd_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
+201306fc   _icvAdd_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
+20130740   _icvAddSquare_8u32f_C1IR__FPCUciPfT26CvSize
+20130774   _icvAddSquare_32f_C1IR__FPCfiPfT26CvSize
+201307a8   _icvAddSquare_8u32f_C1IMR__FPCUciT1T2PfT26CvSize
+201307ec   _icvAddSquare_32f_C1IMR__FPCfiPCUcT2PfT26CvSize
+20130830   _icvAddSquare_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
+20130874   _icvAddSquare_32f_C3IMR__FPCfiPCUcT2PfT26CvSize
+201308b8   _icvAddProduct_8u32f_C1IR__FPCUciT1T2PfT26CvSize
+201308fc   _icvAddProduct_32f_C1IR__FPCfiT1T2PfT26CvSize
+20130940   _icvAddProduct_8u32f_C1IMR__FPCUciT1T2T1T2PfT26CvSize
+20130984   _icvAddProduct_32f_C1IMR__FPCfiT1T2PCUcT2PfT26CvSize
+201309c8   _icvAddProduct_8u32f_C3IMR__FPCUciT1T2T1T2PfT26CvSize
+20130a0c   _icvAddProduct_32f_C3IMR__FPCfiT1T2PCUcT2PfT26CvSize
+20130a50   _icvAddWeighted_8u32f_C1IR__FPCUciPfT26CvSizef
+20130a84   _icvAddWeighted_32f_C1IR__FPCfiPfT26CvSizef
+20130ab8   _icvAddWeighted_8u32f_C1IMR__FPCUciT1T2PfT26CvSizef
+20130afc   _icvAddWeighted_32f_C1IMR__FPCfiPCUcT2PfT26CvSizef
+20130b40   _icvAddWeighted_8u32f_C3IMR__FPCUciT1T2PfT26CvSizef
+20130b84   _icvAddWeighted_32f_C3IMR__FPCfiPCUcT2PfT26CvSizef
+20130bc8   _icvAdd_8u32f_C3IMR__FPCUciT1T2PfT26CvSize
+20130c0c   _cvSquareAcc
+20131290   _cvRunningAvg
+20131980   _cvMultiplyAcc
+201320ec   _cvAcc
+20135038   _icvSet_8u_C1MR__FPUciPCUcT26CvSizeT3
+2013506c   _icvSet_16s_C1MR__FPUsiPCUcT26CvSizePCUs
+201350a0   _icvSet_8u_C3MR__FPUciPCUcT26CvSizeT3
+201350d4   _icvSet_16s_C3MR__FPUsiPCUcT26CvSizePCUs
+20135108   _icvSet_16s_C4MR__FPLiPCUcT26CvSizePCL
+2013513c   _icvSet_32f_C3MR__FPiiPCUcT26CvSizePCi
+20135170   _icvSet_32f_C4MR__FPiiPCUcT26CvSizePCi
+201351a4   _icvSet_64s_C3MR__FPLiPCUcT26CvSizePCL
+201351d8   _icvSet_64s_C4MR__FPLiPCUcT26CvSizePCL
+2013520c   _icvCopy_8u_C1MR__FPCUciPUcT26CvSizeT1T2
+20135240   _icvCopy_16s_C1MR__FPCUsiPUsT26CvSizePCUcT2
+20135274   _icvCopy_8u_C3MR__FPCUciPUcT26CvSizeT1T2
+201352a8   _icvCopy_8u_C4MR__FPCiiPiT26CvSizePCUcT2
+201352dc   _icvCopy_16s_C3MR__FPCUsiPUsT26CvSizePCUcT2
+20135310   _icvCopy_16s_C4MR__FPCLiPLT26CvSizePCUcT2
+20135344   _icvCopy_32f_C3MR__FPCiiPiT26CvSizePCUcT2
+20135378   _icvCopy_32f_C4MR__FPCiiPiT26CvSizePCUcT2
+201353ac   _icvCopy_64s_C3MR__FPCLiPLT26CvSizePCUcT2
+201353e0   _icvCopy_64s_C4MR__FPCLiPLT26CvSizePCUcT2
+20135414   _icvSet_8u_C4MR__FPiiPCUcT26CvSizePCi
+20135448   _icvSetZero_8u_C1R__FPUci6CvSize
+20135540   _icvGetCopyMaskFunc__Fi
+201355e4   _icvCopy_8u_C1R__FPCUciPUcT26CvSize
+20135620   _cvSetZero
+20135c64   _cvSet
+20136a20   _cvRepeat
+20137284   _cvFlip
+201379ac   _cvCopy
+2013dec0   _icvMean_8u_C1MR__FPCUciT1T26CvSizePd
+2013def4   _icvMean_8u_C2MR__FPCUciT1T26CvSizePd
+2013df28   _icvMean_8u_C3MR__FPCUciT1T26CvSizePd
+2013df5c   _icvMean_16u_C1MR__FPCUsiPCUcT26CvSizePd
+2013df90   _icvMean_16u_C2MR__FPCUsiPCUcT26CvSizePd
+2013dfc4   _icvMean_16u_C3MR__FPCUsiPCUcT26CvSizePd
+2013dff8   _icvMean_16u_C4MR__FPCUsiPCUcT26CvSizePd
+2013e02c   _icvMean_16s_C1MR__FPCsiPCUcT26CvSizePd
+2013e060   _icvMean_16s_C2MR__FPCsiPCUcT26CvSizePd
+2013e094   _icvMean_16s_C3MR__FPCsiPCUcT26CvSizePd
+2013e0c8   _icvMean_16s_C4MR__FPCsiPCUcT26CvSizePd
+2013e0fc   _icvMean_32s_C1MR__FPCiiPCUcT26CvSizePd
+2013e130   _icvMean_32s_C2MR__FPCiiPCUcT26CvSizePd
+2013e164   _icvMean_32s_C3MR__FPCiiPCUcT26CvSizePd
+2013e198   _icvMean_32s_C4MR__FPCiiPCUcT26CvSizePd
+2013e1cc   _icvMean_32f_C1MR__FPCfiPCUcT26CvSizePd
+2013e200   _icvMean_32f_C2MR__FPCfiPCUcT26CvSizePd
+2013e234   _icvMean_32f_C3MR__FPCfiPCUcT26CvSizePd
+2013e268   _icvMean_32f_C4MR__FPCfiPCUcT26CvSizePd
+2013e29c   _icvMean_64f_C1MR__FPCdiPCUcT26CvSizePd
+2013e2d0   _icvMean_64f_C2MR__FPCdiPCUcT26CvSizePd
+2013e304   _icvMean_64f_C3MR__FPCdiPCUcT26CvSizePd
+2013e338   _icvMean_64f_C4MR__FPCdiPCUcT26CvSizePd
+2013e36c   _icvMean_8u_C4MR__FPCUciT1T26CvSizePd
+2013e3a0   _cvAvg
+2014073c   _lhComputeAveDistanceFromReferencePt__FPC5LhSeq
+2014082c   _lhComputeTopLayerDeltaTheta__FPC5LhSeqiPfPi
+20140a30   _lhComputeTheresholdsBasedOnMinContract__FsPdT2
+20140b08   _lhRefineSeqUsingRandomDelete__FPC5LhSeqP12CvMemStoragef
+20140c7c   _lhCreateSingleSeqFromImage__FP9_IplImageP12CvMemStoragesi
+201411bc   _lhRotateSingleSeq__FPC5LhSeqP12CvMemStoragefT3
+20141940   _lhSetReferencePoint__FP5LhSeq7CvPoint
+20141a78   _lhSearchImageRegularization__FP5CvMatT1s
+20141c70   _lhSeqRegularization__FP5LhSeq
+20142180   _lhFindMaxPoint3D__FPPPLiN22
+2014230c   _lhBuildingRotatedTemplateFromImage__FPC5LhSeqP12CvMemStoragef
+20142460   _lhBuildingTemplatePyramidFromImage__FP9_IplImageP12CvMemStorageisPi
+20142bd4   _lhFreeTemplatePyramid__FP17LhTemplatePyramid
+20142d9c   _lhFreeImagePyramid__FP14LhImagePyramid
+20142e78   _lhBuildingImagePyramidFromImage__FP9_IplImagesi
+20143430   _lhFindCoordinateBasedOnUpPyramid__FP17LhTemplatePyramidP14LhImagePyramidfT3s
+20143e38   _lhDrawModelOnImage__FP9_IplImageP5LhSeqiT3
+20144000   _init__15CvLaplaceFilterFiN21bN218CvScalar
+20144374   _init__15CvLaplaceFilterFiN21b6CvSize7CvPointT18CvScalar
+201443ec   _init__15CvLaplaceFilterFiN21PC5CvMatT47CvPointT18CvScalar
+20144450   _icvSepConvSmall3_32f__FPfiT1T26CvSizePCfT6T1
+20147420   _get_work_params__15CvLaplaceFilterFv
+20147620   ___dt__15CvLaplaceFilterFv
+201476b4   _cvSobel
+20148128   ___ct__15CvLaplaceFilterFv
+201481c0   _cvLaplace
+20148748   ___ct__15CvLaplaceFilterFiN21bN218CvScalar
+2014bc50   _icvMinMaxIndx_16u_C1R__FPCUsi6CvSizePfT4P7CvPointT6
+2014bc84   _icvMinMaxIndx_16s_C1R__FPCsi6CvSizePfT4P7CvPointT6
+2014bcb8   _icvMinMaxIndx_32s_C1R__FPCii6CvSizePdT4P7CvPointT6
+2014bcec   _icvMinMaxIndx_32f_C1R__FPCii6CvSizePfT4P7CvPointT6
+2014bd20   _icvMinMaxIndx_64f_C1R__FPCLi6CvSizePdT4P7CvPointT6
+2014bd54   _icvMinMaxIndx_8u_C1MR__FPCUciT1T26CvSizePfT6P7CvPointT8
+2014bd88   _icvMinMaxIndx_16u_C1MR__FPCUsiPCUcT26CvSizePfT6P7CvPointT8
+2014bdbc   _icvMinMaxIndx_16s_C1MR__FPCsiPCUcT26CvSizePfT6P7CvPointT8
+2014bdf0   _icvMinMaxIndx_32s_C1MR__FPCiiPCUcT26CvSizePdT6P7CvPointT8
+2014be24   _icvMinMaxIndx_32f_C1MR__FPCiiPCUcT26CvSizePfT6P7CvPointT8
+2014be58   _icvMinMaxIndx_64f_C1MR__FPCLiPCUcT26CvSizePdT6P7CvPointT8
+2014be8c   _icvMinMaxIndx_8u_C1R__FPCUci6CvSizePfT4P7CvPointT6
+2014bec0   _cvMinMaxLoc
+2014d0c0   _icvLUT_Transform8u_8u_C4R__FPCUciPUcT26CvSizeT1
+2014d294   _icvLUT_Transform8u_8u_C3R__FPCUciPUcT26CvSizeT1
+2014d448   _icvLUT_Transform8u_8u_C2R__FPCUciPUcT26CvSizeT1
+2014d5c0   _icvLUT_Transform8u_8u_C1R__FPCUciPUcT26CvSizeT1
+2014dd00   _icvLUT_Transform8u_64f_C1R__FPCUciPdT26CvSizePCd
+2014e420   _icvLUT_Transform8u_32s_C1R__FPCUciPiT26CvSizePCi
+2014eb04   _icvLUT_Transform8u_16u_C1R__FPCUciPUsT26CvSizePCUs
+2014ece8   _cvLUT
+2014f680   _icvCrossCorr__FPCvT1Pv7CvPoint
+20150b58   _cvMatchTemplate
+20151f60   _icvCopyReplicateBorder_8u__FPCUci6CvSizePUcT2T3N32T1
+20152580   _cvPointSeqFromMat
+20153b6c   _cvCopyMakeBorder
+20154100   _cvCanny
+201554f0   _AdaptiveFindThreshold
+201559e0   _alloc1longlong__FUi
+20155a00   _free1longlong__FPL
+20155a1c   _alloc2longlong__FUiT1
+20155a40   _free2longlong__FPPL
+20155a5c   _alloc3longlong__FUiN21
+20155a84   _free3longlong__FPPPL
+20155aa0   _zero3longlong__FPPPLUiN22
+20155bac   _alloc1int__FUi
+20155bcc   _free1int__FPi
+20155be8   _alloc2int__FUiT1
+20155c0c   _free2int__FPPi
+20155c28   _alloc3int__FUiN21
+20155c50   _free3int__FPPPi
+20155c6c   _alloc1float__FUi
+20155c8c   _free1float__FPf
+20155ca8   _alloc2float__FUiT1
+20155ccc   _free2float__FPPf
+20155ce8   _alloc3float__FUiN21
+20155d10   _free3float__FPPPf
+20155d2c   _alloc1double__FUi
+20155d4c   _free1double__FPd
+20155d68   _alloc2double__FUiT1
+20155d8c   _free2double__FPPd
+20155da8   _alloc3double__FUiN21
+20155dd0   _free3double__FPPPd
+20155dec   _zero1int__FPiUi
+20155e54   _zero2int__FPPiUiT2
+20155f08   _zero3int__FPPPiUiN22
+20156010   _zero1float__FPfUi
+20156078   _zero2float__FPPfUiT2
+2015612c   _zero3float__FPPPfUiN22
+20156234   _zero1double__FPdUi
+2015629c   _zero2double__FPPdUiT2
+20156350   _zero3double__FPPPdUiN22
+2015690c   _zero4float__FPPPPfUiN32
+20156a60   _zero5float__FPPPPPfUiN42
+20156c20   _icvPthreadDestructor__FPv
+20156c28   _cvErrorStr
+20156fb4   _cvGetErrMode
+20157044   _cvStdErrReport
+20157208   _cvSetErrStatus
+201572a0   _cvSetErrMode
+20157340   _cvRedirectError
+201573f0   _cvNulDevReport
+20157488   _cvGuiBoxReport
+20157668   _cvGetErrStatus
+201576f8   _cvGetErrInfo
+201578d0   _cvErrorFromIppStatus
+20157a20   _cvError
+20157c80   _cvIntegralImage_8u32s64s_C1R__FPCUciPiT2PLT2T3T26CvSize
+20158390   _cvIntegral
+20158ac0   _pow
+20159740   __divd
+2015a460   _strtod
+2015aa20   _cvThreshold
+2015b4c0   _strtol
+2015b9c0   __printfi
+2015bea0   _cos
+2015c360   __divf
+2015c7c0   _sin
+2015d020   __addf
+2015df00   _exp
+2015e5c0   _fputs
+2015ec20   _memalign
+2015ef20   _free
+2015f200   __divull
+2015f4c0   _sqrt
+2015f7c0   _main
+2015fa40   __mpyd
+2015ff40   __addd
+201601a0   __frcaddd
+20160400   __frcmpyd_div
+20160b20   __mpyf
+20160d60   _ldexp
+201611c0   _HOSTrename
+201615a0   _frexp
+20161780   _malloc
+20161940   _open
+20161b00   _setvbuf
+20161cc0   __divlli
+20161e60   __divul
+201622e0   __nround
+201625a0   _fputc
+201625a0   _putc
+20162700   __buff_read
+20162980   _fclose
+20162ac0   _HOSTlseek
+20162be0   __auto_init
+20162d00   __fixdlli
+20162e20   __frcmpyd
+20162f40   _atoi
+20163060   _HOSTopen
+20163160   _HOSTread
+20163260   _HOSTwrite
+20163360   __c6xabi_divi
+20163360   __divi
+20163460   __fltllid
+20163560   __c6xabi_strasgi
+20163560   __strasgi
+20163660   __wrt_ok
+20163760   _call_dtors
+20163860   _close
+20163960   _exit
+20163a60   _fflush
+20163b60   _fseek
+20163c60   _lseek
+20163d60   _ltoa
+20163e60   _memset
+20163f60   _read
+20164060   _write
+20164160   _HOSTunlink
+20164240   __cleanup
+20164320   __cmpd
+201644e0   __doflush
+201646a0   _ftell
+20164780   _memcpy
+20164860   _modf
+20164940   _HOSTclose
+20164a00   ___nw__FUi
+20164ac0   __cvtdf
+20164b80   __c6xabi_divu
+20164b80   __divu
+20164dc0   __rd_ok
+20164e80   __c6xabi_remi
+20164e80   __remi
+201650c0   _strstr
+20165240   _cvFree_
+20165258   _cvAlloc
+201652e0   __cmpf
+20165380   __divli
+20165420   __fixdi
+201654c0   __fixdli
+20165560   __fixfi
+20165600   __frcmpyf_div
+201656a0   __c6xabi_remu
+201656a0   __remu
+20165740   __renormd
+201657e0   _copy_in
+20165920   _rand
+201659c0   __fltlid
+20165a40   __llshl
+20165ac0   __mpyll
+20165b40   _fopen
+20165bc0   _fprintf
+20165c40   _memccpy
+20165cc0   _printf
+20165d40   _readmsg
+20165dc0   _sprintf
+20165e40   _unlink
+20165ec0   __abort_msg
+20165f20   __cvtfd
+20165f80   __fltid
+20165fe0   __fltif
+20166040   __frcmpyf
+201660a0   __llshru
+20166160   __remli
+201661c0   __remul
+20166220   __subcull
+20166280   _c_int00
+201662e0   _memmove
+20166340   _writemsg
+20166398   C$$IO$$
+201663a0   ___add_dtor
+201663e0   ___isinf
+201664e0   __args_main
+20166520   __fltud
+20166560   __fltuf
+201665a0   __negd
+201665e0   __negf
+20166620   __subd
+20166660   __subf
+201666a0   _llabs
+201666e0   ___default_new_handler__Fv
+20166700   ___dl__FPv
+20166720   __negll
+20166740   __nop
+20166800   __trunc
+20166820   C$$EXIT
+20166820   _abort
+20166840   _feof
+20166860   _fgets
+20166880   _remove
+201668a0   ___etext__
+201668a0   _w_3662_01
+201668a0   etext
+201b18a0   _w_3662_01r2
+20220b14   _errno
+20224b40   _icvHersheyGlyphs
+20227ed8   _seq_type
+20227edc   _seq_tree_type
+20227ee0   _seq_graph_type
+20227ee4   _sparse_mat_type
+20227ee8   _image_type
+20227eec   _mat_type
+20227ef0   _matnd_type
+202284a4   _dtors
+20228e7c   __new_handler
+20229048   __ftable
+20229138   __tmpnams
+202291d8   __ft_end
+202291e0   ___atexit_func_id__
+20229368   _hist_type
+2022a08c   __cleanup_ptr
+2022a090   __dtors_ptr
+2022a094   ___TI_enable_exit_profile_output
+2022a0a0   __lock
+2022a0a4   __unlock
+2022a0b8   ___cinit__
+2022a0b8   cinit
+202e1ff8   _icv8x32fTab_cv
+202e5b80   _icv8x32fSqrTab
+202e6180   _icv8x32fTab
+202e7688   _icv8x16uSqrTab
+202e8180   _icvSaturate8u
+202e8488   _my8x16uSqrTab
+202ea730   __ctypes_
+202eaec8   ___vtbl__15CvLaplaceFilter
+202eaff8   ___vtbl__11CvSepFilter
+202eb058   ___vtbl__14CvLinearFilter
+202eb0f8   ___vtbl__17CvBaseImageFilter
+202eb3e8   _icvDepthToType
+202eb478   $bss
+202eb478   .bss
+202eb478   ___bss__
+202eb478   _icvFastArctan_32f_p
+202eb47c   _icvInvSqrt_32f_p
+202eb480   _icvSqrt_32f_p
+202eb484   _icvSqrt_64f_p
+202eb488   _icvInvSqrt_64f_p
+202eb4a8   _icvExp_32f_p
+202eb4ac   _icvExp_64f_p
+202eb4b8   _icvLog_32f_p
+202eb4bc   _icvLog_64f_p
+202eb4c0   _icvCheckArray_32f_C1R_p
+202eb4c4   _icvCheckArray_64f_C1R_p
+202eb594   _icvMean_StdDev_8u_C1R_p
+202eb598   _icvMean_StdDev_8u_C2R_p
+202eb59c   _icvMean_StdDev_8u_C3R_p
+202eb5a0   _icvMean_StdDev_8u_C4R_p
+202eb5a4   _icvMean_StdDev_8u_C1MR_p
+202eb5a8   _icvMean_StdDev_8u_C2MR_p
+202eb5ac   _icvMean_StdDev_8u_C3MR_p
+202eb5b0   _icvMean_StdDev_8u_C4MR_p
+202eb5b4   _icvMean_StdDev_16u_C1R_p
+202eb5b8   _icvMean_StdDev_16u_C2R_p
+202eb5bc   _icvMean_StdDev_16u_C3R_p
+202eb5c0   _icvMean_StdDev_16u_C4R_p
+202eb5c4   _icvMean_StdDev_16u_C1MR_p
+202eb5c8   _icvMean_StdDev_16u_C2MR_p
+202eb5cc   _icvMean_StdDev_16u_C3MR_p
+202eb5d0   _icvMean_StdDev_16u_C4MR_p
+202eb5d4   _icvMean_StdDev_16s_C1R_p
+202eb5d8   _icvMean_StdDev_16s_C2R_p
+202eb5dc   _icvMean_StdDev_16s_C3R_p
+202eb5e0   _icvMean_StdDev_16s_C4R_p
+202eb5e4   _icvMean_StdDev_16s_C1MR_p
+202eb5e8   _icvMean_StdDev_16s_C2MR_p
+202eb5ec   _icvMean_StdDev_16s_C3MR_p
+202eb5f0   _icvMean_StdDev_16s_C4MR_p
+202eb5f4   _icvMean_StdDev_32s_C1R_p
+202eb5f8   _icvMean_StdDev_32s_C2R_p
+202eb5fc   _icvMean_StdDev_32s_C3R_p
+202eb600   _icvMean_StdDev_32s_C4R_p
+202eb604   _icvMean_StdDev_32s_C1MR_p
+202eb608   _icvMean_StdDev_32s_C2MR_p
+202eb60c   _icvMean_StdDev_32s_C3MR_p
+202eb610   _icvMean_StdDev_32s_C4MR_p
+202eb614   _icvMean_StdDev_32f_C1R_p
+202eb618   _icvMean_StdDev_32f_C2R_p
+202eb61c   _icvMean_StdDev_32f_C3R_p
+202eb620   _icvMean_StdDev_32f_C4R_p
+202eb624   _icvMean_StdDev_32f_C1MR_p
+202eb628   _icvMean_StdDev_32f_C2MR_p
+202eb62c   _icvMean_StdDev_32f_C3MR_p
+202eb630   _icvMean_StdDev_32f_C4MR_p
+202eb634   _icvMean_StdDev_64f_C1R_p
+202eb638   _icvMean_StdDev_64f_C2R_p
+202eb63c   _icvMean_StdDev_64f_C3R_p
+202eb640   _icvMean_StdDev_64f_C4R_p
+202eb644   _icvMean_StdDev_64f_C1MR_p
+202eb648   _icvMean_StdDev_64f_C2MR_p
+202eb64c   _icvMean_StdDev_64f_C3MR_p
+202eb650   _icvMean_StdDev_64f_C4MR_p
+202eb658   _icvFilterSobelVert_8u16s_C1R_p
+202eb65c   _icvFilterSobelHoriz_8u16s_C1R_p
+202eb660   _icvFilterSobelVertSecond_8u16s_C1R_p
+202eb664   _icvFilterSobelHorizSecond_8u16s_C1R_p
+202eb668   _icvFilterSobelCross_8u16s_C1R_p
+202eb66c   _icvFilterSobelVert_32f_C1R_p
+202eb670   _icvFilterSobelHoriz_32f_C1R_p
+202eb674   _icvFilterSobelVertSecond_32f_C1R_p
+202eb678   _icvFilterSobelHorizSecond_32f_C1R_p
+202eb67c   _icvFilterSobelCross_32f_C1R_p
+202eb680   _icvFilterScharrVert_8u16s_C1R_p
+202eb684   _icvFilterScharrHoriz_8u16s_C1R_p
+202eb688   _icvFilterScharrVert_32f_C1R_p
+202eb68c   _icvFilterScharrHoriz_32f_C1R_p
+202eb690   _icvFilterScharrHorizGetBufSize_8u16s_C1R_p
+202eb694   _icvFilterScharrHorizBorder_8u16s_C1R_p
+202eb698   _icvFilterScharrHorizGetBufSize_32f_C1R_p
+202eb69c   _icvFilterScharrHorizBorder_32f_C1R_p
+202eb6a0   _icvFilterScharrVertGetBufSize_8u16s_C1R_p
+202eb6a4   _icvFilterScharrVertBorder_8u16s_C1R_p
+202eb6a8   _icvFilterScharrVertGetBufSize_32f_C1R_p
+202eb6ac   _icvFilterScharrVertBorder_32f_C1R_p
+202eb6b0   _icvFilterSobelHorizGetBufSize_8u16s_C1R_p
+202eb6b4   _icvFilterSobelHorizBorder_8u16s_C1R_p
+202eb6b8   _icvFilterSobelHorizGetBufSize_32f_C1R_p
+202eb6bc   _icvFilterSobelHorizBorder_32f_C1R_p
+202eb6c0   _icvFilterSobelNegVertGetBufSize_8u16s_C1R_p
+202eb6c4   _icvFilterSobelNegVertBorder_8u16s_C1R_p
+202eb6c8   _icvFilterSobelNegVertGetBufSize_32f_C1R_p
+202eb6cc   _icvFilterSobelNegVertBorder_32f_C1R_p
+202eb6d0   _icvFilterSobelHorizSecondGetBufSize_8u16s_C1R_p
+202eb6d4   _icvFilterSobelHorizSecondBorder_8u16s_C1R_p
+202eb6d8   _icvFilterSobelHorizSecondGetBufSize_32f_C1R_p
+202eb6dc   _icvFilterSobelHorizSecondBorder_32f_C1R_p
+202eb6e0   _icvFilterSobelVertSecondGetBufSize_8u16s_C1R_p
+202eb6e4   _icvFilterSobelVertSecondBorder_8u16s_C1R_p
+202eb6e8   _icvFilterSobelVertSecondGetBufSize_32f_C1R_p
+202eb6ec   _icvFilterSobelVertSecondBorder_32f_C1R_p
+202eb6f0   _icvFilterSobelCrossGetBufSize_8u16s_C1R_p
+202eb6f4   _icvFilterSobelCrossBorder_8u16s_C1R_p
+202eb6f8   _icvFilterSobelCrossGetBufSize_32f_C1R_p
+202eb6fc   _icvFilterSobelCrossBorder_32f_C1R_p
+202eb700   _icvFilterLaplacianGetBufSize_8u16s_C1R_p
+202eb704   _icvFilterLaplacianBorder_8u16s_C1R_p
+202eb708   _icvFilterLaplacianGetBufSize_32f_C1R_p
+202eb70c   _icvFilterLaplacianBorder_32f_C1R_p
+202eb710   _icvCopy_8u_C2P2R_p
+202eb714   _icvCopy_8u_C3P3R_p
+202eb718   _icvCopy_8u_C4P4R_p
+202eb71c   _icvCopy_16s_C2P2R_p
+202eb720   _icvCopy_16s_C3P3R_p
+202eb724   _icvCopy_16s_C4P4R_p
+202eb728   _icvCopy_32f_C2P2R_p
+202eb72c   _icvCopy_32f_C3P3R_p
+202eb730   _icvCopy_32f_C4P4R_p
+202eb734   _icvCopy_64f_C2P2R_p
+202eb738   _icvCopy_64f_C3P3R_p
+202eb73c   _icvCopy_64f_C4P4R_p
+202eb740   _icvCopy_8u_CnC1CR_p
+202eb744   _icvCopy_16s_CnC1CR_p
+202eb748   _icvCopy_32f_CnC1CR_p
+202eb74c   _icvCopy_64f_CnC1CR_p
+202eb750   _icvCopy_8u_P2C2R_p
+202eb754   _icvCopy_8u_P3C3R_p
+202eb758   _icvCopy_8u_P4C4R_p
+202eb75c   _icvCopy_16s_P2C2R_p
+202eb760   _icvCopy_16s_P3C3R_p
+202eb764   _icvCopy_16s_P4C4R_p
+202eb768   _icvCopy_32f_P2C2R_p
+202eb76c   _icvCopy_32f_P3C3R_p
+202eb770   _icvCopy_32f_P4C4R_p
+202eb774   _icvCopy_64f_P2C2R_p
+202eb778   _icvCopy_64f_P3C3R_p
+202eb77c   _icvCopy_64f_P4C4R_p
+202eb780   _icvCopy_8u_C1CnCR_p
+202eb784   _icvCopy_16s_C1CnCR_p
+202eb788   _icvCopy_32f_C1CnCR_p
+202eb78c   _icvCopy_64f_C1CnCR_p
+202eb790   _icvCvt_32f64f_p
+202eb794   _icvCvt_64f32f_p
+202eb7a8   _icvDFTInitAlloc_C_32fc_p
+202eb7ac   _icvDFTFree_C_32fc_p
+202eb7b0   _icvDFTGetBufSize_C_32fc_p
+202eb7b4   _icvDFTFwd_CToC_32fc_p
+202eb7b8   _icvDFTInv_CToC_32fc_p
+202eb7bc   _icvDFTInitAlloc_C_64fc_p
+202eb7c0   _icvDFTFree_C_64fc_p
+202eb7c4   _icvDFTGetBufSize_C_64fc_p
+202eb7c8   _icvDFTFwd_CToC_64fc_p
+202eb7cc   _icvDFTInv_CToC_64fc_p
+202eb7d0   _icvDFTInitAlloc_R_32f_p
+202eb7d4   _icvDFTFree_R_32f_p
+202eb7d8   _icvDFTGetBufSize_R_32f_p
+202eb7dc   _icvDFTFwd_RToPack_32f_p
+202eb7e0   _icvDFTInv_PackToR_32f_p
+202eb7e4   _icvDFTInitAlloc_R_64f_p
+202eb7e8   _icvDFTFree_R_64f_p
+202eb7ec   _icvDFTGetBufSize_R_64f_p
+202eb7f0   _icvDFTFwd_RToPack_64f_p
+202eb7f4   _icvDFTInv_PackToR_64f_p
+202eb830   _icvSum_8u_C1R_p
+202eb834   _icvSum_8u_C2R_p
+202eb838   _icvSum_8u_C3R_p
+202eb83c   _icvSum_8u_C4R_p
+202eb840   _icvSum_16u_C1R_p
+202eb844   _icvSum_16u_C2R_p
+202eb848   _icvSum_16u_C3R_p
+202eb84c   _icvSum_16u_C4R_p
+202eb850   _icvSum_16s_C1R_p
+202eb854   _icvSum_16s_C2R_p
+202eb858   _icvSum_16s_C3R_p
+202eb85c   _icvSum_16s_C4R_p
+202eb860   _icvSum_32s_C1R_p
+202eb864   _icvSum_32s_C2R_p
+202eb868   _icvSum_32s_C3R_p
+202eb86c   _icvSum_32s_C4R_p
+202eb870   _icvSum_32f_C1R_p
+202eb874   _icvSum_32f_C2R_p
+202eb878   _icvSum_32f_C3R_p
+202eb87c   _icvSum_32f_C4R_p
+202eb880   _icvSum_64f_C1R_p
+202eb884   _icvSum_64f_C2R_p
+202eb888   _icvSum_64f_C3R_p
+202eb88c   _icvSum_64f_C4R_p
+202eb890   _icvCountNonZero_8u_C1R_p
+202eb894   _icvCountNonZero_16s_C1R_p
+202eb898   _icvCountNonZero_32s_C1R_p
+202eb89c   _icvCountNonZero_32f_C1R_p
+202eb8a0   _icvCountNonZero_64f_C1R_p
+202eb8ac   _icvAdd_8u32f_C1IR_p
+202eb8b0   _icvAdd_32f_C1IR_p
+202eb8b4   _icvAddSquare_8u32f_C1IR_p
+202eb8b8   _icvAddSquare_32f_C1IR_p
+202eb8bc   _icvAddProduct_8u32f_C1IR_p
+202eb8c0   _icvAddProduct_32f_C1IR_p
+202eb8c4   _icvAddWeighted_8u32f_C1IR_p
+202eb8c8   _icvAddWeighted_32f_C1IR_p
+202eb8cc   _icvAdd_8u32f_C1IMR_p
+202eb8d0   _icvAdd_32f_C1IMR_p
+202eb8d4   _icvAddSquare_8u32f_C1IMR_p
+202eb8d8   _icvAddSquare_32f_C1IMR_p
+202eb8dc   _icvAddProduct_8u32f_C1IMR_p
+202eb8e0   _icvAddProduct_32f_C1IMR_p
+202eb8e4   _icvAddWeighted_8u32f_C1IMR_p
+202eb8e8   _icvAddWeighted_32f_C1IMR_p
+202eb8ec   _icvAdd_8u32f_C3IMR_p
+202eb8f0   _icvAdd_32f_C3IMR_p
+202eb8f4   _icvAddSquare_8u32f_C3IMR_p
+202eb8f8   _icvAddSquare_32f_C3IMR_p
+202eb8fc   _icvAddProduct_8u32f_C3IMR_p
+202eb900   _icvAddProduct_32f_C3IMR_p
+202eb904   _icvAddWeighted_8u32f_C3IMR_p
+202eb908   _icvAddWeighted_32f_C3IMR_p
+202eb91c   _icvFilterRow_8u_C1R_p
+202eb920   _icvFilterRow_8u_C3R_p
+202eb924   _icvFilterRow_8u_C4R_p
+202eb928   _icvFilterRow_16s_C1R_p
+202eb92c   _icvFilterRow_16s_C3R_p
+202eb930   _icvFilterRow_16s_C4R_p
+202eb934   _icvFilterRow_32f_C1R_p
+202eb938   _icvFilterRow_32f_C3R_p
+202eb93c   _icvFilterRow_32f_C4R_p
+202eb940   _icvFilterColumn_8u_C1R_p
+202eb944   _icvFilterColumn_8u_C3R_p
+202eb948   _icvFilterColumn_8u_C4R_p
+202eb94c   _icvFilterColumn_16s_C1R_p
+202eb950   _icvFilterColumn_16s_C3R_p
+202eb954   _icvFilterColumn_16s_C4R_p
+202eb958   _icvFilterColumn_32f_C1R_p
+202eb95c   _icvFilterColumn_32f_C3R_p
+202eb960   _icvFilterColumn_32f_C4R_p
+202eb964   _icvFilter_8u_C1R_p
+202eb968   _icvFilter_8u_C3R_p
+202eb96c   _icvFilter_8u_C4R_p
+202eb970   _icvFilter_16s_C1R_p
+202eb974   _icvFilter_16s_C3R_p
+202eb978   _icvFilter_16s_C4R_p
+202eb97c   _icvFilter_32f_C1R_p
+202eb980   _icvFilter_32f_C3R_p
+202eb984   _icvFilter_32f_C4R_p
+202eb988   _icvCopy_8u_C1R_p
+202eb98c   _icvSet_8u_C1MR_p
+202eb990   _icvSet_16s_C1MR_p
+202eb994   _icvSet_8u_C3MR_p
+202eb998   _icvSet_8u_C4MR_p
+202eb99c   _icvSet_16s_C3MR_p
+202eb9a0   _icvSet_16s_C4MR_p
+202eb9a4   _icvSet_32f_C3MR_p
+202eb9a8   _icvSet_32f_C4MR_p
+202eb9ac   _icvSet_64s_C3MR_p
+202eb9b0   _icvSet_64s_C4MR_p
+202eb9b4   _icvCopy_8u_C1MR_p
+202eb9b8   _icvCopy_16s_C1MR_p
+202eb9bc   _icvCopy_8u_C3MR_p
+202eb9c0   _icvCopy_8u_C4MR_p
+202eb9c4   _icvCopy_16s_C3MR_p
+202eb9c8   _icvCopy_16s_C4MR_p
+202eb9cc   _icvCopy_32f_C3MR_p
+202eb9d0   _icvCopy_32f_C4MR_p
+202eb9d4   _icvCopy_64s_C3MR_p
+202eb9d8   _icvCopy_64s_C4MR_p
+202eb9dc   _icvSetByte_8u_C1R_p
+202eb9ec   _icvMean_8u_C1MR_p
+202eb9f0   _icvMean_8u_C2MR_p
+202eb9f4   _icvMean_8u_C3MR_p
+202eb9f8   _icvMean_8u_C4MR_p
+202eb9fc   _icvMean_16u_C1MR_p
+202eba00   _icvMean_16u_C2MR_p
+202eba04   _icvMean_16u_C3MR_p
+202eba08   _icvMean_16u_C4MR_p
+202eba0c   _icvMean_16s_C1MR_p
+202eba10   _icvMean_16s_C2MR_p
+202eba14   _icvMean_16s_C3MR_p
+202eba18   _icvMean_16s_C4MR_p
+202eba1c   _icvMean_32s_C1MR_p
+202eba20   _icvMean_32s_C2MR_p
+202eba24   _icvMean_32s_C3MR_p
+202eba28   _icvMean_32s_C4MR_p
+202eba2c   _icvMean_32f_C1MR_p
+202eba30   _icvMean_32f_C2MR_p
+202eba34   _icvMean_32f_C3MR_p
+202eba38   _icvMean_32f_C4MR_p
+202eba3c   _icvMean_64f_C1MR_p
+202eba40   _icvMean_64f_C2MR_p
+202eba44   _icvMean_64f_C3MR_p
+202eba48   _icvMean_64f_C4MR_p
+202eba50   _icvAdd_8u_C1R_p
+202eba54   _icvAdd_16u_C1R_p
+202eba58   _icvAdd_16s_C1R_p
+202eba5c   _icvAdd_32s_C1R_p
+202eba60   _icvAdd_32f_C1R_p
+202eba64   _icvAdd_64f_C1R_p
+202eba68   _icvSub_8u_C1R_p
+202eba6c   _icvSub_16u_C1R_p
+202eba70   _icvSub_16s_C1R_p
+202eba74   _icvSub_32s_C1R_p
+202eba78   _icvSub_32f_C1R_p
+202eba7c   _icvSub_64f_C1R_p
+202eba9c   _icvCopyReplicateBorder_8u_C1R_p
+202ebaa0   _icvCopyReplicateBorder_16s_C1R_p
+202ebaa4   _icvCopyReplicateBorder_8u_C3R_p
+202ebaa8   _icvCopyReplicateBorder_32s_C1R_p
+202ebaac   _icvCopyReplicateBorder_16s_C3R_p
+202ebab0   _icvCopyReplicateBorder_16s_C4R_p
+202ebab4   _icvCopyReplicateBorder_32s_C3R_p
+202ebab8   _icvCopyReplicateBorder_32s_C4R_p
+202ebabc   _icvCopyReplicateBorder_8u_C1IR_p
+202ebac0   _icvCopyReplicateBorder_16s_C1IR_p
+202ebac4   _icvCopyReplicateBorder_8u_C3IR_p
+202ebac8   _icvCopyReplicateBorder_32s_C1IR_p
+202ebacc   _icvCopyReplicateBorder_16s_C3IR_p
+202ebad0   _icvCopyReplicateBorder_16s_C4IR_p
+202ebad4   _icvCopyReplicateBorder_32s_C3IR_p
+202ebad8   _icvCopyReplicateBorder_32s_C4IR_p
+202ebadc   _icvMinMaxIndx_8u_C1R_p
+202ebae0   _icvMinMaxIndx_16u_C1R_p
+202ebae4   _icvMinMaxIndx_16s_C1R_p
+202ebae8   _icvMinMaxIndx_32s_C1R_p
+202ebaec   _icvMinMaxIndx_32f_C1R_p
+202ebaf0   _icvMinMaxIndx_64f_C1R_p
+202ebaf4   _icvMinMaxIndx_8u_C1MR_p
+202ebaf8   _icvMinMaxIndx_16u_C1MR_p
+202ebafc   _icvMinMaxIndx_16s_C1MR_p
+202ebb00   _icvMinMaxIndx_32s_C1MR_p
+202ebb04   _icvMinMaxIndx_32f_C1MR_p
+202ebb08   _icvMinMaxIndx_64f_C1MR_p
+202ebb10   _icvPyrDown_Gauss5x5_8u_C1R_p
+202ebb14   _icvPyrDown_Gauss5x5_8u_C3R_p
+202ebb18   _icvPyrDown_Gauss5x5_32f_C1R_p
+202ebb1c   _icvPyrDown_Gauss5x5_32f_C3R_p
+202ebb20   _icvPyrUp_Gauss5x5_8u_C1R_p
+202ebb24   _icvPyrUp_Gauss5x5_8u_C3R_p
+202ebb28   _icvPyrUp_Gauss5x5_32f_C1R_p
+202ebb2c   _icvPyrUp_Gauss5x5_32f_C3R_p
+202ebb30   _icvPyrUpGetBufSize_Gauss5x5_p
+202ebb34   _icvPyrDownGetBufSize_Gauss5x5_p
+202ebb40   _icvCrossCorrValid_Norm_8u32f_C1R_p
+202ebb44   _icvCrossCorrValid_NormLevel_8u32f_C1R_p
+202ebb48   _icvSqrDistanceValid_Norm_8u32f_C1R_p
+202ebb4c   _icvCrossCorrValid_Norm_32f_C1R_p
+202ebb50   _icvCrossCorrValid_NormLevel_32f_C1R_p
+202ebb54   _icvSqrDistanceValid_Norm_32f_C1R_p
+202ebb58   _first__6CvType
+202ebb5c   _last__6CvType
+202ebb64   _icvCannyGetSize_p
+202ebb68   _icvCanny_16s8u_C1R_p
+202ebb7c   ___end__
+202ebb7c   end
+202ec010   __CIOBUF_
 ffffffff   ___TI_pprof_out_hndl
 ffffffff   ___TI_prof_data_size
 ffffffff   ___TI_prof_data_start
@@ -2718,4 +2794,4 @@ ffffffff   ___binit__
 ffffffff   ___c_args__
 ffffffff   binit
 
-[1103 symbols]
+[1124 symbols]

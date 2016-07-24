@@ -25,7 +25,8 @@ main.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/includ
 main.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdlib.h
 main.obj: E:/workspace/emcv/cv/cvcompat.h
 main.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/string.h
-main.obj: ../beauty_gray.h
+main.obj: ../w_3662_01.h
+main.obj: ../w_3662_01r2.h
 main.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdio.h
 main.obj: D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdarg.h
 main.obj: ../ModelBuilding.h
@@ -56,7 +57,8 @@ D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/assert.h
 D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdlib.h: 
 E:/workspace/emcv/cv/cvcompat.h: 
 D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/string.h: 
-../beauty_gray.h: 
+../w_3662_01.h: 
+../w_3662_01r2.h: 
 D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdio.h: 
 D:/Program\ Files/Texas\ Instruments/ccsv4/tools/compiler/c6000/include/stdarg.h: 
 ../ModelBuilding.h: 

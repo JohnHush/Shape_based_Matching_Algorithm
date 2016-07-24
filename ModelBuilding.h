@@ -324,6 +324,9 @@ Lh3DCor lhFindCoordinateBasedOnUpPyramid( 	LhTemplatePyramid * TempPyr ,
 											float break_point ,
 											short sRange );
 
-
+void lhDrawModelOnImage( 	IplImage * imgSrc ,
+							LhSeq * model ,
+							int xshift , 
+							int yshift );
 
 #endif /*MODELBUILDING_H_*/
